@@ -3,5 +3,19 @@
 query Global {
   site: _site {
 		...SiteFragment
-	} 
+	}
+	menu: allMenus(filter: {parent: {exists: "*"}}) {
+		id
+		label
+		page{
+			__typename
+		}
+		children {
+			id
+      label
+			page{
+				__typename
+			}
+    }
+  }
 }
