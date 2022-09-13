@@ -1,10 +1,15 @@
 import create from "zustand";
 
-const useStore = create((set) => ({
+export interface StoreState {
+  showMenu:boolean,
+  setShowMenu : (showMenu:boolean) => void
+}
+
+const useStore = create<StoreState>((set) => ({
 	showMenu: true,
-	setShowMenu: (show : boolean) =>  
+	setShowMenu: (showMenu : boolean) =>  
     set((state) => ({
-      showMenu: show
+      showMenu
     })
   ),
 }));

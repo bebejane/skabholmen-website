@@ -1,21 +1,22 @@
 #import "./fragments/SiteFragment.graphql"
+#import "./fragments/PageFragment.graphql"
 
 query Global {
-  site: _site {
+	site: _site {
 		...SiteFragment
 	}
-	menu: allMenus(filter: {parent: {exists: "*"}}) {
+	menu: allMenus(filter: { parent: { exists: "*" } }) {
 		id
 		label
-		page{
-			__typename
+		page {
+			...PageFragment
 		}
 		children {
 			id
-      label
-			page{
-				__typename
+			label
+			page {
+				...PageFragment
 			}
-    }
-  }
+		}
+	}
 }

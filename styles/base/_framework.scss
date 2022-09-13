@@ -1,1 +1,9 @@
 @use "sass:math";
+
+:root{
+  --outer-margin: 1rem;
+
+  @include mq($until: tablet){
+    --outer-margin: .5rem;
+  }
+}

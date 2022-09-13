@@ -5,6 +5,7 @@ import type { AppProps } from 'next/app'
 import DatoSEO from '/lib/dato/components/DatoSEO';
 import { GoogleAnalytics, usePagesViews } from "nextjs-google-analytics";
 import { useRouter } from 'next/router';
+import { Menu } from '/components';
 
 function MyApp({ Component, pageProps } : AppProps) {
   
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps } : AppProps) {
     <>
       <GoogleAnalytics />
       <DatoSEO seo={seo} site={site} pathname={pathname} key={pathname} noindex={true}/>
+      <Menu menu={pageProps.menu}/>
       <Component {...pageProps} />
     </>
   )

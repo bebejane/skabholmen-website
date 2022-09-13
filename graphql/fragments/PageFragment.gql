@@ -1,0 +1,18 @@
+fragment PageFragment on MenuModelPageField {
+	__typename
+	... on InvestmentPhilosophyRecord {
+		slug
+	}
+	... on ResponsibilityRecord {
+		slug
+	}
+	... on SkabholmenGroupRecord {
+		slug
+	}
+	... on StartRecord {
+		slug
+	}
+	... on TeamRecord {
+		slug
+	}
+}
