@@ -5,6 +5,7 @@ import useScrollInfo from '/lib/hooks/useScrollInfo'
 import useStore from '/lib/store'
 import Link from 'next/link'
 import Arrow from '/public/images/arrow.svg'
+import Logo from '/public/images/logo.svg'
 
 export type MenuProps = { menu: GlobalQuery['menu'] }
 
@@ -24,7 +25,7 @@ export default function Menu({ menu }: MenuProps) {
 
   return (
     <>
-      <h3 className={s.logo}>Skabholmen Group</h3>
+      <Logo className={s.logo}/>
       <nav className={cn(s.menu, !showMenu && s.hide)} role="menu">
         <ul>
           {menu.map(({ id, label, page, children }, idx) => {

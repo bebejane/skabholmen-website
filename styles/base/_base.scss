@@ -4,15 +4,11 @@ GENERAL STYLES
 
 body {
 	width: 100%;
-	font-size: 100%;
-	line-height: 1.4em;
+	//font-size: 100%;
 	color: $black;
 	background-color: $white;
-	font-family: $body-font;
-	//-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	font-feature-settings: "liga", "kern";
-	overflow-x: hidden;
 }
 
 html {

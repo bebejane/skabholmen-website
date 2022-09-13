@@ -20,7 +20,7 @@ export default function Footer({about: { phone, email, address, social }, menu} 
           </ul>
           <ul className={s.social}>
             {social.map(({name, url}, idx) => 
-              <li key={idx}>{name}</li>
+              <li key={idx}>{name}</li> 
             )}
           </ul>
         </div>
