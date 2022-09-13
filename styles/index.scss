@@ -19,3 +19,17 @@
 @media print {
 	@import "partials/print";
 }
+
+.page-error{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	min-height: 100vh;
+	color: $black;
+	background-color: $white;
+	h1{
+		margin-bottom: 2rem;
+	}
+}

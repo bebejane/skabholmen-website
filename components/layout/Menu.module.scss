@@ -3,6 +3,7 @@
   position: fixed;
   z-index: 1000;
   color: $white;
+  
 }
 
 .logo {
@@ -14,6 +15,12 @@
   width:174px;
   height:15px;
   padding: 0;
+  &.invert{
+    path{
+      fill:$black;
+    }
+  }
+  
 }
 
 .menu {
@@ -21,7 +28,15 @@
   right: 0;
   opacity: 1;
   transition: opacity .3s ease;
-  
+  &.invert{
+    color:$black;
+    * > svg{
+      path{
+        fill:$black ;
+        stroke: $black !important;
+      }
+    }
+  }
   ul {
     list-style: none;
   }

@@ -7,9 +7,9 @@ import Link from 'next/link'
 import Arrow from '/public/images/arrow.svg'
 import Logo from '/public/images/logo.svg'
 
-export type MenuProps = { menu: GlobalQuery['menu'] }
+export type MenuProps = { menu: GlobalQuery['menu'], inverted?: boolean }
 
-export default function Menu({ menu }: MenuProps) {
+export default function Menu({ menu, inverted = false }: MenuProps) {
 
   const { isPageBottom, isPageTop, isScrolledUp, scrolledPosition } = useScrollInfo()
   const [showMenu, setShowMenu] = useStore((state) => [state.showMenu, state.setShowMenu])
@@ -25,8 +25,8 @@ export default function Menu({ menu }: MenuProps) {
 
   return (
     <>
-      <Logo className={s.logo}/>
-      <nav className={cn(s.menu, !showMenu && s.hide)} role="menu">
+      <Logo className={cn(s.logo, inverted && s.invert)}/>
+      <nav className={cn(s.menu, !showMenu && s.hide, inverted && s.invert)} role="menu">
         <ul>
           {menu.map(({ id, label, page, children }, idx) => {
             return (
