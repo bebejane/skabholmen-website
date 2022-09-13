@@ -1,11 +1,9 @@
 import '/styles/index.scss'
-import { ApolloProvider } from '@apollo/client';
-import { client } from '/lib/dato/api';
-import type { AppProps } from 'next/app'
 import DatoSEO from '/lib/dato/components/DatoSEO';
 import { GoogleAnalytics, usePagesViews } from "nextjs-google-analytics";
 import { useRouter } from 'next/router';
-import { Menu } from '/components';
+import { Menu, Layout, Footer } from '/components';
+import type { AppProps } from 'next/app'
 
 function MyApp({ Component, pageProps } : AppProps) {
   
@@ -13,14 +11,17 @@ function MyApp({ Component, pageProps } : AppProps) {
 
   const router = useRouter()
   const { asPath : pathname } = router
-  const { site, seo } = pageProps;
+  const { site, seo, about, menu } = pageProps;
   
   return (
     <>
       <GoogleAnalytics />
       <DatoSEO seo={seo} site={site} pathname={pathname} key={pathname} noindex={true}/>
       <Menu menu={pageProps.menu}/>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+      <Footer about={about} menu={menu}/>
     </>
   )
 }

@@ -19,4 +19,14 @@ query Global {
 			}
 		}
 	}
+	about {
+		email
+		phone
+		address(markdown: false)
+		social{
+			id
+			name
+			url
+		}
+	}
 }

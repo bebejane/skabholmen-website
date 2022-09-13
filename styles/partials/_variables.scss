@@ -1,7 +1,7 @@
 // COLOR
 $black: #121212;
 $white: #fafafa;
-$gray: #bbb;
+$gray: #989898;
 
 //BORDER
 $line: 3px solid $black;
@@ -15,9 +15,14 @@ $max-width: 1440px;
 
 // FONT EMBEDDING & TYPO VARIABLES
 $body-font: "Helvetica";
-$headline-font: "";
+$headline-font: "Helvetica";
 $mono-font: "";
 $body-font-italic: "";
 
 $navbarHeight: 80px;
 $navbarHeightMobile: 62px;
+
+// GRID
+$columns: 16;
+$gutter: 1.47%;
+$column-width: ((100% - (($columns - 1) * $gutter)) / $columns);

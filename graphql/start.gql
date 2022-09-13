@@ -1,0 +1,12 @@
+#import "./fragments/ImageFragment.graphql"
+
+query Start {
+	start {
+    id
+    title
+    intro(markdown: false)
+    image{
+      ...ImageFragment
+    }
+  }
+}

@@ -1,0 +1,50 @@
+.footer{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 30vh;
+  padding: var(--outer-margin);
+  .wrap{
+    display: flex;
+    flex-direction: column;
+    padding-left: spanGridWithGutter(2);
+    padding-right: spanGridWithGutter(2);
+    width: 100%;
+    > div{
+      margin-bottom: $small-space;
+    }
+    .top{
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      .address{
+        flex: 0 0 spanNestedGrid(12, 6, true);
+      }
+      ul{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+      }
+      .menu{
+        flex: 0 0 spanNestedGrid(12, 3, true);
+      }
+      .social{
+        flex: 0 0 spanNestedGrid(12, 3);
+      }
+    }
+    .bottom{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      .phone{
+        flex: 1 1 100%;
+      }
+      .email{
+        flex: 0 0 spanNestedGrid(12, 6, true);
+      }
+      .copyright{
+        flex: 1 1 auto;
+      }
+    }
+  }
+}

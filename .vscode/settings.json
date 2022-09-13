@@ -1,3 +1,9 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "files.exclude": {
+    ".next": true,
+    ".vscode": true,
+    "node_modules": true
+  },
+  "workspace.isHidden": true
 }

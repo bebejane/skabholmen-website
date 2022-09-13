@@ -4,9 +4,10 @@ const sassOptions = {
   includePaths: ['./components', './pages'],
   prependData: `
     @use "sass:math";
-    @import "./styles/partials/mediaqueries"; 
-    @import "./styles/partials/styles";
     @import "./styles/partials/variables";
+    @import "./styles/partials/mediaqueries"; 
+    @import "./styles/partials/mixins"; 
+    @import "./styles/partials/styles";
     @import "./styles/partials/fonts";
   `
 }
