@@ -7,5 +7,11 @@
 
   @include mq($until: tablet){
     --outer-margin: 20px
+    --space: 40px;
+    --small-space: 10px;
   }
+}
+
+p{
+  font-family: "Dominicale Alpha";
 }
