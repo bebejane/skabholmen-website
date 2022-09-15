@@ -12,7 +12,7 @@ import { useLayout } from '/lib/context/layout'
 
 export type MenuProps = { menu: GlobalQuery['menu'] }
 
-export default function Menu({ menu, inverted = false }: MenuProps) {
+export default function Menu({ menu }: MenuProps) {
 
   const router = useRouter()
   const layout = useLayout()

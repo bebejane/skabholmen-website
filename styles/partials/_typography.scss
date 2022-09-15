@@ -36,6 +36,7 @@ p {
 h1+hr+p, h1+p {
   font-family: $body-font;
   font-size: 35px;
+  margin-top: var(--space);
 }
 
 h2+h3{

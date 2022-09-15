@@ -61,6 +61,7 @@
       flex-wrap: wrap;
       .phone{
         flex: 1 1 100%;
+        margin-bottom: var(--small-space);
       }
       .email{
         flex: 0 0 spanNestedGrid(12, 8, true);

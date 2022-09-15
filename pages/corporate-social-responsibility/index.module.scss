@@ -9,7 +9,7 @@
       display: flex;
       flex-direction: row;
       border-bottom: var(--line);
-      margin-bottom: var(--space);
+      margin-bottom: var(--small-space);
       padding-bottom: var(--space);
 
       &:last-child {

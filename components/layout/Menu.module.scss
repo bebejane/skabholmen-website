@@ -42,6 +42,9 @@
   font-family: "Brown";
   top: var(--outer-margin);
   right: 0;
+  padding-right: var(--outer-margin);
+  padding-left: 10px;
+  width: spanGrid(10);
   opacity: 1;
   transition: opacity .3s ease;
   color: $black;
@@ -66,9 +69,8 @@
   ul {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    width: 70vw;
-
+    justify-content: space-between;
+    
     li {
       display: flex;
       flex-direction: column;
