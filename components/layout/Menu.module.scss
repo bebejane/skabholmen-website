@@ -4,6 +4,7 @@
   position: fixed;
   z-index: 1000;
   color: $white;
+  
 }
 
 .logo {
@@ -12,33 +13,36 @@
   margin-left: var(--outer-margin);
   z-index: 1000;
   line-height: 0;
-  width:174px;
-  height:15px;
+  width: 174px;
+  height: 15px;
   padding: 0;
-  @include mq($from: tablet){
+
+  @include mq($from: tablet) {
     top: calc(var(--outer-margin) - 4px);
   }
-  &.invert{
-    svg{
-      path{
-        fill:$white;
+
+  &.invert {
+    svg {
+      path {
+        fill: $white;
       }
     }
   }
 }
 
-.hamburger{
-  top:0px;
-  right:0px;
-  color:$black;
+.hamburger {
+  top: 0px;
+  right: 0px;
+  color: $black;
   margin: calc(24px - var(--outer-margin));
-  @include mq($from: tablet){
+
+  @include mq($from: tablet) {
     display: none;
   }
 }
 
 .menu {
-  
+
   font-family: "Brown";
   top: var(--outer-margin);
   right: 0;
@@ -48,16 +52,18 @@
   opacity: 1;
   transition: opacity .3s ease;
   color: $black;
-  
-  @include mq($until: tablet){
+
+  @include mq($until: tablet) {
     display: none;
   }
-  &.invert{
-    color:$white;
-    * > svg{
-      path{
+
+  &.invert {
+    color: $white;
+
+    *>svg {
+      path {
         fill: $white;
-        stroke: $white !important;
+        stroke: $white  !important;
       }
     }
   }
@@ -70,7 +76,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
+
     li {
       display: flex;
       flex-direction: column;
@@ -86,6 +92,7 @@
         text-transform: uppercase;
         line-height: 1;
 
+
         .arrow {
           margin-left: .5rem;
           min-height: 7px;
@@ -93,53 +100,76 @@
           max-width: 10px;
           transition: transform .2s ease;
           transform: rotate(-90deg);
+
           path {
             stroke: $black;
           }
-          &.show{
+
+          &.show {
             transform: rotate(0deg);
           }
         }
       }
+    }
+  }
+}
 
-      > ul {
-        flex: 0 0;
-        display: flex;
-        opacity: 0;
-        pointer-events: none;
-        flex-direction: column;
-        background-color: $white;
-        width: auto;
-        text-align: center;
-        padding: 0;
-        margin-top: var(--small-space);
-        padding: calc($small-space / 2);
-        border: var(--line-width) solid $graylight;
+.item {
+  font-family: "Brown";
+  list-style: none;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  top:0;
+  left:0;
+  width: auto;
+  min-width: 200px;
+  text-align: center;
+  padding: 0;
+  padding-top: 50px;
+  transition: opacity .2s ease;
+  opacity: 0;
+  pointer-events: none;
 
-        &.show {
-          pointer-events: all;
-          opacity: 1;
-        }
+  &.show {
+    pointer-events: all;
+    opacity: 1;
+  }
+  &.invert{
+    li{
+      
+    }
+    
+  }
+  li{
+    
+    padding: 0;
+    flex: 0 0;
+    text-align: center;
+    line-height: 25px;
+    background-color: $white;
+    padding-bottom: calc($small-space);
+    border-left: var(--line-width) solid $graylight;
+    border-right: var(--line-width) solid $graylight;
+    line-height: 1;
+    &:first-child{
+      border-top: var(--line-width) solid $graylight;
+      padding-top: calc($small-space);
+    }
+    &:last-child{
+      border-bottom: var(--line-width) solid $graylight;
+      
+    }
+    
+    a {
+      color: $gray;
+      transition: color .5s ease;
 
-        li {
-          padding: 0;
-          flex: 0 0;
-          text-align: center;
-          line-height: 25px;
-          a{
-            color: $gray;
-            transition: color .5s ease;
-            &:hover{
-              color:$black;
-            }
-          }
-          
-        }
+      &:hover {
+        color: $black;
       }
     }
   }
-
-  &.hide {
-    opacity: 0;
-  }
+  
 }

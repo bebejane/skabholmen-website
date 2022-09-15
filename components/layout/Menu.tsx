@@ -16,10 +16,11 @@ export default function Menu({ menu }: MenuProps) {
 
   const router = useRouter()
   const layout = useLayout()
-
+  
   const { isPageBottom, isPageTop, isScrolledUp, scrolledPosition } = useScrollInfo()
   const [showMenu, setShowMenu] = useStore((state) => [state.showMenu, state.setShowMenu])
   const [selected, setSelected] = useState<string | undefined>()
+  const [coords, setCoords] = useState<any>({left:0, top:0})
   const isInverted = layout.menu === 'inverted'
 
   useEffect(() => { // Toggle menu bar on scroll
@@ -27,12 +28,19 @@ export default function Menu({ menu }: MenuProps) {
   }, [scrolledPosition, isPageBottom, isPageTop, isScrolledUp, setShowMenu]);
 
   const handleMouseOver = (e: React.MouseEvent<HTMLLIElement>) => {
+
+    const el = document.getElementById(e.currentTarget.id)
+    const items = document.getElementById(`${e.currentTarget.id}-items`)
+    const bounds = el.getBoundingClientRect();
+    const boundsItems = items.getBoundingClientRect();
+    const top = bounds.top- bounds.height;
+    const left = Math.min(document.body.clientWidth - boundsItems.width, bounds.left + (bounds.width / 2 )) - (boundsItems.width /2);
+    
+    setCoords({left, top})
     setSelected(e.type === 'mouseenter' ? e.currentTarget.id : undefined)
   }
 
-  useEffect(()=>{
-    setSelected(undefined)
-  }, [router.asPath, setSelected])
+  useEffect(()=>{ setSelected(undefined) }, [router.asPath, setSelected])
   
   return (
     <>
@@ -46,28 +54,37 @@ export default function Menu({ menu }: MenuProps) {
         <ul>
           {menu.map(({ id, label, page, children }, idx) => {
             return (
-              <li key={idx} onMouseLeave={handleMouseOver} role="presentation">
+              <li id={id} key={idx} onMouseLeave={handleMouseOver} role="presentation">
                 <span id={id} className={s.title} onMouseEnter={handleMouseOver} role="menuitem">
                   {label} {children.length > 0 && <Arrow className={cn(s.arrow, id === selected && s.show)} />}
                 </span>
-                {children.length > 0 &&
-                  <ul className={cn(id === selected && s.show)}>
-                    {children.map(({ label, page }, idx) =>
-                      <li key={idx} role="menuitem">
-                        {page?.slug ?
-                          <Link href={page?.slug}>{label}</Link>
-                          :
-                          <>{label}</>
-                        }
-                      </li>
-                    )}
-                  </ul>
-                }
               </li>
             )
           })}
         </ul>
       </nav>
+      {menu.map(({ id, label, page, children }, idx) => {
+        return(
+          <ul 
+            id={`${id}-items`} 
+            key={`${id}-items`} 
+            onMouseEnter={(e)=>setSelected(id)} 
+            onMouseLeave={(e)=>setSelected(undefined)} 
+            className={cn(s.item, id === selected && s.show, isInverted && s.inverted)} 
+            style={coords}
+          >
+            {children.map(({ label, page }, idx) =>
+              <li key={idx} role="menuitem">
+                {page?.slug ?
+                  <Link href={page?.slug}>{label}</Link>
+                  :
+                  <>{label}</>
+                }
+              </li>
+            )}
+          </ul>
+        )})
+      }
     </>
   )
 }
