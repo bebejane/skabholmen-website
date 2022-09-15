@@ -25,7 +25,8 @@ export default function Menu({ menu }: MenuProps) {
 
   useEffect(() => { // Toggle menu bar on scroll
     setShowMenu((isScrolledUp && !isPageBottom) || isPageTop)
-  }, [scrolledPosition, isPageBottom, isPageTop, isScrolledUp, setShowMenu]);
+    setSelected(undefined)
+  }, [scrolledPosition, isPageBottom, isPageTop, isScrolledUp, setShowMenu, setSelected]);
 
   const handleMouseOver = (e: React.MouseEvent<HTMLLIElement>) => {
 
@@ -33,7 +34,7 @@ export default function Menu({ menu }: MenuProps) {
     const items = document.getElementById(`${e.currentTarget.id}-items`)
     const bounds = el.getBoundingClientRect();
     const boundsItems = items.getBoundingClientRect();
-    const top = bounds.top- bounds.height;
+    const top = bounds.top - bounds.height + window.scrollY;
     const left = Math.min(document.body.clientWidth - boundsItems.width, bounds.left + (bounds.width / 2 )) - (boundsItems.width /2);
     
     setCoords({left, top})

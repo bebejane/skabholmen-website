@@ -1,5 +1,6 @@
 import s from './Footer.module.scss'
 import Markdown from '/lib/dato/components/Markdown'
+import Up from '/public/images/up.svg'
 
 export type FooterProps = {
   about: GlobalQuery['about'],
@@ -25,12 +26,14 @@ export default function Footer({about: { phone, email, address, social }, menu} 
               </li> 
             )}
           </ul>
+          <div className={s.up} onClick={()=>window.scrollTo({top:0, behavior:'smooth'})}><Up/></div>
         </div>
         <div className={s.bottom}>
           <div className={s.phone}><a href={`tel://${phone}`}>{phone}</a></div>
           <div className={s.email}><a href={`mailto:${email}`}>{email}</a></div>
           <div className={s.copyright}>© 2022 Skabholmen Invest. All rights reserved.</div>
         </div>
+        
       </div>
 		</footer>
 	)

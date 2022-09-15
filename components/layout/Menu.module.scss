@@ -56,7 +56,9 @@
   @include mq($until: tablet) {
     display: none;
   }
-
+  &.hide{
+    opacity: 0;
+  }
   &.invert {
     color: $white;
 
