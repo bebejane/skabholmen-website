@@ -28,7 +28,7 @@ function MyApp({ Component , pageProps } : Props) {
 
   if (isError) 
     return <Component {...pageProps} />
-  console.log(layout)
+  
   return (
     <>
       <GoogleAnalytics />
