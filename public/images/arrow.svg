@@ -1,4 +1,10 @@
-<svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-<line y1="-0.5" x2="7.07108" y2="-0.5" transform="matrix(0.707109 0.707105 -0.707109 0.707105 0 1.70409)" stroke="white"/>
-<line y1="-0.5" x2="7.07108" y2="-0.5" transform="matrix(-0.707109 0.707105 0.707109 0.707105 10 1.70409)" stroke="white"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.4.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 10 7" style="enable-background:new 0 0 10 7;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#000000;stroke-miterlimit:10;}
+</style>
+<line class="st0" x1="0.4" y1="1.4" x2="5.4" y2="6.4"/>
+<line class="st0" x1="9.6" y1="1.4" x2="4.6" y2="6.4"/>
 </svg>

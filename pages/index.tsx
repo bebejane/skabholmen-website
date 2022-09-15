@@ -23,7 +23,7 @@ export default function Home({ start: { intro, image } }: HomeProps) {
 	)
 }
 
-Home.layout = {type: 'full', menu:'normal'} as PageLayoutProps
+Home.layout = {type: 'full', menu:'inverted'} as PageLayoutProps
 
 
 export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [StartDocument] }, async ({ props, revalidate }: any) => {

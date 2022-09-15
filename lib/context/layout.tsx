@@ -13,7 +13,7 @@ const initialState : PageLayoutProps = {
 export const LayoutContext = createContext(initialState);
 
 export type LayoutProviderProps = {
-  children: React.ReactElement,
+  children: React.ReactElement | React.ReactElement[],
   value: PageLayoutProps
 }
 

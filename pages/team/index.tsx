@@ -37,7 +37,7 @@ export default function Team({ team : { title, intro, leadership }}: Props) {
 	)
 }
 
-Team.layout = {type: 'page', menu:'inverted'} as PageLayoutProps
+Team.layout = {type: 'page', menu:'normal'} as PageLayoutProps
 
 export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [TeamDocument] }, async ({ props, revalidate }: any) => {
 

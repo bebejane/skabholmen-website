@@ -11,14 +11,17 @@
   left: 0;
   margin-left: var(--outer-margin);
   z-index: 1000;
-  line-height: 1;
+  line-height: 0;
   width:174px;
   height:15px;
   padding: 0;
+  @include mq($from: tablet){
+    top: calc(var(--outer-margin) - 4px);
+  }
   &.invert{
     svg{
       path{
-        fill:$black;
+        fill:$white;
       }
     }
   }
@@ -29,6 +32,9 @@
   right:0px;
   color:$black;
   margin: calc(24px - var(--outer-margin));
+  @include mq($from: tablet){
+    display: none;
+  }
 }
 
 .menu {
@@ -38,15 +44,17 @@
   right: 0;
   opacity: 1;
   transition: opacity .3s ease;
+  color: $black;
+  
   @include mq($until: tablet){
     display: none;
   }
   &.invert{
-    color:$black;
+    color:$white;
     * > svg{
       path{
-        fill:$black ;
-        stroke: $black !important;
+        fill: $white;
+        stroke: $white !important;
       }
     }
   }
@@ -84,7 +92,7 @@
           transition: transform .2s ease;
           transform: rotate(-90deg);
           path {
-            stroke: $white;
+            stroke: $black;
           }
           &.show{
             transform: rotate(0deg);

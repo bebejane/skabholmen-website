@@ -28,13 +28,13 @@ function MyApp({ Component , pageProps } : Props) {
 
   if (isError) 
     return <Component {...pageProps} />
-
+  console.log(layout)
   return (
     <>
       <GoogleAnalytics />
       <DatoSEO seo={seo} site={site} pathname={pathname} key={pathname} noindex={true}/>
-      <Menu menu={pageProps.menu} inverted={layout.menu === 'inverted'}/>
       <LayoutProvider value={layout}>
+        <Menu menu={pageProps.menu}/>
         <Layout>
           <Component {...pageProps} />
         </Layout>

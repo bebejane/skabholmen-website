@@ -34,7 +34,7 @@ export default function Responsibility({ responsibility : {title, intro, image, 
 	)
 }
 
-Responsibility.layout = {type: 'page', menu:'inverted'} as PageLayoutProps
+Responsibility.layout = {type: 'page', menu:'normal'} as PageLayoutProps
 
 export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [ResponsibilityDocument] }, async ({ props, revalidate }: any) => {
 

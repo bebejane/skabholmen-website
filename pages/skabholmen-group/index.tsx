@@ -54,7 +54,7 @@ export default function SkabholmenGroup({ skabholmenGroup: {title, intro, image 
 	)
 }
 
-SkabholmenGroup.layout = {type: 'page', menu:'inverted'} as PageLayoutProps
+SkabholmenGroup.layout = {type: 'page', menu:'normal'} as PageLayoutProps
 
 export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [SkabholmenGroupDocument] }, async ({ props, revalidate }: any) => {
 
