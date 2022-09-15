@@ -136,12 +136,7 @@
     pointer-events: all;
     opacity: 1;
   }
-  &.invert{
-    li{
-      
-    }
-    
-  }
+  
   li{
     
     padding: 0;
@@ -171,5 +166,12 @@
       }
     }
   }
-  
+  &.invert{
+    li{
+      border: 0;
+    }
+  }
+  @include mq($until: tablet) {
+    display: none;
+  }
 }
