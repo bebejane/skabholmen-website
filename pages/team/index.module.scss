@@ -23,7 +23,7 @@
         flex-direction:row;
         
         figure {
-          flex: 0 0 spanNestedGrid(12, 4, true);
+          flex: 0 0 spanNestedGrid(12, 5, true);
           padding-right: nestedGridGutter(12);
 
           .image {

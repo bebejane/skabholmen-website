@@ -37,6 +37,11 @@ h1+hr+p, h1+p {
   font-family: $body-font;
   font-size: 35px;
 }
+
+h2+h3{
+  line-height: 2;
+}
+
 p{
   &.intro{  
     font-family: $body-font;
