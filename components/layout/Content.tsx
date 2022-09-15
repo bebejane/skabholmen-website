@@ -1,11 +1,16 @@
 import s from './Content.module.scss'
 import React from 'react'
-import { Grid } from '/components'
+import cn from 'classnames'
 
-export default function Content({children}){
+type Props = { 
+	children: React.ReactElement[] | React.ReactElement,
+	className?: string
+}
+
+export default function Content({children, className} : Props){
 
 	return (
-		<article className={s.content}>
+		<article className={cn(s.content, className)}>
 			{children}
 		</article>
 	)

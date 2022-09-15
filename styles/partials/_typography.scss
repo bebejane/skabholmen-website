@@ -14,15 +14,15 @@ h3 {
 }
 
 h1 {
-  font-size: 50px;
+  font-size: $h1-font-size;
 }
 
 h2 {
-  font-size: 36px;
+  font-size: $h2-font-size;
 }
 
 h3 {
-  font-size: 18px;
+  font-size: $h3-font-size;
   text-transform: uppercase;
 }
 
@@ -30,6 +30,16 @@ p {
   font-family: $body-font;
   font-size: $body-font-size;
   line-height: $body-line-height;
-
   @include mq($from: tablet) {}
+}
+
+h1+hr+p, h1+p {
+  font-family: $body-font;
+  font-size: 35px;
+}
+p{
+  &.intro{  
+    font-family: $body-font;
+    font-size: 35px;
+  }
 }

@@ -1,0 +1,37 @@
+.responsibility {
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+
+    li {
+
+      display: flex;
+      flex-direction: row;
+      border-bottom: var(--line);
+      margin-bottom: var(--space);
+      padding-bottom: var(--space);
+
+      &:last-child {
+        border-bottom: 0;
+        margin-bottom: 0;
+
+      }
+
+      .title {
+        flex: 0 0 spanNestedGrid(12, 4, true);
+        padding-right: nestedGridGutter(12);
+
+        h3 {
+          color: $blue;
+        }
+      }
+
+      .description {
+        flex: 1 1 auto;
+        margin-left: spanNestedGrid(12, 1, true);
+      }
+
+    }
+  }
+}

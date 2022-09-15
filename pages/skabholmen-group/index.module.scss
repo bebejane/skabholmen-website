@@ -1,0 +1,24 @@
+.skabholmenGroup{
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    
+    margin-bottom: var(--space);
+    padding-bottom: var(--space);
+
+    &:last-child {
+      border-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    li {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      min-width: spanNestedGrid(12, 3);
+      margin-right: nestedGridGutter(12);
+      @include resetLastColumn(4);
+    }
+  }  
+}

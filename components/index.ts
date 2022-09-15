@@ -1,6 +1,8 @@
 export { default as Block } from './blocks'
+export { default as BannerImage } from './layout/BannerImage'
 export { default as Content } from './layout/Content'
 export { default as Footer } from './layout/Footer'
 export { default as Grid } from './layout/Grid'
+export { default as Intro } from './layout/Intro'
 export { default as LayoutFull, LayoutPage } from './layout/Layout'
 export { default as Menu } from './layout/Menu'

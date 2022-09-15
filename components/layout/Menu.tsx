@@ -41,7 +41,7 @@ export default function Menu({ menu, inverted = false }: MenuProps) {
             return (
               <li key={idx} onMouseLeave={handleMouseOver} role="presentation">
                 <span id={id} className={s.title} onMouseEnter={handleMouseOver} role="menuitem">
-                  {label} {children.length > 0 && <Arrow className={s.arrow} />}
+                  {label} {children.length > 0 && <Arrow className={cn(s.arrow, id === selected && s.show)} />}
                 </span>
                 {children.length > 0 &&
                   <ul className={cn(id === selected && s.show)}>

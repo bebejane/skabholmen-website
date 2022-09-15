@@ -1,0 +1,43 @@
+.team {
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      border-bottom: var(--line);
+      margin-top: var(--space);
+      padding-bottom: var(--space);
+      &:last-child{
+        border-bottom: 0;
+      }
+      h3{
+        color: $blue;
+        margin-bottom: var(--small-space);
+      }
+
+      > div {
+        display: flex;
+        flex-direction:row;
+        
+        figure {
+          flex: 0 0 spanNestedGrid(12, 4, true);
+          padding-right: nestedGridGutter(12);
+
+          .image {
+            min-width: 100%;  
+          }
+        }
+
+        .biography {
+          flex: 1 1 auto;
+          margin-left: spanNestedGrid(12, 1, true);
+        }
+
+      }
+    }
+
+  }
+}

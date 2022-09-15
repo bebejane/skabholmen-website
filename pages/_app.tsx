@@ -17,7 +17,7 @@ function MyApp({ Component , pageProps } : Props) {
   
   //usePagesViews(); // Google Analytics page view tracker = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
   const layout : PageLayoutProps = Component.layout as PageLayoutProps;
-  const Layout = layout.type === 'page' ? LayoutPage : LayoutFull
+  const Layout = layout?.type === 'page' ? LayoutPage : LayoutFull
 
   const router = useRouter()
   const { asPath : pathname } = router

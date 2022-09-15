@@ -1,27 +1,27 @@
 import s from './index.module.scss'
 import withGlobalProps from '/lib/withGlobalProps';
-import { Content } from '/components';
-import { StartDocument } from '/graphql'
-import { Image } from 'react-datocms'
-import Markdown from '/lib/dato/components/Markdown';
-
+import { Content, Intro, BannerImage } from '/components';
+import { InvestmentPhilosophyDocument } from '/graphql'
 import type { GetStaticProps } from 'next';
 import type { PageLayoutProps } from '/lib/context/layout';
 
-type Props = { }
+type Props = { investmentPhilosophy: InvestmentPhilosophyRecord }
 
-export default function InvestmentPhilosophy({ }: Props) {
+export default function InvestmentPhilosophy({ investmentPhilosophy : {title, intro, image }}: Props) {
 
 	return (
-		<Content>
-      InvestmentPhilosophy
-    </Content>
+		<>
+			<BannerImage image={image} stripes={true}/>
+			<Content className={s.investment}>
+				<Intro title={title} intro={intro}/>
+			</Content>
+		</>
 	)
 }
 
-InvestmentPhilosophy.layout = {type: 'page', menu:'inverted'} as PageLayoutProps
+InvestmentPhilosophy.layout = {type: 'full', menu:'normal'} as PageLayoutProps
 
-export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [] }, async ({ props, revalidate }: any) => {
+export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [InvestmentPhilosophyDocument] }, async ({ props, revalidate }: any) => {
 
 	return {
 		props,

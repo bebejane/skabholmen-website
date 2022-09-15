@@ -1,0 +1,78 @@
+#import './fragments/ImageFragment.gql'
+
+query Start {
+	start {
+    id
+    title
+    intro(markdown: false)
+    image{
+      ...ImageFragment
+    }
+  }
+}
+
+query Team {
+  team{
+    id
+    title
+    intro
+    slug
+    leadership{
+      id
+      email
+      name
+      role
+      biography(markdown: false)
+      image {
+        ...ImageFragment
+      }
+    }
+  }
+}
+
+query InvestmentPhilosophy{
+  investmentPhilosophy {
+    id
+    title
+    intro(markdown:false)
+    image{
+      ...ImageFragment
+    }
+    slug
+  }
+}
+
+query SkabholmenGroup{
+  skabholmenGroup {
+    id
+    title
+    intro(markdown: false)
+    slug
+  }
+  partners: allPartners{
+    id
+    name
+    category{
+      id
+      name
+    }
+  }
+}
+
+query Responsibility{
+  responsibility{
+    id
+    intro(markdown: false)
+    title
+    slug
+    image{
+      ...ImageFragment
+    }
+    projects{
+      id
+      title
+      startDate
+      description(markdown: false)
+    }
+  }
+}

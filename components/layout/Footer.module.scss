@@ -5,12 +5,15 @@
   max-width: 100vw;
   min-height: 30vh;
   padding: var(--outer-margin);
+  
+  font-family: "Brown";
+  color: $graydark;
   .wrap{
     display: flex;
     flex-direction: column;
-    padding-left: spanGridWithGutter(2);
-    padding-right: spanGridWithGutter(2);
-    width: 100%;
+    margin-left: spanGridWithGutter(4);
+    //margin-right: spanGridWithGutter(4);
+    //width: 100%;
     > div{
       margin-bottom: $small-space;
     }
@@ -19,12 +22,17 @@
       flex-direction: row;
       width: 100%;
       .address{
+        p{
+          font-size: $h2-font-size ;
+        }
+        
         flex: 0 0 spanNestedGrid(12, 6, true);
       }
       ul{
         list-style: none;
         display: flex;
         flex-direction: column;
+        line-height: 2;
       }
       .menu{
         flex: 0 0 spanNestedGrid(12, 3, true);

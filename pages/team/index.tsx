@@ -1,27 +1,45 @@
 import s from './index.module.scss'
 import withGlobalProps from '/lib/withGlobalProps';
-import { Content } from '/components';
-import { StartDocument } from '/graphql'
+import { Content, Intro } from '/components';
+import { TeamDocument } from '/graphql'
 import { Image } from 'react-datocms'
 import Markdown from '/lib/dato/components/Markdown';
 import type { PageLayoutProps } from '/lib/context/layout';
 
 import type { GetStaticProps } from 'next';
 
-type Props = { }
+type Props = { team: TeamRecord }
 
-export default function Team({ }: Props) {
+export default function Team({ team : { title, intro, leadership }}: Props) {
 
 	return (
-		<Content>
-      Team
+		<Content className={s.team}>
+      <Intro title={title} intro={intro}/>
+			<ul>
+				{leadership.map(({name, role, email, image, biography}, idx) => 
+					<>
+						<li key={idx}>
+							<h2>{name}</h2>
+							<h3>{role}</h3>
+							<div>
+								<figure>	
+									<Image data={image.responsiveImage} objectFit="contain" className={s.image}/>
+								</figure>
+								<Markdown className={s.biography}>
+									{biography}
+								</Markdown>
+							</div>
+						</li>
+					</>
+				)}
+			</ul>
     </Content>
 	)
 }
 
 Team.layout = {type: 'page', menu:'inverted'} as PageLayoutProps
 
-export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [] }, async ({ props, revalidate }: any) => {
+export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [TeamDocument] }, async ({ props, revalidate }: any) => {
 
 	return {
 		props,

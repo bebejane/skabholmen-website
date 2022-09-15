@@ -53,19 +53,23 @@ declare module '*/global.gql' {
 }
     
 
-declare module '*/seo.gql' {
+declare module '*/page.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
-  export const Site: DocumentNode;
+  export const Start: DocumentNode;
+export const Team: DocumentNode;
+export const InvestmentPhilosophy: DocumentNode;
+export const SkabholmenGroup: DocumentNode;
+export const Responsibility: DocumentNode;
 
   export default defaultDocument;
 }
     
 
-declare module '*/start.gql' {
+declare module '*/seo.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;
-  export const Start: DocumentNode;
+  export const Site: DocumentNode;
 
   export default defaultDocument;
 }
