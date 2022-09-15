@@ -5,28 +5,42 @@
   max-width: 100vw;
   min-height: 30vh;
   padding: var(--outer-margin);
-  
   font-family: "Brown";
   color: $graydark;
+
   .wrap{
     display: flex;
     flex-direction: column;
-    margin-left: spanGridWithGutter(4);
-    //margin-right: spanGridWithGutter(4);
-    //width: 100%;
+    margin-left: spanGridWithGutter(2);
+    margin-right: spanGridWithGutter(2);
+    
+    @include mq($until: tablet){
+      margin-left: 0;
+      margin-right: 0;
+      .top{
+        .address{
+          flex: 1 1 100% !important;
+        }
+        .menu, .social{
+          flex: 0 0 50% !important;
+        }
+        
+      }
+    }
+
     > div{
       margin-bottom: $small-space;
     }
     .top{
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
       width: 100%;
       .address{
         p{
           font-size: $h2-font-size ;
         }
-        
-        flex: 0 0 spanNestedGrid(12, 6, true);
+        flex: 0 0 spanNestedGrid(12, 8, true);
       }
       ul{
         list-style: none;
@@ -35,10 +49,10 @@
         line-height: 2;
       }
       .menu{
-        flex: 0 0 spanNestedGrid(12, 3, true);
+        flex: 0 0 spanNestedGrid(12, 2, true);
       }
       .social{
-        flex: 0 0 spanNestedGrid(12, 3);
+        flex: 0 0 spanNestedGrid(12, 2);
       }
     }
     .bottom{
@@ -49,7 +63,7 @@
         flex: 1 1 100%;
       }
       .email{
-        flex: 0 0 spanNestedGrid(12, 6, true);
+        flex: 0 0 spanNestedGrid(12, 8, true);
       }
       .copyright{
         flex: 1 1 auto;

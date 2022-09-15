@@ -48,6 +48,9 @@ query SkabholmenGroup{
     title
     intro(markdown: false)
     slug
+    image{
+      ...ImageFragment
+    }
   }
   partners: allPartners{
     id

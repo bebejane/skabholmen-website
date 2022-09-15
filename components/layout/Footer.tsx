@@ -20,13 +20,15 @@ export default function Footer({about: { phone, email, address, social }, menu} 
           </ul>
           <ul className={s.social}>
             {social.map(({name, url}, idx) => 
-              <li key={idx}>{name}</li> 
+              <li key={idx}>
+                <a href={url}>{name}</a>
+              </li> 
             )}
           </ul>
         </div>
         <div className={s.bottom}>
-          <div className={s.phone}>{phone}</div>
-          <div className={s.email}>{email}</div>
+          <div className={s.phone}><a href={`tel://${phone}`}>{phone}</a></div>
+          <div className={s.email}><a href={`mailto:${email}`}>{email}</a></div>
           <div className={s.copyright}>© 2022 Skabholmen Invest. All rights reserved.</div>
         </div>
       </div>

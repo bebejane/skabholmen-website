@@ -1,6 +1,6 @@
 import s from './index.module.scss'
 import withGlobalProps from '/lib/withGlobalProps';
-import { Content, Intro } from '/components';
+import { Content, Intro, BannerImage } from '/components';
 import { SkabholmenGroupDocument } from '/graphql'
 import { Image } from 'react-datocms'
 import Markdown from '/lib/dato/components/Markdown';
@@ -17,7 +17,7 @@ type PartnersByCategory = {
 	}
 }
 
-export default function SkabholmenGroup({ skabholmenGroup : {title, intro, image }, partners}: Props) {
+export default function SkabholmenGroup({ skabholmenGroup: {title, intro, image }, partners}: Props) {
 
 	const partnersByCategory : PartnersByCategory = {}
 	
@@ -29,6 +29,7 @@ export default function SkabholmenGroup({ skabholmenGroup : {title, intro, image
 	
 
 	return (
+		<>
 		<Content className={s.skabholmenGroup}>
       <Intro title={title} intro={intro}/>
 			<>
@@ -48,6 +49,8 @@ export default function SkabholmenGroup({ skabholmenGroup : {title, intro, image
 				})}
 			</>
     </Content>
+		<BannerImage image={image} stripes={false}/>
+		</>
 	)
 }
 

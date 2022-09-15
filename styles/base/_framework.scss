@@ -8,7 +8,7 @@
   --line: var(--line-width) solid #{$blue};
   
   @include mq($until: tablet){
-    --outer-margin: 20px
+    --outer-margin: 20px;
     --space: 40px;
     --small-space: 10px;
   }

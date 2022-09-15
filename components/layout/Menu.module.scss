@@ -1,9 +1,9 @@
 .logo,
+.hamburger,
 .menu {
   position: fixed;
   z-index: 1000;
   color: $white;
-  
 }
 
 .logo {
@@ -16,10 +16,19 @@
   height:15px;
   padding: 0;
   &.invert{
-    path{
-      fill:$black;
+    svg{
+      path{
+        fill:$black;
+      }
     }
   }
+}
+
+.hamburger{
+  top:0px;
+  right:0px;
+  color:$black;
+  margin: calc(24px - var(--outer-margin));
 }
 
 .menu {
@@ -29,7 +38,9 @@
   right: 0;
   opacity: 1;
   transition: opacity .3s ease;
-
+  @include mq($until: tablet){
+    display: none;
+  }
   &.invert{
     color:$black;
     * > svg{
@@ -39,6 +50,7 @@
       }
     }
   }
+
   ul {
     list-style: none;
   }

@@ -1,12 +1,13 @@
 import s from './Menu.module.scss'
 import cn from 'classnames'
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import useScrollInfo from '/lib/hooks/useScrollInfo'
 import useStore from '/lib/store'
 import Link from 'next/link'
 import Arrow from '/public/images/arrow.svg'
 import Logo from '/public/images/logo.svg'
-import { useRouter } from 'next/router'
+import { Turn as Hamburger } from 'hamburger-react'
 
 export type MenuProps = { menu: GlobalQuery['menu'], inverted?: boolean }
 
@@ -33,8 +34,11 @@ export default function Menu({ menu, inverted = false }: MenuProps) {
   return (
     <>
       <Link href="/">
-        <a><Logo className={cn(s.logo, inverted && s.invert)} /></a>
+        <a className={cn(s.logo, inverted && s.invert)}><Logo /></a>
       </Link>
+      <div className={s.hamburger}>
+        <Hamburger size={24}/>
+      </div>
       <nav className={cn(s.menu, !showMenu && s.hide, inverted && s.invert)} role="menu">
         <ul>
           {menu.map(({ id, label, page, children }, idx) => {

@@ -2,4 +2,7 @@
   padding-left: spanGrid(4);
   margin-left: var(--outer-margin);
   margin-right: var(--outer-margin);
+  @include mq($until: tablet){
+    padding-left: 0;
+  }
 }
