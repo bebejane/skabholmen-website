@@ -79,6 +79,9 @@
           width: 12px;
           height: 17px;
         }
+        @include mq($until: tablet){
+          display: none;
+        }
       }
     }
     .bottom{
