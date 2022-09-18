@@ -1,4 +1,5 @@
 import s from './BannerImage.module.scss'
+import cn from 'classnames'
 import { Image } from 'react-datocms'
 
 type Props = {
@@ -9,7 +10,7 @@ type Props = {
 export default function BannerImage({image, stripes = false} : Props){
 
 	return (
-		<section className={s.bannerImage}>
+		<section id="banner" className={cn(s.bannerImage, stripes && s.top)}>
 			<Image data={image.responsiveImage} objectFit="cover" className={s.image}/>
 			{stripes &&
 				<>

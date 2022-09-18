@@ -6,22 +6,23 @@ import useScrollInfo from '/lib/hooks/useScrollInfo'
 import useStore from '/lib/store'
 import Link from 'next/link'
 import Arrow from '/public/images/arrow.svg'
-import Logo from '/public/images/logo.svg'
+import Skabholmen from '/public/images/skabholmen.svg'
+import Invest from '/public/images/invest.svg'
 import { Turn as Hamburger } from 'hamburger-react'
 import { useLayout } from '/lib/context/layout'
 
-export type MenuProps = { menu: GlobalQuery['menu'] }
+export type MenuProps = { menu: MenuRecord[], banner:boolean }
 
 export default function Menu({ menu }: MenuProps) {
 
   const router = useRouter()
   const layout = useLayout()
   
-  const { isPageBottom, isPageTop, isScrolledUp, scrolledPosition } = useScrollInfo()
+  const { isPageBottom, isPageTop, isScrolledUp, scrolledPosition, viewportHeight} = useScrollInfo()
   const [showMenu, setShowMenu] = useStore((state) => [state.showMenu, state.setShowMenu])
   const [selected, setSelected] = useState<string | undefined>()
   const [coords, setCoords] = useState<any>({left:0, top:0})
-  const isInverted = layout.menu === 'inverted'
+  const [inverted, setInverted] = useState<boolean>(layout.menu === 'inverted')
 
   useEffect(() => { // Toggle menu bar on scroll
     setShowMenu((isScrolledUp && !isPageBottom) || isPageTop)
@@ -43,15 +44,18 @@ export default function Menu({ menu }: MenuProps) {
 
   useEffect(()=>{ setSelected(undefined) }, [router.asPath, setSelected])
   
+  useEffect(()=>{
+    const banner = document.getElementById('banner')
+    setInverted(layout.menu === 'inverted' && (!banner || scrolledPosition < banner.clientHeight))
+  }, [scrolledPosition, viewportHeight, layout])
+
   return (
     <>
-      <Link href="/">
-        <a className={cn(s.logo, isInverted && s.invert)}><Logo /></a>
-      </Link>
+      <Logo inverted={inverted}/>
       <div className={s.hamburger}>
-        <Hamburger size={24} color={isInverted ? '#fff' : '#000'}/>
+        <Hamburger size={24} color={inverted ? '#fff' : '#000'}/>
       </div>
-      <nav className={cn(s.menu, !showMenu && s.hide, isInverted && s.invert)} role="menu">
+      <nav className={cn(s.menu, !showMenu && s.hide, inverted && s.invert)} role="menu">
         <ul>
           {menu.map(({ id, label, page, children }, idx) => {
             return (
@@ -71,14 +75,14 @@ export default function Menu({ menu }: MenuProps) {
             key={`${id}-items`} 
             onMouseEnter={(e)=>setSelected(id)} 
             onMouseLeave={(e)=>setSelected(undefined)} 
-            className={cn(s.item, id === selected && s.show, isInverted && s.inverted)} 
-            style={coords}
+            className={cn(s.item, id === selected && s.show, inverted && s.inverted)} 
+            style={id === selected ? coords : undefined}
           >
             {children.map(({ label, page }, idx) =>
               <li key={idx} role="menuitem">
                 {page?.slug ?
                   <Link href={page?.slug}>{label}</Link>
-                  :
+                :
                   <>{label}</>
                 }
               </li>
@@ -87,5 +91,17 @@ export default function Menu({ menu }: MenuProps) {
         )})
       }
     </>
+  )
+}
+
+
+const Logo = ({inverted}) =>{
+
+  return(
+    <Link href="/">
+      <a className={cn(s.logo, inverted && s.invert)}>
+        <Skabholmen width={113} height={15}/><Invest width={52} height={15}/>
+      </a>
+    </Link>
   )
 }

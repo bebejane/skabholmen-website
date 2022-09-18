@@ -13,7 +13,7 @@
   margin-left: var(--outer-margin);
   z-index: 1000;
   line-height: 0;
-  width: 174px;
+  width: 194px;
   height: 15px;
   padding: 0;
 
@@ -27,6 +27,23 @@
         fill: $white;
       }
     }
+  }
+  svg{
+    &:nth-child(1){
+      margin-right: 8px;
+    }
+    &:nth-child(2){
+      opacity: 0;
+      transform: translateX(10px);
+      animation: show 1s 0.3s ease-out forwards;
+      @keyframes show {
+        to{
+          transform:  translateX(0px);
+          opacity: 1;
+        }
+      }
+    }
+
   }
 }
 
@@ -121,6 +138,7 @@
   list-style: none;
   position: absolute;
   display: flex;
+  visibility: hidden;
   flex-direction: column;
   z-index: 100;
   top:0;
@@ -130,13 +148,16 @@
   text-align: center;
   padding: 0;
   padding-top: 50px;
-  transition: opacity .2s ease;
+  transition: opacity .2s ease, transform .3s ease;
   opacity: 0;
   pointer-events: none;
+  transform: scaleY(0.8);
 
   &.show {
+    visibility: visible;
     pointer-events: all;
     opacity: 1;
+    transform: scaleY(1);
   }
   
   li{

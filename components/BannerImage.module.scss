@@ -1,8 +1,11 @@
 .bannerImage{
   position: relative;
-  margin-bottom: var(--space);
+  
   max-height: 50vh;
   min-height: 50vh;
+  &.top{
+    margin-bottom: var(--space);
+  }
   .image{
     min-height: 50vh;
     max-height: 50vh;

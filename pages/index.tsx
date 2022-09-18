@@ -11,7 +11,7 @@ export type HomeProps = { start: StartQuery['start'] }
 export default function Home({ start: { intro, image } }: HomeProps) {
 
 	return (
-		<div className={s.hero}>
+		<div id="banner" className={s.hero}>
 			<Image 
 				data={image.responsiveImage} 
 				className={s.image}
