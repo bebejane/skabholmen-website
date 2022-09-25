@@ -11,11 +11,11 @@
       border-bottom: var(--line);
       margin-bottom: var(--small-space);
       padding-bottom: var(--space);
-
+      
       &:last-child {
         border-bottom: 0;
         margin-bottom: 0;
-
+        padding-bottom: 0;
       }
 
       .title {
@@ -32,6 +32,14 @@
         margin-left: spanNestedGrid(12, 1, true);
       }
 
+      @include mq($until: tablet){
+        flex-direction: column;
+        
+        .description {
+          margin-top: var(--small-space);
+          margin-left: 0;
+        }
+      }
     }
   }
 }

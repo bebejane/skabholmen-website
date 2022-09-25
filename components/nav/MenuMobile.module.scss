@@ -1,0 +1,35 @@
+.menu{
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 100;
+  background-color: $white;
+  color: $black;
+  min-height: 100vh;
+  width: 100%;
+  transform: translateX(100%);
+  transition: transform .3s ease-out;
+  padding: var(--outer-margin);
+  padding-top: 100px;
+  
+  @include mq($from: tablet){
+    display: none;
+  }
+
+  &.show{
+    transform: translateX(0%);
+  }
+  &.inverted{
+
+  }
+  ul{
+    list-style: none;
+    li{
+      span{
+        svg{
+          display: none;
+        }
+      }
+    }
+  }
+}

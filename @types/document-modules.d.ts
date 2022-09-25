@@ -8,6 +8,24 @@ declare module '*/ImageFragment.gql' {
 }
     
 
+declare module '*/ImageMediumFragment copy.gql' {
+  import { DocumentNode } from 'graphql';
+  const defaultDocument: DocumentNode;
+  export const ImageMediumFragment: DocumentNode;
+
+  export default defaultDocument;
+}
+    
+
+declare module '*/ImageThumbnailFragment.gql' {
+  import { DocumentNode } from 'graphql';
+  const defaultDocument: DocumentNode;
+  export const ImageThumbnailFragment: DocumentNode;
+
+  export default defaultDocument;
+}
+    
+
 declare module '*/PageFragment.gql' {
   import { DocumentNode } from 'graphql';
   const defaultDocument: DocumentNode;

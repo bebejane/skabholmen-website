@@ -4,7 +4,7 @@ import { StartDocument } from '/graphql'
 import { Image } from 'react-datocms'
 import Markdown from '/lib/dato/components/Markdown';
 import type { GetStaticProps } from 'next';
-import type { PageLayoutProps } from '/lib/context/layout';
+import type { PageProps } from '../lib/context/page';
 
 export type HomeProps = { start: StartQuery['start'] }
 
@@ -23,7 +23,7 @@ export default function Home({ start: { intro, image } }: HomeProps) {
 	)
 }
 
-Home.layout = {type: 'full', menu:'inverted'} as PageLayoutProps
+Home.page = {layout: 'full', menu:'inverted'} as PageProps
 
 
 export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [StartDocument] }, async ({ props, revalidate }: any) => {

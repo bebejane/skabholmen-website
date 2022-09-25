@@ -3,7 +3,7 @@ import withGlobalProps from '/lib/withGlobalProps';
 import { Content, Intro, BannerImage } from '/components';
 import { InvestmentPhilosophyDocument } from '/graphql'
 import type { GetStaticProps } from 'next';
-import type { PageLayoutProps } from '/lib/context/layout';
+import type { PageProps } from '../../lib/context/page';
 
 type Props = { investmentPhilosophy: InvestmentPhilosophyRecord }
 
@@ -19,7 +19,7 @@ export default function InvestmentPhilosophy({ investmentPhilosophy : {title, in
 	)
 }
 
-InvestmentPhilosophy.layout = {type: 'full', menu:'inverted'} as PageLayoutProps
+InvestmentPhilosophy.page = {layout: 'full', menu:'inverted'} as PageProps
 
 export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [InvestmentPhilosophyDocument] }, async ({ props, revalidate }: any) => {
 

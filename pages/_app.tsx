@@ -2,22 +2,22 @@ import '/styles/index.scss'
 import DatoSEO from '/lib/dato/components/DatoSEO';
 import { GoogleAnalytics, usePagesViews } from "nextjs-google-analytics";
 import { useRouter } from 'next/router';
-import { Menu, LayoutPage, LayoutFull, Footer } from '/components';
-import { LayoutProvider, type PageLayoutProps } from '/lib/context/layout';
+import { Menu, MenuMobile, LayoutPage, LayoutFull, Footer, Navbar } from '/components';
+import { PageProvider, type PageProps } from '/lib/context/page';
 import type { NextComponentType } from 'next';
 import type { AppProps } from 'next/app'
 
 type Props = AppProps & {
   Component : NextComponentType & {
-    layout: PageLayoutProps
+    page: PageProps
   }
 }
 
 function MyApp({ Component , pageProps } : Props) {
   
   //usePagesViews(); // Google Analytics page view tracker = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
-  const layout : PageLayoutProps = Component.layout as PageLayoutProps;
-  const Layout = layout?.type === 'page' ? LayoutPage : LayoutFull
+  const page : PageProps = Component.page as PageProps;
+  const Layout = page?.layout === 'page' ? LayoutPage : LayoutFull
 
   const router = useRouter()
   const { asPath : pathname } = router
@@ -33,12 +33,14 @@ function MyApp({ Component , pageProps } : Props) {
     <>
       <GoogleAnalytics />
       <DatoSEO seo={seo} site={site} pathname={pathname} key={pathname} noindex={true}/>
-      <LayoutProvider value={layout}>
+      <PageProvider value={page}>
+        <Navbar/>
         <Menu menu={pageProps.menu}/>
+        <MenuMobile menu={pageProps.menu}/>
         <Layout>
           <Component {...pageProps} />
         </Layout>
-      </LayoutProvider>
+      </PageProvider>
       <Footer about={about} menu={pageProps.menu}/>
     </>
   )

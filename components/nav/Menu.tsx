@@ -9,20 +9,20 @@ import Arrow from '/public/images/arrow.svg'
 import Skabholmen from '/public/images/skabholmen.svg'
 import Invest from '/public/images/invest.svg'
 import { Turn as Hamburger } from 'hamburger-react'
-import { useLayout } from '/lib/context/layout'
+import { usePage } from '/lib/context/page'
 
-export type MenuProps = { menu: MenuRecord[], banner:boolean }
+export type MenuProps = { menu: MenuRecord[], banner?:boolean }
 
-export default function Menu({ menu }: MenuProps) {
+export default function Menu({ menu, banner = false }: MenuProps) {
 
   const router = useRouter()
-  const layout = useLayout()
+  const page = usePage()
   
   const { isPageBottom, isPageTop, isScrolledUp, scrolledPosition, viewportHeight} = useScrollInfo()
   const [showMenu, setShowMenu] = useStore((state) => [state.showMenu, state.setShowMenu])
   const [selected, setSelected] = useState<string | undefined>()
   const [coords, setCoords] = useState<any>({left:0, top:0})
-  const [inverted, setInverted] = useState<boolean>(layout.menu === 'inverted')
+  const [inverted, setInverted] = useState<boolean>(page.menu === 'inverted')
 
   useEffect(() => { // Toggle menu bar on scroll
     setShowMenu((isScrolledUp && !isPageBottom) || isPageTop)
@@ -46,15 +46,11 @@ export default function Menu({ menu }: MenuProps) {
   
   useEffect(()=>{
     const banner = document.getElementById('banner')
-    setInverted(layout.menu === 'inverted' && (!banner || scrolledPosition < banner.clientHeight))
-  }, [scrolledPosition, viewportHeight, layout])
+    setInverted(page.menu === 'inverted' && (!banner || scrolledPosition < banner.clientHeight))
+  }, [scrolledPosition, viewportHeight, page])
 
   return (
     <>
-      <Logo inverted={inverted}/>
-      <div className={s.hamburger}>
-        <Hamburger size={24} color={inverted ? '#fff' : '#000'}/>
-      </div>
       <nav className={cn(s.menu, !showMenu && s.hide, inverted && s.invert)} role="menu">
         <ul>
           {menu.map(({ id, label, page, children }, idx) => {

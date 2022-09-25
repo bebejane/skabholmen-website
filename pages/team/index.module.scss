@@ -37,7 +37,23 @@
         }
 
       }
+      @include mq($until: tablet){
+        margin-top: 0;
+        margin-bottom: var(--space);
+        &:last-child{
+          margin-bottom: 0;
+        }
+        > div {
+          flex-direction: column;
+          figure{
+            padding-right: 0;
+          }
+          .biography{
+            margin-top: var(--space);
+            margin-left: 0;
+          }
+        }
+      }
     }
-
   }
 }

@@ -4,7 +4,7 @@ import { Content, Intro } from '/components';
 import { TeamDocument } from '/graphql'
 import { Image } from 'react-datocms'
 import Markdown from '/lib/dato/components/Markdown';
-import type { PageLayoutProps } from '/lib/context/layout';
+import type { PageProps } from '../../lib/context/page';
 
 import type { GetStaticProps } from 'next';
 
@@ -37,7 +37,7 @@ export default function Team({ team : { title, intro, leadership }}: Props) {
 	)
 }
 
-Team.layout = {type: 'page', menu:'normal'} as PageLayoutProps
+Team.page = {layout: 'page', menu:'normal'} as PageProps
 
 export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [TeamDocument] }, async ({ props, revalidate }: any) => {
 

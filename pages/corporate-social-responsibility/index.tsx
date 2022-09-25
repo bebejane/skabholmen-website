@@ -6,7 +6,7 @@ import { Image } from 'react-datocms'
 import Markdown from '/lib/dato/components/Markdown';
 
 import type { GetStaticProps } from 'next';
-import type { PageLayoutProps } from '/lib/context/layout';
+import type { PageProps } from '/lib/context/page';
 
 type Props = { responsibility: ResponsibilityRecord }
 
@@ -34,7 +34,7 @@ export default function Responsibility({ responsibility : {title, intro, image, 
 	)
 }
 
-Responsibility.layout = {type: 'page', menu:'normal'} as PageLayoutProps
+Responsibility.page = {layout: 'page', menu:'normal'} as PageProps
 
 export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [ResponsibilityDocument] }, async ({ props, revalidate }: any) => {
 

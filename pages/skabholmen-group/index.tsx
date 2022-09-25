@@ -6,7 +6,7 @@ import { Image } from 'react-datocms'
 import Markdown from '/lib/dato/components/Markdown';
 
 import type { GetStaticProps } from 'next';
-import type { PageLayoutProps } from '/lib/context/layout';
+import type { PageProps } from '../../lib/context/page';
 
 type Props = { skabholmenGroup: SkabholmenGroupRecord, partners: PartnerRecord[] }
 
@@ -54,7 +54,7 @@ export default function SkabholmenGroup({ skabholmenGroup: {title, intro, image 
 	)
 }
 
-SkabholmenGroup.layout = {type: 'page', menu:'normal'} as PageLayoutProps
+SkabholmenGroup.page = {layout: 'page', menu:'normal'} as PageProps
 
 export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [SkabholmenGroupDocument] }, async ({ props, revalidate }: any) => {
 

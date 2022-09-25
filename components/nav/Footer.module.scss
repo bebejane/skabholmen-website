@@ -88,15 +88,32 @@
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
+      margin-bottom: 0;
       .phone{
         flex: 1 1 100%;
         margin-bottom: var(--small-space);
+        
       }
       .email{
         flex: 0 0 spanNestedGrid(12, 8, true);
       }
       .copyright{
         flex: 1 1 auto;
+      }
+
+      @include mq($until: tablet){
+        .phone{
+          margin-top: var(--space);
+        }
+        .phone, .email{
+          
+          text-align: center;
+          flex: 1 1 50%;
+        }
+        .copyright{
+          text-align: center;
+          margin-top: var(--space);
+        }
       }
     }
     

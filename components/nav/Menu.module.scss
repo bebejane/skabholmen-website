@@ -1,65 +1,7 @@
-.logo,
-.hamburger,
 .menu {
   position: fixed;
   z-index: 1000;
   color: $white;
-  
-}
-
-.logo {
-  top: var(--outer-margin);
-  left: 0;
-  margin-left: var(--outer-margin);
-  z-index: 1000;
-  line-height: 0;
-  width: 194px;
-  height: 15px;
-  padding: 0;
-
-  @include mq($from: tablet) {
-    top: calc(var(--outer-margin) - 4px);
-  }
-
-  &.invert {
-    svg {
-      path {
-        fill: $white;
-      }
-    }
-  }
-  svg{
-    &:nth-child(1){
-      margin-right: 8px;
-    }
-    &:nth-child(2){
-      opacity: 0;
-      transform: translateX(10px);
-      animation: show 1s 0.3s ease-out forwards;
-      @keyframes show {
-        to{
-          transform:  translateX(0px);
-          opacity: 1;
-        }
-      }
-    }
-
-  }
-}
-
-.hamburger {
-  top: 0px;
-  right: 0px;
-  color: $black;
-  margin: calc(24px - var(--outer-margin));
-
-  @include mq($from: tablet) {
-    display: none;
-  }
-}
-
-.menu {
-
   font-family: "Brown";
   top: var(--outer-margin);
   right: 0;
