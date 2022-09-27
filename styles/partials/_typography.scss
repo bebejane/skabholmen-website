@@ -14,29 +14,40 @@ h3 {
 }
 
 h1 {
-  font-size: $h1-font-size;
+  font-size: var(--h1-font-size);
+  line-height: calc(var(--h1-font-size) + 3px);
 }
 
 h2 {
-  font-size: $h2-font-size;
+  font-size: var(--h2-font-size);
+  line-height: calc(var(--h2-font-size) + 7px);
 }
 
 h3 {
-  font-size: $h3-font-size;
+  font-size: var(--h3-font-size);
+  line-height: calc(var(--h3-font-size) + 7px);
   text-transform: uppercase;
 }
 
 p {
   font-family: $body-font;
-  font-size: $body-font-size;
-  line-height: $body-line-height;
-  @include mq($from: tablet) {}
+  font-size: var(--body-font-size);
+  line-height: calc(var(--body-font-size) + 7px);
 }
 
+// Ingress
 h1+hr+p, h1+p {
   font-family: $body-font;
-  font-size: 35px;
   margin-top: var(--space);
+  @include mq($from:tablet){
+    font-size: 35px;
+    line-height: 45px;
+  }
+
+  @include mq($until:tablet){
+    font-size: 25px;
+    line-height: 35px;
+  }
 }
 
 h2+h3{

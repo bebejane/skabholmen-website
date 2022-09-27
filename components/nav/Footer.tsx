@@ -1,19 +1,25 @@
 import s from './Footer.module.scss'
+import cn from 'classnames'
+import { usePage } from '/lib/context/page'
 import Markdown from '/lib/dato/components/Markdown'
 import Up from '/public/images/up.svg'
 
 export type FooterProps = {
-  about: GlobalQuery['about'],
+  contact: GlobalQuery['contact'],
   menu: GlobalQuery['menu']
 }
 
-export default function Footer({about: { phone, email, address, social }, menu} : FooterProps){
+export default function Footer({contact: { phone, email, address, social }, menu} : FooterProps){
   
+  const { footerSeparator } = usePage()
+  console.log(footerSeparator)
 	return (
-		<footer className={s.footer}>
+		<footer className={cn(s.footer, footerSeparator && s.separator)}>
 			<div className={s.wrap}>
         <div className={s.top}>
-          <Markdown className={s.address}>{address}</Markdown>
+          <Markdown className={s.address}>
+            {address}
+          </Markdown>
           <ul className={s.menu}>
             {menu.map(({label}, idx) => 
               <li key={idx}>{label}</li>

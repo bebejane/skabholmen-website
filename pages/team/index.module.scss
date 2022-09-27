@@ -1,10 +1,10 @@
 .team {
-  ul {
+  > ul {
     list-style: none;
     display: flex;
     flex-direction: column;
 
-    li {
+    > li {
       display: flex;
       flex-direction: column;
       border-bottom: var(--line);
@@ -30,7 +30,24 @@
             min-width: 100%;  
           }
         }
-
+        ul {
+          list-style: none;
+          margin-left: 0;
+          padding-left: 0;
+          li {
+            padding-left: 1em;
+            text-indent: -1em;
+            &:before {
+              content: "-";
+              padding-right: 5px;
+            }
+          }
+          
+        }
+        
+        
+        
+        
         .biography {
           flex: 1 1 auto;
           margin-left: spanNestedGrid(12, 2, true);

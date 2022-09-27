@@ -9,12 +9,14 @@ body {
 	background-color: $white;
 	-moz-osx-font-smoothing: grayscale;
 	font-feature-settings: "liga", "kern";
+	
 }
 
 html {
 	box-sizing: border-box;
+	
 }
-
+/*
 ::-webkit-scrollbar {
 	-webkit-appearance: none;
 	background: #fff;
@@ -29,8 +31,9 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-	background: $black;
+	background: $blue;
 }
+*/
 
 *,
 *:before,

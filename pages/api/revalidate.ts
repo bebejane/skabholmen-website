@@ -1,20 +1,26 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { buildClient } from '@datocms/cma-client-node';
 
-const getPathsFromPayload = async (payload: any, record: any) => {
-  const paths = []
-  const { apiKey } = record.model;
-
-  return ['/'];
-}
-
 export const basicAuth = (req: NextApiRequest) => {
   const basicAuth = req.headers.authorization
-  if (!basicAuth) return true;
-
+  if (!basicAuth) 
+    return true;
+    
   const auth = basicAuth.split(' ')[1]
   const [user, pwd] = Buffer.from(auth, 'base64').toString().split(':')
   return user === process.env.BASIC_AUTH_USER && pwd === process.env.BASIC_AUTH_PASSWORD
+}
+
+const modelToPath = {
+  start: '/'
+}
+
+const getPathsFromPayload = async (payload: any) => {
+  const record = await getRecordFromPayload(payload)
+  const { apiKey } = record.model;
+  const paths = [record.slug ? `/${record.slug}` : modelToPath[apiKey]]
+
+  return paths.filter(el => el);
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -27,7 +33,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
 
     const payload = req.body?.entity;
-    const record = await getRecordFromPayload(payload)
 
     if (!payload)
       throw 'Payload is empty'
@@ -37,10 +42,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (!paths.length)
       throw new Error(`Nothing to revalidate`);
 
-    const result = await Promise.all(paths.map(path => res.revalidate(path)))
+    await Promise.all(paths.map(path => res.revalidate(path)))
     console.log('revalidated', paths)
   } catch (err: any) {
-    console.log(err)
+    console.error(err)
     res.status(500).send(`Error revalidating: ${err.message || err}`)
   }
 }

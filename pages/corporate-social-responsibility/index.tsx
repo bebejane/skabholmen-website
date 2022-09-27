@@ -34,7 +34,7 @@ export default function Responsibility({ responsibility : {title, intro, image, 
 	)
 }
 
-Responsibility.page = {layout: 'page', menu:'normal'} as PageProps
+Responsibility.page = {layout: 'page', menu:'normal', footerSeparator:true} as PageProps
 
 export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [ResponsibilityDocument] }, async ({ props, revalidate }: any) => {
 

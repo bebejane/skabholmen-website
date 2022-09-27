@@ -6,13 +6,11 @@ import useScrollInfo from '/lib/hooks/useScrollInfo'
 import useStore from '/lib/store'
 import Link from 'next/link'
 import Arrow from '/public/images/arrow.svg'
-import Skabholmen from '/public/images/skabholmen.svg'
-import Invest from '/public/images/invest.svg'
 import { usePage } from '/lib/context/page'
 
-export type MenuMobileProps = { menu: MenuRecord[], banner:boolean }
+export type MenuMobileProps = { menu: MenuRecord[], banner?:boolean, contact: ContactRecord }
 
-export default function MenuMobile({ menu }: MenuMobileProps) {
+export default function MenuMobile({ menu, contact, banner = false }: MenuMobileProps) {
 
   const router = useRouter()
   const page = usePage()
@@ -41,7 +39,7 @@ export default function MenuMobile({ menu }: MenuMobileProps) {
             return (
               <li id={id} key={idx} role="presentation">
                 <span id={id} className={s.title}  role="menuitem">
-                  {label} {children.length > 0 && <Arrow className={cn(s.arrow, id === selected && s.show)} />}
+                  {label} {children.length > 0 && false && <Arrow className={cn(s.arrow, id === selected && s.show)} />}
                 </span>
                 <ul 
                   id={`${id}-items`} 
@@ -63,6 +61,20 @@ export default function MenuMobile({ menu }: MenuMobileProps) {
             )
           })}
         </ul>
+        <div className={s.contact}>
+          <div className={s.social}>
+            {contact.social.map(({name, url, icon}, key) => 
+              <a key={key} href={url}>
+                <img src={icon.url}/>
+              </a>
+            )}
+          </div>
+          <div className={s.phoneEmail}>
+            <a href={`tel://${contact.phone}`}>{contact.phone}</a>
+            <br/>
+            <a href={`mailto:${contact.email}`}>{contact.email}</a>
+          </div>
+        </div>
       </nav>
       
     </>

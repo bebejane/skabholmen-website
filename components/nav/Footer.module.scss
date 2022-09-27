@@ -10,7 +10,9 @@
   padding-bottom: var(--space);
   font-family: "Brown";
   color: $graydark;
-
+  &.separator{
+    border-top: 1px solid $blue;
+  }
   .wrap{
     display: flex;
     flex-direction: column;
@@ -42,7 +44,7 @@
       width: 100%;
       .address{
         p{
-          font-size: $h2-font-size ;
+          @include headerStyle(2);
         }
         flex: 0 0 spanNestedGrid(12, 8, true);
       }

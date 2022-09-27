@@ -12,12 +12,13 @@
   @include mq($until: tablet) {
     background-color: $white;
     width: 100%;
-    min-height: 60px;
-    
+    min-height: var(--navbar-height); 
   }
+
   &.transparent{
-    background-color: transparent !important;
+    background-color: transparent;
   }
+
   .logo {
     position: relative;
     flex: 0 0 194px;
@@ -30,16 +31,18 @@
     @include mq($from: tablet) {
       top: calc(var(--outer-margin) - 4px);
     }
-
+    
     &.invert {
       svg {
         path {
+          
           fill: $white;
         }
       }
     }
 
     svg {
+      
       &:nth-child(1) {
         margin-right: 8px;
       }
@@ -66,9 +69,12 @@
     flex: 1 1 auto;
     color: $black;
     margin-right: calc(28px - var(--outer-margin));
-
     @include mq($from: tablet) {
       display: none;
     }
+  }
+
+  * > path {
+    transition: fill 0.5s ease;
   }
 }

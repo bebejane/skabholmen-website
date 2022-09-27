@@ -21,7 +21,7 @@ function MyApp({ Component , pageProps } : Props) {
 
   const router = useRouter()
   const { asPath : pathname } = router
-  const { site, seo, about} = pageProps;
+  const { site, seo, contact} = pageProps;
 
   const errorCode = parseInt(router.pathname.replace('/', ''))
   const isError = !isNaN(errorCode) && (errorCode > 400 && errorCode < 600)
@@ -36,12 +36,12 @@ function MyApp({ Component , pageProps } : Props) {
       <PageProvider value={page}>
         <Navbar/>
         <Menu menu={pageProps.menu}/>
-        <MenuMobile menu={pageProps.menu}/>
+        <MenuMobile menu={pageProps.menu} contact={contact}/>
         <Layout>
           <Component {...pageProps} />
         </Layout>
+        <Footer contact={contact} menu={pageProps.menu}/>
       </PageProvider>
-      <Footer about={about} menu={pageProps.menu}/>
     </>
   )
 }

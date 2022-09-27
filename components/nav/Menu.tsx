@@ -83,6 +83,7 @@ export default function Menu({ menu, banner = false }: MenuProps) {
                 }
               </li>
             )}
+            <li role="menuitem">Contact</li>
           </ul>
         )})
       }

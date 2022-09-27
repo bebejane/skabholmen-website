@@ -104,3 +104,9 @@ $gutter-nested: $gutter / $difference12; //Denna ska göras om
   max-width: $max-width;
   margin: auto;
 }
+
+
+@mixin headerStyle($heading) {
+  font-size: var(--h#{$heading}-font-size);
+  line-height: calc(var(--h#{$heading}-font-size) + 7px);
+}

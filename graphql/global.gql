@@ -1,5 +1,6 @@
 #import "./fragments/SiteFragment.graphql"
 #import "./fragments/PageFragment.graphql"
+#import "./fragments/ImageFragment.graphql"
 
 query Global {
 	site: _site {
@@ -19,7 +20,7 @@ query Global {
 			}
 		}
 	}
-	about {
+	contact {
 		email
 		phone
 		address(markdown: false)
@@ -27,6 +28,9 @@ query Global {
 			id
 			name
 			url
+			icon{
+				...ImageFragment
+			}
 		}
 	}
 }
