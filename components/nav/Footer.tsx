@@ -12,7 +12,7 @@ export type FooterProps = {
 export default function Footer({contact: { phone, email, address, social }, menu} : FooterProps){
   
   const { footerSeparator } = usePage()
-  console.log(footerSeparator)
+  
 	return (
 		<footer className={cn(s.footer, footerSeparator && s.separator)}>
 			<div className={s.wrap}>

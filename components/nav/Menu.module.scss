@@ -104,7 +104,6 @@
   }
   
   li{
-    
     padding: 0;
     flex: 0 0;
     text-align: center;
@@ -114,6 +113,7 @@
     border-left: var(--line-width) solid $graylight;
     border-right: var(--line-width) solid $graylight;
     line-height: 1;
+
     &:first-child{
       border-top: var(--line-width) solid $graylight;
       padding-top: calc($small-space);
@@ -127,9 +127,10 @@
       color: $gray;
       transition: color .5s ease;
 
-      &:hover {
+      &:hover, &.selected{
         color: $black;
       }
+      
     }
   }
   &.invert{

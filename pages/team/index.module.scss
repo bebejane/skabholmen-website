@@ -1,4 +1,5 @@
 .team {
+
   > ul {
     list-style: none;
     display: flex;
@@ -25,7 +26,10 @@
         figure {
           flex: 0 0 spanNestedGrid(12, 4, true);
           padding-right: nestedGridGutter(12);
-
+          @include mq($until: tablet){
+            margin-left: calc(var(--outer-margin) * -1);
+            margin-right: calc(var(--outer-margin) * -1);
+          }
           .image {
             min-width: 100%;  
           }
@@ -44,9 +48,6 @@
           }
           
         }
-        
-        
-        
         
         .biography {
           flex: 1 1 auto;
