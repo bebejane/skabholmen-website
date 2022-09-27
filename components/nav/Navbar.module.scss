@@ -55,7 +55,7 @@
         @keyframes show {
           to {
             filter: blur(0px);
-            transform: translateY(0px);
+            transform: translateY(0.5px);
           }
         }
       }

@@ -35,7 +35,7 @@ function MyApp({ Component , pageProps } : Props) {
       <DatoSEO seo={seo} site={site} pathname={pathname} key={pathname} noindex={true}/>
       <PageProvider value={page}>
         <Navbar/>
-        <Menu menu={pageProps.menu}/>
+        <Menu menu={pageProps.menu} contact={contact}/>
         <MenuMobile menu={pageProps.menu} contact={contact}/>
         <Layout>
           <Component {...pageProps} />

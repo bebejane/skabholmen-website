@@ -8,12 +8,13 @@ import Link from 'next/link'
 import Arrow from '/public/images/arrow.svg'
 import Skabholmen from '/public/images/skabholmen.svg'
 import Invest from '/public/images/invest.svg'
-import { Turn as Hamburger } from 'hamburger-react'
 import { usePage } from '/lib/context/page'
+import { ContactModal } from '/components'
+import Markdown from '/lib/dato/components/Markdown'
 
-export type MenuProps = { menu: MenuRecord[], banner?:boolean }
+export type MenuProps = { menu: MenuRecord[], banner?:boolean, contact: ContactRecord }
 
-export default function Menu({ menu, banner = false }: MenuProps) {
+export default function Menu({ menu, banner = false, contact }: MenuProps) {
 
   const router = useRouter()
   const page = usePage()
@@ -21,6 +22,7 @@ export default function Menu({ menu, banner = false }: MenuProps) {
   const { isPageBottom, isPageTop, isScrolledUp, scrolledPosition, viewportHeight} = useScrollInfo()
   const [showMenu, setShowMenu] = useStore((state) => [state.showMenu, state.setShowMenu])
   const [selected, setSelected] = useState<string | undefined>()
+  const [showContact, setShowContact] = useState<boolean>(false)
   const [coords, setCoords] = useState<any>({left:0, top:0})
   const [inverted, setInverted] = useState<boolean>(page.menu === 'inverted')
 
@@ -62,6 +64,9 @@ export default function Menu({ menu, banner = false }: MenuProps) {
               </li>
             )
           })}
+          <li role="menuitem" onClick={()=>setShowContact(true)}>
+            <span className={s.title}>Contact</span>
+          </li>
         </ul>
       </nav>
       {menu.map(({ id, label, page, children }, idx) => {
@@ -83,10 +88,15 @@ export default function Menu({ menu, banner = false }: MenuProps) {
                 }
               </li>
             )}
-            <li role="menuitem">Contact</li>
+            
           </ul>
         )})
       }
+      <ContactModal 
+        contact={contact} 
+        show={showContact} 
+        onClose={()=> setShowContact(false)}
+      />
     </>
   )
 }
