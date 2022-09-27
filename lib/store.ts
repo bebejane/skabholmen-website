@@ -4,12 +4,15 @@ export interface StoreState {
   showMenu:boolean,
   showMenuMobile: boolean,
   setShowMenu : (showMenu:boolean) => void,
-  setShowMenuMobile : (showMenuMobile:boolean) => void
+  setShowMenuMobile : (showMenuMobile:boolean) => void,
+  showContact: boolean,
+  setShowContact : (showContact:boolean) => void,
 }
 
 const useStore = create<StoreState>((set) => ({
 	showMenu: true,
   showMenuMobile: false,
+  showContact:false,
 	setShowMenu: (showMenu : boolean) =>  
     set((state) => ({
       showMenu
@@ -18,6 +21,11 @@ const useStore = create<StoreState>((set) => ({
   setShowMenuMobile: (showMenuMobile : boolean) =>  
     set((state) => ({
       showMenuMobile
+    })
+  ),
+  setShowContact: (showContact : boolean) =>  
+    set((state) => ({
+      showContact
     })
   ),
 }));

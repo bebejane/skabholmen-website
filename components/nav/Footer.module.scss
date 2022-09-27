@@ -18,20 +18,6 @@
     flex-direction: column;
     margin-left: spanGridWithGutter(2);
     margin-right: spanGridWithGutter(2);
-    
-    @include mq($until: tablet){
-      margin-left: 0;
-      margin-right: 0;
-      .top{
-        .address{
-          flex: 1 1 100% !important;
-        }
-        .menu, .social{
-          flex: 0 0 50% !important;
-        }
-        
-      }
-    }
 
     > div{
       margin-bottom: $small-space;
@@ -54,7 +40,7 @@
         flex-direction: column;
         line-height: 2;
         text-transform: uppercase;
-        counter-reset: $gray;
+        
       }
       
       .menu{
@@ -85,6 +71,31 @@
           display: none;
         }
       }
+
+      
+    }
+    @include mq($until: tablet){
+      margin-left: 0;
+      margin-right: 0;
+      .top{
+        text-align: center;
+        flex-direction: column;
+        margin-bottom: 0;
+        ul{
+          margin-bottom: calc(var(--space) /2)
+        }
+        .address{
+          flex: 1 1 100% !important;
+          p{
+            margin-bottom: calc(var(--space) /2)
+          }
+        }
+        
+        .menu, .social{
+          flex: 1 1 100%;
+        }
+        
+      }
     }
     .bottom{
       display: flex;
@@ -105,16 +116,16 @@
 
       @include mq($until: tablet){
         .phone{
-          margin-top: var(--space);
+          margin-top: var(--small-space);
         }
         .phone, .email{
           
           text-align: center;
-          flex: 1 1 50%;
+          flex: 1 1 100%;
         }
         .copyright{
           text-align: center;
-          margin-top: var(--space);
+          margin-top: var(--small-space);
         }
       }
     }

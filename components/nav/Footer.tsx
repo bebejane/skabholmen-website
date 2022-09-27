@@ -39,7 +39,6 @@ export default function Footer({contact: { phone, email, address, social }, menu
           <div className={s.email}><a href={`mailto:${email}`}>{email}</a></div>
           <div className={s.copyright}>© 2022 Skabholmen Invest. All rights reserved.</div>
         </div>
-        
       </div>
 		</footer>
 	)

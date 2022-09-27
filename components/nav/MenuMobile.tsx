@@ -50,7 +50,7 @@ export default function MenuMobile({ menu, contact, banner = false }: MenuMobile
                   {children.map(({ label, page }, idx) =>
                     <li key={idx} role="menuitem">
                       {page?.slug ?
-                        <Link href={page?.slug}>{label}</Link>
+                        <Link href={page?.slug}><a>{label}</a></Link>
                       :
                         <>{label}</>
                       }

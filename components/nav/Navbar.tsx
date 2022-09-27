@@ -20,14 +20,21 @@ export default function Navbar({ }: NavbarProps) {
   const router = useRouter()
   
   const { scrolledPosition, viewportHeight} = useScrollInfo()
-  const [showMenuMobile, setShowMenuMobile] = useStore((state) => [state.showMenuMobile, state.setShowMenuMobile])  
+  const [showMenuMobile, setShowMenuMobile, showContact] = useStore((state) => [state.showMenuMobile, state.setShowMenuMobile, state.showContact])  
   const [inverted, setInverted] = useState<boolean>(page.menu === 'inverted')
   
   useEffect(()=>{
+    if(showContact) 
+      return setInverted(true)
+    if(showMenuMobile) 
+      return setInverted(true)
+
     const banner = document.getElementById('banner')
-    const inverted = page.menu === 'inverted' && (!banner || scrolledPosition < banner.clientHeight)
+    const logo = document.getElementById('logo')?.getBoundingClientRect()
+    const inverted = page.menu === 'inverted' && (!banner || scrolledPosition < (banner.clientHeight - logo.top))
     setInverted(inverted && !showMenuMobile)
-  }, [scrolledPosition, viewportHeight, page, showMenuMobile])
+
+  }, [scrolledPosition, viewportHeight, page, showMenuMobile, showContact, showMenuMobile])
 
   useEffect(()=>{
     setShowMenuMobile(false)
@@ -35,7 +42,7 @@ export default function Navbar({ }: NavbarProps) {
   
   return (
     <>
-      <div className={cn(s.navbar, page.layout === 'full' && s.transparent)}>
+      <div className={cn(s.navbar, (page.layout === 'full' || showMenuMobile) && s.transparent)}>
         <Logo inverted={inverted}/>
         <div className={s.hamburger}>
           <Hamburger 
@@ -56,7 +63,7 @@ const Logo = ({inverted}) =>{
 
   return(
     <Link href="/">
-      <a className={cn(s.logo, inverted && s.invert)}>
+      <a id="logo" className={cn(s.logo, inverted && s.invert)}>
         <Skabholmen width={113} height={15}/><Invest width={52} height={15}/>
       </a>
     </Link>

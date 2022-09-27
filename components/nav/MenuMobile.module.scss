@@ -5,8 +5,8 @@
   top:0;
   left:0;
   z-index: 100;
-  background-color: $white;
-  color: $black;
+  background-color: $blue;
+  color:$white;
   height: -webkit-fill-available;
   min-height: 100%;
   max-height: 100vh;
@@ -25,36 +25,32 @@
   &.show{
     transform: translateX(0%);
   }
-  &.inverted{
-
-  }
+ 
   >ul{
     list-style: none;
     
     >li{
-      @include headerStyle(3);
+      @include headerStyle(2);
       text-transform: uppercase;
       margin-bottom: calc(var(--small-space) *2);
-      color:$blue;
+      color:$black;
+      
       ul{
-        @include headerStyle(2);
+        @include headerStyle(1);
         list-style: none;
         margin-left: 10px;
         li{
-          color:$black;
+          color:$white;
           text-transform: capitalize;
-          span{
-
-            svg{
-              display: none;
-            }
+          a{
+            color:$white;
           }
-          
         }
       }
     }
   }
   .contact{
+    
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
@@ -65,8 +61,9 @@
       justify-content: center;
       margin-bottom: var(--small-space);
       a {
-        padding:5px;
+        padding:10px;
         img{
+          
           min-height: 20px;
           max-height: 20px;
           min-width: 20px;
@@ -78,11 +75,14 @@
       }
     }
     .phoneEmail{
+      
       line-height: 2;
       @include headerStyle(2);
       text-align: center;
-    
       margin-bottom: var(--small-space);
+      a{
+        color:$white
+      }
     }
   }
 }

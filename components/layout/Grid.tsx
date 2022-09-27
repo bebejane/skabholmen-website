@@ -7,6 +7,7 @@ export default function Grid(){
 	const [showGrid, setShowGrid] = useState(false)
 
 	useEffect(() => {
+		if(process.env.NODE_ENV === 'production') return
 		const toggleGrid = ({ key, target }) => target.tagName !== 'INPUT' && key === 'g' && setShowGrid(!showGrid)
 		document.addEventListener('keydown', toggleGrid)
 		return () => document.removeEventListener('keydown', toggleGrid)

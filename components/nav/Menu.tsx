@@ -22,14 +22,9 @@ export default function Menu({ menu, banner = false, contact }: MenuProps) {
   const { isPageBottom, isPageTop, isScrolledUp, scrolledPosition, viewportHeight} = useScrollInfo()
   const [showMenu, setShowMenu] = useStore((state) => [state.showMenu, state.setShowMenu])
   const [selected, setSelected] = useState<string | undefined>()
-  const [showContact, setShowContact] = useState<boolean>(false)
+  const [showContact, setShowContact] = useStore((state) => [state.showContact, state.setShowContact])
   const [coords, setCoords] = useState<any>({left:0, top:0})
   const [inverted, setInverted] = useState<boolean>(page.menu === 'inverted')
-
-  useEffect(() => { // Toggle menu bar on scroll
-    setShowMenu((isScrolledUp && !isPageBottom) || isPageTop)
-    setSelected(undefined)
-  }, [scrolledPosition, isPageBottom, isPageTop, isScrolledUp, setShowMenu, setSelected]);
 
   const handleMouseOver = (e: React.MouseEvent<HTMLLIElement>) => {
 
@@ -44,12 +39,23 @@ export default function Menu({ menu, banner = false, contact }: MenuProps) {
     setSelected(e.type === 'mouseenter' ? e.currentTarget.id : undefined)
   }
 
-  useEffect(()=>{ setSelected(undefined) }, [router.asPath, setSelected])
+  useEffect(() => { // Toggle menu bar on scroll
+    setShowMenu(!showContact && ((isScrolledUp && !isPageBottom) || isPageTop))
+    setSelected(undefined)
+  }, [scrolledPosition, isPageBottom, isPageTop, isScrolledUp, setShowMenu, setSelected, showContact]);
+
+  useEffect(()=>{ 
+    setSelected(undefined) 
+  }, [router.asPath, setSelected])
   
   useEffect(()=>{
     const banner = document.getElementById('banner')
     setInverted(page.menu === 'inverted' && (!banner || scrolledPosition < banner.clientHeight))
   }, [scrolledPosition, viewportHeight, page])
+
+  useEffect(()=>{
+    setShowMenu(!showContact)
+  }, [showContact, setShowMenu])
 
   return (
     <>
