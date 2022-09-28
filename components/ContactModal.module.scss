@@ -13,7 +13,8 @@
   background-color: $blue;
   color: $white;
   
-  padding: 20%;
+  padding: var(--outer-margin); 
+  
   font-family: $headline-font;
   transform: translateY(100%);
   transition: transform 0.5s cubic-bezier(0.19, 0.92, 0, 1);
@@ -22,25 +23,26 @@
     transform: translateY(0%);
   }
   
-  p{
-    flex: 0 0 auto;
+  > p{
+    flex: 0 0;
     width: 100%;
     @include headerStyle(1);
-    font-family: $headline-font;
+    p{
+      @include headerStyle(1);
+    }
+    padding-left: spanNestedGrid(16, 2, true);
+    padding-right: spanNestedGrid(16, 2);
+    
     &:last-child{
       margin-bottom: 0;
     }
     h3{
       color:$black;
       @include headerStyle(2);
+      margin-bottom: 7px;
     }
     a{
       color:$bluelight;
-      
-      transition: opacity .3s ease;
-      &:hover{
-        //opacity: 1;
-      }
     }
   }
 
@@ -49,32 +51,18 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    left:0;
     bottom:0;
-    //right: 10px;
     padding: var(--outer-margin);
-    padding-bottom: var(--small-space);
     width: 100%;
-    .logo{
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      flex: 0 0 50%;
-      svg{
-        min-width: 192px;
-        min-height: 15px;
-        max-width: 192px;
-        max-height: 15px;
-        path{
-          fill:$black;
-        }
-      }
-    }
+    
     .links{
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: flex-end;
-      flex: 0 0 50%;
+      flex: 1 1 100%;
+      margin-bottom: -8px;
       a {
         display: flex;
         align-items: center;
@@ -94,8 +82,9 @@
   .close{
     position: absolute;
     top:0;
-    right: 14px;
+    right: 10px;
     @include headerStyle(2);
+    line-height: 1;
     margin: var(--outer-margin);
     cursor: pointer;
     color:$black;

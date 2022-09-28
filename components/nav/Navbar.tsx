@@ -24,15 +24,15 @@ export default function Navbar({ }: NavbarProps) {
   
   useEffect(()=>{
     
-    if(showContact || showMenuMobile) 
+    if(showMenuMobile || showContact) 
       return setInvertedMenu(true)
-
+    
     const banner = document.getElementById('banner')?.getBoundingClientRect()
     const logo = document.getElementById('logo')?.getBoundingClientRect()
 
     if(!banner)
       return setInvertedMenu(false)
-    if(!logo) 
+    if(!logo)
       return
 
     const { scrollY } = window
@@ -47,7 +47,7 @@ export default function Navbar({ }: NavbarProps) {
   
   return (
     <>
-      <div className={cn(s.navbar, invertedMenu && s.transparent)}>
+      <div className={cn(s.navbar, invertedMenu  && s.transparent)}>
         <Logo inverted={invertedMenu}/>
         <div className={s.hamburger}>
           <Hamburger 
