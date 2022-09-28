@@ -98,5 +98,6 @@
     @include headerStyle(2);
     margin: var(--outer-margin);
     cursor: pointer;
+    color:$black;
   }
 }

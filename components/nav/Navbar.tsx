@@ -7,7 +7,7 @@ import useStore from '/lib/store'
 import Link from 'next/link'
 import Skabholmen from '/public/images/skabholmen.svg'
 import Invest from '/public/images/invest.svg'
-import { Turn as Hamburger } from 'hamburger-react'
+import { Fade as Hamburger } from 'hamburger-react'
 import { usePage } from '/lib/context/page'
 
 type NavbarProps = {
@@ -20,22 +20,26 @@ export default function Navbar({ }: NavbarProps) {
   const router = useRouter()
   
   const { scrolledPosition, viewportHeight} = useScrollInfo()
-  const [showMenuMobile, setShowMenuMobile, showContact] = useStore((state) => [state.showMenuMobile, state.setShowMenuMobile, state.showContact])  
-  const [inverted, setInverted] = useState<boolean>(page.menu === 'inverted')
+  const [showMenuMobile, setShowMenuMobile, showContact, invertedMenu, setInvertedMenu] = useStore((state) => [state.showMenuMobile, state.setShowMenuMobile, state.showContact, state.invertedMenu, state.setInvertedMenu])  
   
   useEffect(()=>{
+    
+    if(showContact || showMenuMobile) 
+      return setInvertedMenu(true)
 
-    if(showContact) 
-      return setInverted(true)
-    if(showMenuMobile) 
-      return setInverted(true)
-
-    const banner = document.getElementById('banner')
+    const banner = document.getElementById('banner')?.getBoundingClientRect()
     const logo = document.getElementById('logo')?.getBoundingClientRect()
-    const inverted = page.menu === 'inverted' && (!banner || scrolledPosition < (banner.clientHeight - logo.top))
-    setInverted(inverted && !showMenuMobile)
 
-  }, [scrolledPosition, viewportHeight, page, showMenuMobile, showContact, showMenuMobile])
+    if(!banner)
+      return setInvertedMenu(false)
+    if(!logo) 
+      return
+
+    const { scrollY } = window
+    const isOverlayed = scrolledPosition >= (banner?.y + scrollY - logo.bottom) && scrolledPosition <= (banner?.y + banner?.height - logo.bottom) + scrollY
+    setInvertedMenu(isOverlayed)
+
+  }, [scrolledPosition, viewportHeight, page, showMenuMobile, showContact, setInvertedMenu])
 
   useEffect(()=>{
     setShowMenuMobile(false)
@@ -43,12 +47,12 @@ export default function Navbar({ }: NavbarProps) {
   
   return (
     <>
-      <div className={cn(s.navbar, (page.layout === 'full' || showMenuMobile) && s.transparent)}>
-        <Logo inverted={inverted}/>
+      <div className={cn(s.navbar, invertedMenu && s.transparent)}>
+        <Logo inverted={invertedMenu}/>
         <div className={s.hamburger}>
           <Hamburger 
             size={24} 
-            color={inverted ? '#fff' : '#000'} 
+            color={invertedMenu ? '#fff' : '#000'} 
             toggled={showMenuMobile} 
             onToggle={setShowMenuMobile}
           />
@@ -59,7 +63,7 @@ export default function Navbar({ }: NavbarProps) {
   )
 }
 
-const Logo = ({inverted}) =>{
+const Logo = ({inverted} : { inverted: boolean}) =>{
 
   return(
     <Link href="/">

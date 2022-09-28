@@ -1,6 +1,7 @@
 import s from './ContactModal.module.scss'
 import cn from 'classnames'
 import { Modal } from '/components'
+import { useKey } from 'rooks'
 import Markdown from '/lib/dato/components/Markdown'
 
 type ContactProps = {
@@ -10,6 +11,8 @@ type ContactProps = {
 }
 
 export default function ContactModal({ contact, show, onClose }: ContactProps) {
+
+  useKey(["Escape"], ()=> show && onClose());
 
   return(
     <Modal>

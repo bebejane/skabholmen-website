@@ -54,22 +54,24 @@
         text-transform: uppercase;
         line-height: 1;
         white-space: pre;
-
+        &.selected{
+          font-weight: bolder;
+        }
 
         .arrow {
           margin-left: .5rem;
           min-height: 7px;
           min-width: 10px;
           max-width: 10px;
-          transition: transform .2s ease;
-          transform: rotate(-90deg);
+          transition: transform .1s ease;
+          transform: rotateX(0deg);
 
           path {
             stroke: $black;
           }
 
           &.show {
-            transform: rotate(0deg);
+            transform: rotateX(-180deg);
           }
         }
       }

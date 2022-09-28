@@ -39,7 +39,7 @@ export default function MenuMobile({ menu, contact, banner = false }: MenuMobile
             return (
               <li id={id} key={idx} role="presentation">
                 <span id={id} className={s.title}  role="menuitem">
-                  {label} {children.length > 0 && false && <Arrow className={cn(s.arrow, id === selected && s.show)} />}
+                  {label} {children && children.length > 0 && false && <Arrow className={cn(s.arrow, id === selected && s.show)} />}
                 </span>
                 <ul 
                   id={`${id}-items`} 
@@ -47,7 +47,7 @@ export default function MenuMobile({ menu, contact, banner = false }: MenuMobile
                   className={cn(s.item, id === selected && s.show, inverted && s.inverted)} 
                   style={id === selected ? coords : undefined}
                 >
-                  {children.map(({ label, page }, idx) =>
+                  {children && children.map(({ label, page }, idx) =>
                     <li key={idx} role="menuitem">
                       {page?.slug ?
                         <Link href={page?.slug}><a>{label}</a></Link>

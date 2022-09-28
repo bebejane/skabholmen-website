@@ -20,12 +20,11 @@ export default function Menu({ menu, banner = false, contact }: MenuProps) {
   const page = usePage()
   
   const { isPageBottom, isPageTop, isScrolledUp, scrolledPosition, viewportHeight} = useScrollInfo()
-  const [showMenu, setShowMenu] = useStore((state) => [state.showMenu, state.setShowMenu])
+  const [showMenu, setShowMenu, invertedMenu] = useStore((state) => [state.showMenu, state.setShowMenu, state.invertedMenu])
   const [selected, setSelected] = useState<string | undefined>()
   const [showContact, setShowContact] = useStore((state) => [state.showContact, state.setShowContact])
   const [coords, setCoords] = useState<any>({left:0, top:0})
-  const [inverted, setInverted] = useState<boolean>(page.menu === 'inverted')
-
+  
   const handleMouseOver = (e: React.MouseEvent<HTMLLIElement>) => {
 
     const el = document.getElementById(e.currentTarget.id)
@@ -49,22 +48,18 @@ export default function Menu({ menu, banner = false, contact }: MenuProps) {
   }, [router.asPath, setSelected])
   
   useEffect(()=>{
-    const banner = document.getElementById('banner')
-    setInverted(page.menu === 'inverted' && (!banner || scrolledPosition < banner.clientHeight))
-  }, [scrolledPosition, viewportHeight, page])
-
-  useEffect(()=>{
     setShowMenu(!showContact)
   }, [showContact, setShowMenu])
 
   return (
     <>
-      <nav className={cn(s.menu, !showMenu && s.hide, inverted && s.invert)} role="menu">
+      <nav className={cn(s.menu, !showMenu && s.hide, invertedMenu && s.invert)} role="menu">
         <ul>
           {menu.map(({ id, label, page, children }, idx) => {
+            const isSelected = children.find(({page}) => `/${page?.slug}` === router.asPath)
             return (
               <li id={id} key={idx} onMouseLeave={handleMouseOver} role="presentation">
-                <span id={id} className={s.title} onMouseEnter={handleMouseOver} role="menuitem">
+                <span id={id} className={cn(s.title, isSelected && s.selected)} onMouseEnter={handleMouseOver} role="menuitem">
                   {label} {children.length > 0 && <Arrow className={cn(s.arrow, id === selected && s.show)} />}
                 </span>
               </li>
@@ -82,7 +77,7 @@ export default function Menu({ menu, banner = false, contact }: MenuProps) {
             key={`${id}-items`} 
             onMouseEnter={(e)=>setSelected(id)} 
             onMouseLeave={(e)=>setSelected(undefined)} 
-            className={cn(s.item, id === selected && s.show, inverted && s.inverted)} 
+            className={cn(s.item, id === selected && s.show, invertedMenu && s.inverted)} 
             style={id === selected ? coords : undefined}
           >
             {children.map(({ label, page }, idx) =>
@@ -98,7 +93,6 @@ export default function Menu({ menu, banner = false, contact }: MenuProps) {
                 }
               </li>
             )}
-            
           </ul>
         )})
       }
