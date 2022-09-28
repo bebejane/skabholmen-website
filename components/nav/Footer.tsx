@@ -42,6 +42,7 @@ export default function Footer({contact: { phone, email, address, social }, menu
           </ul>
           <div className={s.up} onClick={()=>window.scrollTo({top:0, behavior:'smooth'})}><Up/></div>
         </div>
+        
         <div className={s.bottom}>
           <div className={s.phone}><a href={`tel://${phone}`}>{phone}</a></div>
           <div className={s.email}><a href={`mailto:${email}`}>{email}</a></div>

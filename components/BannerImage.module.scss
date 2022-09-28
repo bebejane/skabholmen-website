@@ -1,14 +1,15 @@
 .bannerImage{
-  position: relative;
-  
+  position: relative;  
   max-height: 50vh;
   min-height: 50vh;
+  width: 100%;
   &.top{
     margin-bottom: var(--space);
   }
   .image{
     min-height: 50vh;
     max-height: 50vh;
+    min-width: 100%;
   }
   .stripeQuarter, .stripeHalf{
     position: absolute;

@@ -10,6 +10,7 @@
   padding-bottom: var(--space);
   font-family: "Brown";
   color: $graydark;
+
   &.separator{
     border-top: 1px solid $blue;
   }
@@ -85,9 +86,13 @@
       margin-right: 0;
       .top{
         text-align: center;
-        flex-direction: column;
+        flex-direction: row;
         margin-bottom: 0;
+        justify-content: space-evenly;
         ul{
+          flex: 0 0 !important;
+          text-align: left;
+          white-space: pre;
           margin-bottom: calc(var(--space) /2)
         }
         .address{
@@ -96,11 +101,6 @@
             margin-bottom: calc(var(--space) /2)
           }
         }
-        
-        .menu, .social{
-          flex: 1 1 100%;
-        }
-        
       }
     }
     .bottom{
@@ -122,7 +122,7 @@
 
       @include mq($until: tablet){
         .phone{
-          //margin-top: var(--small-space);
+          margin-top: var(--space) !important;
         }
         .phone, .email{
           margin: 0;
@@ -131,7 +131,8 @@
         }
         .copyright{
           text-align: center;
-          //margin-top: var(--space);
+          //
+          margin-bottom: 0;
         }
       }
     }
