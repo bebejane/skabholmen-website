@@ -34,11 +34,13 @@
       text-transform: uppercase;
       margin-bottom: calc(var(--small-space) *2);
       color:$black;
-      
+      span{
+        
+      }
       ul{
         @include headerStyle(1);
         list-style: none;
-        margin-left: 10px;
+        margin-left: 0px;
         li{
           color:$white;
           text-transform: capitalize;

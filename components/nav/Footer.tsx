@@ -3,6 +3,7 @@ import cn from 'classnames'
 import { usePage } from '/lib/context/page'
 import Markdown from '/lib/dato/components/Markdown'
 import Up from '/public/images/up.svg'
+import Link from 'next/link'
 
 export type FooterProps = {
   contact: GlobalQuery['contact'],
@@ -21,9 +22,16 @@ export default function Footer({contact: { phone, email, address, social }, menu
             {address}
           </Markdown>
           <ul className={s.menu}>
-            {menu.map(({label}, idx) => 
-              <li key={idx}>{label}</li>
-            )}
+          {menu.map(({children}, idx) => 
+            children.map(({label, page}, idx) => 
+              page ? 
+                <Link key={idx} href={page?.slug}>
+                  <a><li>{label}</li></a>
+                </Link>
+              :
+                <><li>{label}</li></>
+            )
+          )}
           </ul>
           <ul className={s.social}>
             {social.map(({name, url}, idx) => 

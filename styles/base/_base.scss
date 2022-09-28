@@ -79,3 +79,17 @@ a {
 		color: $black;
 	}
 }
+
+
+hr{
+  height: 1px;
+  background: $blue;
+  border: 0;
+  padding: 0;
+  margin-bottom: var(--small-space);
+  margin-top: var(--small-space);
+	@include mq($until: tablet){
+		margin-left: calc(var(--outer-margin) * -1);
+		margin-right: calc(var(--outer-margin) * -1);
+	}
+}

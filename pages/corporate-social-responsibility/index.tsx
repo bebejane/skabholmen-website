@@ -7,11 +7,11 @@ import Markdown from '/lib/dato/components/Markdown';
 
 import type { GetStaticProps } from 'next';
 import type { PageProps } from '/lib/context/page';
-
+import { format } from 'date-fns'
 type Props = { responsibility: ResponsibilityRecord }
 
 export default function Responsibility({ responsibility : {title, intro, image, projects }}: Props) {
-
+	
 	return (
 		<Content className={s.responsibility}>
       <Intro title={title} intro={intro}/>
@@ -22,7 +22,7 @@ export default function Responsibility({ responsibility : {title, intro, image, 
 					<li key={id}>
 						<div className={s.title}>
 							<h2>{title}</h2>
-							<h3>{startDate}</h3>
+							<h3>Since {format(new Date(startDate), 'yyyy')}</h3>
 						</div>
 						<div className={s.description}>
 							<Markdown>{description}</Markdown>

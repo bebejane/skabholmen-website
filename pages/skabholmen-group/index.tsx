@@ -2,11 +2,10 @@ import s from './index.module.scss'
 import withGlobalProps from '/lib/withGlobalProps';
 import { Content, Intro, BannerImage } from '/components';
 import { SkabholmenGroupDocument } from '/graphql'
-import { Image } from 'react-datocms'
-import Markdown from '/lib/dato/components/Markdown';
 
 import type { GetStaticProps } from 'next';
 import type { PageProps } from '../../lib/context/page';
+import React from 'react';
 
 type Props = { skabholmenGroup: SkabholmenGroupRecord, partners: PartnerRecord[] }
 
@@ -36,7 +35,7 @@ export default function SkabholmenGroup({ skabholmenGroup: {title, intro, image 
 				{Object.keys(partnersByCategory).map(key => {
 					const category = partnersByCategory[key]
 					return (
-						<>
+						<React.Fragment key={key}>
 							<h1>{category.name}</h1>
 							<hr/>
 							<ul>
@@ -44,7 +43,7 @@ export default function SkabholmenGroup({ skabholmenGroup: {title, intro, image 
 									<li key={id}>{name}</li>
 								)}
 							</ul>
-						</>
+						</React.Fragment>
 					)
 				})}
 			</>

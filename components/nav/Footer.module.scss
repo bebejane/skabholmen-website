@@ -116,20 +116,18 @@
 
       @include mq($until: tablet){
         .phone{
-          margin-top: var(--small-space);
+          //margin-top: var(--small-space);
         }
         .phone, .email{
-          
+          margin: 0;
           text-align: center;
           flex: 1 1 100%;
         }
         .copyright{
           text-align: center;
-          margin-top: var(--small-space);
+          //margin-top: var(--space);
         }
       }
     }
-    
   }
-  
 }

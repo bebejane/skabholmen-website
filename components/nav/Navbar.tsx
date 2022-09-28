@@ -24,6 +24,7 @@ export default function Navbar({ }: NavbarProps) {
   const [inverted, setInverted] = useState<boolean>(page.menu === 'inverted')
   
   useEffect(()=>{
+
     if(showContact) 
       return setInverted(true)
     if(showMenuMobile) 
@@ -57,7 +58,6 @@ export default function Navbar({ }: NavbarProps) {
     </>
   )
 }
-
 
 const Logo = ({inverted}) =>{
 

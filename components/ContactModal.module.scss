@@ -35,11 +35,11 @@
       @include headerStyle(2);
     }
     a{
-      color:$white;
-      opacity: 0.7;
+      color:$bluelight;
+      
       transition: opacity .3s ease;
       &:hover{
-        opacity: 1;
+        //opacity: 1;
       }
     }
   }
@@ -79,12 +79,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        flex: 0 0 48px;
-        
+        flex: 0 0;
+        padding: 8px;
         img{
-          min-height: 28px;
-          max-height: 28px;
-          margin: 10px;
+          min-height: 26px;
+          max-height: 26px;
+          margin: 0px;
         }
       }
     }
