@@ -22,7 +22,7 @@ export default function ContactModal({ contact, show, onClose }: ContactProps) {
           Give us a call at <a href={`tel://${contact.phone}`}>{contact.phone}</a> or send an email to <a href={`mailto:${contact.email}`}>{contact.email}</a>
         </p>
         <p>
-          <h3>Snail mail</h3>
+          <h3>Office Address</h3>
           <Markdown>{contact.address}</Markdown>
         </p>
         <div className={s.footer}>

@@ -47,7 +47,7 @@ export default function Navbar({ }: NavbarProps) {
   
   return (
     <>
-      <div className={cn(s.navbar, invertedMenu  && s.transparent)}>
+      <div className={cn(s.navbar, invertedMenu && s.transparent)}>
         <Logo inverted={invertedMenu}/>
         <div className={s.hamburger}>
           <Hamburger 

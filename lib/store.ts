@@ -15,7 +15,7 @@ const useStore = create<StoreState>((set) => ({
 	showMenu: true,
   showMenuMobile: false,
   showContact:false,
-  invertedMenu: false,
+  invertedMenu: true,
 	setShowMenu: (showMenu : boolean) =>  
     set((state) => ({
       showMenu

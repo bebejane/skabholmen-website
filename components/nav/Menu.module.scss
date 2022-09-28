@@ -63,15 +63,15 @@
           min-height: 7px;
           min-width: 10px;
           max-width: 10px;
-          transition: transform .1s ease;
-          transform: rotateX(0deg);
+          transition: transform .3s ease;
+          transform: rotate(0deg);
 
           path {
             stroke: $black;
           }
 
           &.show {
-            transform: rotateX(-180deg);
+            transform: rotate(-90deg);
           }
         }
       }

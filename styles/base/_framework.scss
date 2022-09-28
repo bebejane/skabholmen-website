@@ -5,7 +5,7 @@
   --line: var(--line-width) solid #{$blue};
   
   @include mq($from: tablet){
-    --outer-margin: 40px;
+    --outer-margin: 50px;
     --space: 80px;
     --small-space: 20px;
     --h1-font-size: 40px;
