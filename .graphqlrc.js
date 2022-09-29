@@ -11,7 +11,7 @@ const config =  {
 
 module.exports = {
 	schema: {
-		"https://graphql.datocms.com": {
+		"https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/cl8lmt79r2w5e01t9hph585ax/master": {
 			headers: {
 				Authorization: process.env.GRAPHQL_API_TOKEN,
 				"X-Exclude-Invalid": true,
