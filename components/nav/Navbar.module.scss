@@ -65,12 +65,13 @@
       }
       @include mq($from: wide) {
         &:nth-child(1) {
-          width: calc(113px * 1.6);
-          height: calc(15px * 1.6); 
+          width: calc(113px * 1.4);
+          height: calc(15px * 1.4); 
+          margin-right: 12px;
         }
         &:nth-child(2) {
-          width: calc(52px * 1.6);
-          height: calc(15px * 1.6);
+          width: calc(52px * 1.4);
+          height: calc(15px * 1.4);
         }
       }
     }
