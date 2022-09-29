@@ -9,7 +9,7 @@ body {
 	background-color: $white;
 	-moz-osx-font-smoothing: grayscale;
 	font-feature-settings: "liga", "kern";
-	
+	font-size: var(--body-font-size);
 }
 
 html {
