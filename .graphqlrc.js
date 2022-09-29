@@ -30,6 +30,7 @@ module.exports = {
 					],
 					config:{...config, noExport: true}
 				},
+				
         "graphql/index.ts": {
           plugins: ["typed-document-node"],
 					config

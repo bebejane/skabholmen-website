@@ -1,0 +1,6 @@
+
+query Start {
+	starts {
+    id
+  }
+}
