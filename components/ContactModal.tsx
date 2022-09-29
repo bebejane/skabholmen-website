@@ -3,6 +3,7 @@ import cn from 'classnames'
 import { Modal } from '/components'
 import { useKey } from 'rooks'
 import Markdown from '/lib/dato/components/Markdown'
+import Close from '/public/images/close.svg'
 
 type ContactProps = {
   contact: ContactRecord,
@@ -34,7 +35,7 @@ export default function ContactModal({ contact, show, onClose }: ContactProps) {
             )}
           </div>
         </div>
-        <div className={s.close} onClick={onClose}>Close</div>
+        <div className={s.close} onClick={onClose}><Close/></div>
       </div> 
     </Modal>
   )

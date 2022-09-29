@@ -81,11 +81,17 @@
   .close{
     position: absolute;
     top:0;
-    right: 10px;
-    @include headerStyle(2);
-    line-height: 1;
+    right: 0;
     margin: var(--outer-margin);
     cursor: pointer;
-    color:$black;
+    color:$white;
+    svg{
+      width: 15px;
+      height: 15px;
+      path{
+        fill:$black;
+      }
+    }
+    
   }
 }

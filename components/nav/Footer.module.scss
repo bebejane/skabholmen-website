@@ -72,7 +72,7 @@
         .address{
           flex: 1 1 100% !important;
           p{
-            margin-bottom: calc(var(--space) /2)
+            margin-bottom: var(--space);
           }
         }
       }

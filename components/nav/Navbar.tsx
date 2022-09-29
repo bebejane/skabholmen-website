@@ -52,7 +52,7 @@ export default function Navbar({ }: NavbarProps) {
         <div className={s.hamburger}>
           <Hamburger 
             size={24} 
-            color={invertedMenu ? '#fff' : '#000'} 
+            color={invertedMenu && !showMenuMobile ? '#fff' : '#000'} 
             toggled={showMenuMobile} 
             onToggle={setShowMenuMobile}
           />
