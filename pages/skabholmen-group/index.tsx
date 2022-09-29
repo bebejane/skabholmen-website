@@ -29,26 +29,26 @@ export default function SkabholmenGroup({ skabholmenGroup: {title, intro, image 
 
 	return (
 		<>
-		<Content className={s.skabholmenGroup}>
-      <Intro title={title} intro={intro}/>
-			<>
-				{Object.keys(partnersByCategory).map(key => {
-					const category = partnersByCategory[key]
-					return (
-						<React.Fragment key={key}>
-							<h1>{category.name}</h1>
-							<hr/>
-							<ul>
-								{category.items.map(({id, name}) => 
-									<li key={id}>{name}</li>
-								)}
-							</ul>
-						</React.Fragment>
-					)
-				})}
-			</>
-    </Content>
-		<BannerImage image={image} stripes={false}/>
+			<Content className={s.skabholmenGroup}>
+				<Intro title={title} intro={intro}/>
+				<>
+					{Object.keys(partnersByCategory).map(key => {
+						const category = partnersByCategory[key]
+						return (
+							<React.Fragment key={key}>
+								<h1>{category.name}</h1>
+								<hr/>
+								<ul>
+									{category.items.map(({id, name}) => 
+										<li key={id}>{name}</li>
+									)}
+								</ul>
+							</React.Fragment>
+						)
+					})}
+				</>
+			</Content>
+			<BannerImage image={image} stripes={false}/>
 		</>
 	)
 }

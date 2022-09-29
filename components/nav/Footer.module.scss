@@ -123,19 +123,33 @@
     min-height: 52px;
     border-radius: 26px;
     background-color: $blue;
-    //transform: translateY(-25px);
     cursor: pointer;
-
+    transform: scale(1);
+    transition: transform .3s ease-out;
+    
+    &:hover{
+      transform: scale(1.05);
+      svg{
+        animation: bounce .5s ease 2;
+        @keyframes bounce {
+          0%{
+            transform: translateY(0px);
+          }
+          50%{
+            transform: translateY(-2px);
+          }
+          100%{
+            transform: translateY(0px);
+          }
+        }
+      }
+    }
     svg{
       width: 12px;
       height: 17px;
       
     }
-    transform: scale(1);
-    transition: transform .3s ease-out;
-    &:hover{
-      transform: scale(1.05);
-    }
+    
     @include mq($until: tablet){
       display: none;
     }

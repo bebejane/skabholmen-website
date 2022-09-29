@@ -107,19 +107,20 @@
   }
   
   li{
-    padding: 0;
+    
     flex: 0 0;
     text-align: center;
     line-height: 25px;
     background-color: $white;
-    padding-bottom: calc($small-space);
+    padding: $small-space;
+    padding-top: 0;
     border-left: var(--line-width) solid $graylight;
     border-right: var(--line-width) solid $graylight;
     line-height: 1;
 
     &:first-child{
       border-top: var(--line-width) solid $graylight;
-      padding-top: calc($small-space);
+      padding-top: $small-space;
     }
     &:last-child{
       border-bottom: var(--line-width) solid $graylight;

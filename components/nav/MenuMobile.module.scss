@@ -17,18 +17,16 @@
   padding-top: calc(var(--navbar-height) + var(--space));
   font-family: $headline-font;
     
-
   @include mq($from: tablet){
     display: none;
   }
 
   &.show{
-    transform: translateX(0%);
+    transform: translateX(0%); 
   }
  
   >ul{
     list-style: none;
-    
     >li{
       @include headerStyle(2);
       text-transform: uppercase;
