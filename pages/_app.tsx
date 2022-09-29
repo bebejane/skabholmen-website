@@ -32,7 +32,15 @@ function MyApp({ Component , pageProps } : Props) {
   return (
     <>
       <GoogleAnalytics />
-      <DatoSEO seo={seo} site={site} pathname={pathname} key={pathname} noindex={true}/>
+      <DatoSEO 
+        seo={seo} 
+        site={site} 
+        pathname={pathname} 
+        key={pathname} 
+        noindex={true}
+        separator={' · '}
+        //title={pageProps.title}
+      />
       <PageProvider value={page}>
         <Navbar/>
         <Menu menu={pageProps.menu} contact={contact}/>

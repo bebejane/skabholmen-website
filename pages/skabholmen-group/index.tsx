@@ -55,7 +55,7 @@ export default function SkabholmenGroup({ skabholmenGroup: {title, intro, image 
 
 SkabholmenGroup.page = {layout: 'page', menu:'normal'} as PageProps
 
-export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [SkabholmenGroupDocument] }, async ({ props, revalidate }: any) => {
+export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [SkabholmenGroupDocument], seo:'skabholmenGroup' }, async ({ props, revalidate }: any) => {
 
 	return {
 		props,

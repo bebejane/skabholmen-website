@@ -21,7 +21,7 @@ export default function InvestmentPhilosophy({ investmentPhilosophy : {title, in
 
 InvestmentPhilosophy.page = {layout: 'full', menu:'inverted', footerSeparator: true} as PageProps
 
-export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [InvestmentPhilosophyDocument] }, async ({ props, revalidate }: any) => {
+export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [InvestmentPhilosophyDocument], seo:'investmentPhilosophy' }, async ({ props, revalidate }: any) => {
 
 	return {
 		props,

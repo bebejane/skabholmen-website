@@ -1,6 +1,6 @@
 import { NextSeo, DefaultSeo } from 'next-seo';
 
-const DatoSEO = ({seo = {}, site = {}, pathname, title, subtitle, description, noindex = false} : any) => {
+const DatoSEO = ({seo = {}, site = {}, pathname, title, subtitle, description, separator = ' ', noindex = false} : any) => {
   
   const meta = parseDatoMetaTags({seo, site, pathname}) 
   const { globalSeo, favicon } = site
@@ -8,8 +8,9 @@ const DatoSEO = ({seo = {}, site = {}, pathname, title, subtitle, description, n
   const images = generateImages(meta["og:image"], meta["og:image:width"], meta["og:image:height"])
   const url = `${process.env.NEXT_PUBLIC_SITE_URL}${pathname || ''}`
 
-  title = title ? title : globalSeo ? globalSeo?.siteName : 'Site title'
-  title = `${title} ${globalSeo?.titleSuffix ? ` ${globalSeo?.titleSuffix}` : ''}${subtitle ? ` ${subtitle}` : ''}`
+  subtitle = subtitle || seo.tags?.find(({tag}) => tag === 'title')?.content || ''
+  title = title ? title : globalSeo ? globalSeo?.siteName : ''
+  title = `${title}${subtitle ? `${separator}${subtitle}` : ''}`
   description = description ? description : meta.description ? meta.description : globalSeo ? globalSeo?.fallbackSeo.description : 'Site description';
   
   const twitterProps : any = {

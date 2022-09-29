@@ -26,7 +26,7 @@ export default function Home({ start: { intro, image } }: HomeProps) {
 Home.page = {layout: 'full', menu:'inverted'} as PageProps
 
 
-export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [StartDocument] }, async ({ props, revalidate }: any) => {
+export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [StartDocument]}, async ({ props, revalidate }: any) => {
 
 	return {
 		props,
