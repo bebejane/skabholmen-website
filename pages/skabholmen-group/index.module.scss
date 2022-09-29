@@ -3,9 +3,10 @@
     list-style: none;
     display: flex;
     flex-direction: row;
-    
+    flex-wrap: wrap;
     margin-bottom: var(--space);
     padding-bottom: var(--space);
+    margin-bottom: -.5em;
 
     &:last-child {
       border-bottom: 0;
@@ -13,12 +14,22 @@
     }
 
     li {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      min-width: spanNestedGrid(12, 3);
-      margin-right: nestedGridGutter(12);
-      @include resetLastColumn(4);
+      margin-bottom: .5em;
+      
+      @include mq($from: tablet){
+        flex: 0 0 spanNestedGrid(12, 3, true);
+        &:nth-of-type(4n){
+          flex: 0 0 spanNestedGrid(12, 3, false);
+        }
+        
+      }
+      @include mq($until: tablet){
+        flex: 0 0 spanNestedGrid(12, 6);
+        &:nth-of-type(2n){
+          flex: 0 0 spanNestedGrid(12, 6, false);
+        }
+      }
+      
     }
   }  
 }

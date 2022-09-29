@@ -25,6 +25,7 @@
     --body-font-size: 12px;
     --navbar-height : 60px;
   }
+  
   @include mq($from: wide){
     --outer-margin: 70px;
     --space: 100px;

@@ -15,6 +15,7 @@
     border-top: 1px solid $blue;
   }
   .wrap{
+    position: relative;
     display: flex;
     flex-direction: column;
     margin-left: spanGridWithGutter(2);
@@ -49,36 +50,9 @@
       }
       .social{
         flex: 0 0 spanNestedGrid(12, 2);
+        width: 100%;
       }
-      .up{
-        position: absolute;
-        top:0;
-        right:0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 52px;
-        min-height: 52px;
-        border-radius: 26px;
-        background-color: $blue;
-        transform: translateY(-25px);
-        margin-right:-100px;
-        cursor: pointer;
-
-        svg{
-          width: 12px;
-          height: 17px;
-          
-        }
-        transform: scale(1);
-        transition: transform .3s ease-out;
-        &:hover{
-          transform: scale(1.05);
-        }
-        @include mq($until: tablet){
-          display: none;
-        }
-      }
+      
     }
 
     @include mq($until: tablet){
@@ -135,6 +109,35 @@
           margin-bottom: 0;
         }
       }
+    }
+  }
+  .up{
+    position: absolute;
+    top:calc(var(--space) - calc(52px / 2));
+    right:calc(var(--outer-margin));
+    margin-right: calc(spanGrid(1) + 10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 52px;
+    min-height: 52px;
+    border-radius: 26px;
+    background-color: $blue;
+    //transform: translateY(-25px);
+    cursor: pointer;
+
+    svg{
+      width: 12px;
+      height: 17px;
+      
+    }
+    transform: scale(1);
+    transition: transform .3s ease-out;
+    &:hover{
+      transform: scale(1.05);
+    }
+    @include mq($until: tablet){
+      display: none;
     }
   }
 }

@@ -10,8 +10,10 @@ type Props = {
 export default function Content({children, className} : Props){
 
 	return (
-		<article className={cn(s.content, className)}>
-			{children}
-		</article>
+		<div className={s.wrap}>
+			<article className={cn(s.content, className)}>
+				{children}
+			</article>
+		</div>
 	)
 }

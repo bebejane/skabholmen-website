@@ -7,8 +7,14 @@
 }
 
 // WIDTH OF UNITS IN GRID WITHOUT LAST GUTTER
-@function spanGrid($amount) {
-  @return $column-width * $amount + $gutter * ($amount - 1);
+@function spanGrid($amount, $withGutter: false) {
+
+  $width: $column-width * $amount + $gutter * ($amount - 1);
+
+  @if $withGutter{
+    $width: $width + $gutter;
+  }
+  @return $width;
 }
 
 $totalWidth12cols: spanGrid(12);

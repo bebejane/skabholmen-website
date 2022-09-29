@@ -40,7 +40,6 @@ export default function Footer({contact: { phone, email, address, social }, menu
               </li> 
             )}
           </ul>
-          <div className={s.up} onClick={()=>window.scrollTo({top:0, behavior:'smooth'})}><Up/></div>
         </div>
         
         <div className={s.bottom}>
@@ -49,6 +48,7 @@ export default function Footer({contact: { phone, email, address, social }, menu
           <div className={s.copyright}>© 2022 Skabholmen Invest. All rights reserved.</div>
         </div>
       </div>
+      <div className={s.up} onClick={()=>window.scrollTo({top:0, behavior:'smooth'})}><Up/></div>
 		</footer>
 	)
 }

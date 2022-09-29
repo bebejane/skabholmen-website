@@ -1,5 +1,7 @@
 .full{
-  
+  position: relative;
+  //margin-left: var(--outer-margin);
+  //margin-right: var(--outer-margin);
 }
 
 .page{
@@ -7,4 +9,6 @@
   display: flex;
   flex-direction: column;
   margin-top: 186px;
+  //margin-left: var(--outer-margin);
+  //margin-right: var(--outer-margin);
 }

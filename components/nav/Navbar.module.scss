@@ -26,7 +26,10 @@
     padding: 0;
 
     @include mq($from: tablet) {
-      top: calc(var(--outer-margin) - 4px);
+      top: calc(var(--outer-margin) - 2px);
+    }
+    @include mq($from: wide) {
+      top: calc(var(--outer-margin) - 8px);
     }
     
     
@@ -62,12 +65,12 @@
       }
       @include mq($from: wide) {
         &:nth-child(1) {
-          width: calc(113px * 1.3);
-          height: calc(15px * 1.3); 
+          width: calc(113px * 1.6);
+          height: calc(15px * 1.6); 
         }
         &:nth-child(2) {
-          width: calc(52px * 1.3);
-          height: calc(15px * 1.3);
+          width: calc(52px * 1.6);
+          height: calc(15px * 1.6);
         }
       }
     }
