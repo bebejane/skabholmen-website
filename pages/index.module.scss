@@ -14,14 +14,16 @@
   .intro{
     position: absolute;
     top:30%;
-    right: var(--outer-margin);
-    left: var(--outer-margin);
+    left: 0;
     z-index: 1;
-    padding-left: spanGrid(4);
+    padding-left: var(--outer-margin);
+    padding-right: var(--outer-margin);
 
     p{
+      padding-left: spanGrid(4, true);
       font-size: var(--h1-font-size);
       line-height: calc(var(--h1-font-size) + 3px);
+      margin-bottom: 0;
     }
 
     @include mq($until: tablet){
@@ -30,7 +32,9 @@
       justify-content: center;
       top:0%;
       min-height: 100vh;
-      padding-left: 0;
+      p{
+        padding-left: 0;
+      }
     }
   }
 }

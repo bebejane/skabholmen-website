@@ -59,11 +59,11 @@
     .social{
       display: flex;
       justify-content: center;
-      margin-bottom: var(--small-space);
+      //margin-bottom: var(--small-space);
       a {
-        padding:10px;
+        padding:5px;
         img{
-          
+          filter: invert(1);
           min-height: 20px;
           max-height: 20px;
           min-width: 20px;
