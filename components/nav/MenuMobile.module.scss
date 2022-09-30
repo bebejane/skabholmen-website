@@ -17,7 +17,7 @@
   padding-top: calc(var(--navbar-height) + var(--space));
   font-family: $headline-font;
     
-  @include mq($from: tablet){
+  @include mq($from: desktop){
     display: none;
   }
 
