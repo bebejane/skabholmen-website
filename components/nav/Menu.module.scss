@@ -4,17 +4,19 @@
   color: $white;
   font-family: "Brown";
   top: var(--outer-margin);
-  right: 0;
-  padding-right: var(--outer-margin);
-  padding-left: 10px;
-  width: spanGrid(10);
+  right: 0;//var(--outer-margin);
+  left: 0;
+  margin-right: var(--outer-margin);
+  margin-left: var(--outer-margin);
+  
   opacity: 1;
   transition: opacity .3s ease;
   color: $black;
 
-  @include mq($until: tablet) {
+  @include mq($until: desktop) {
     display: none;
   }
+  
   &.hide{
     opacity: 0;
     pointer-events: none;
@@ -35,6 +37,7 @@
   }
 
   ul {
+    padding-left: spanGrid(5, true);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -57,9 +60,11 @@
         &.selected{
           font-weight: bolder;
         }
-
+        &.contact{
+          visibility: hidden;
+        }
         .arrow {
-          margin-left: .5rem;
+          margin-left: .25em;
           min-height: 7px;
           min-width: 10px;
           max-width: 10px;
@@ -71,12 +76,53 @@
           }
 
           &.show {
-            transform: rotate(-90deg);
+            transform: rotate(180deg);
           }
         }
       }
     }
   }
+
+}
+
+.contactButton{
+  //display: none;
+  position: fixed;
+  appearance: none;
+  top:0;
+  right: -22px;
+  z-index: 1000;
+  margin:var(--outer-margin);
+  box-shadow: none;
+  border: 0;
+  padding: 12px 20px 12px 20px;
+  color: $black;
+  border-radius: 30px;
+  border: 2px solid transparent;
+  background-color: transparent;
+  text-transform: uppercase;
+  font-family: "Brown";
+  cursor: pointer;
+  transform: translateY(calc(-50% + 7px));
+
+  @include mq($until: desktop) {
+    display: none;
+  }
+  @include mq($from: wide) {
+    transform: translateY(calc(-50% + 10px));
+  }
+
+  &:hover{
+    //background-color: $blue;
+    //border: 2px solid $blue;
+    border: 2px solid $black;
+  }
+  &.inverted{
+    color: $white;
+    &:hover{
+      border: 2px solid $white;
+    }  
+  } 
 }
 
 .item {

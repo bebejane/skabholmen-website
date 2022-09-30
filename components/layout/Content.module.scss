@@ -4,7 +4,7 @@
   .content{
     position: relative;
     padding-left: spanGrid(4, true);
-    @include mq($until: tablet){
+    @include mq($until: desktop){
       padding-left: 0;
     }
   }

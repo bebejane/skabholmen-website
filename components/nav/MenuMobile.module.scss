@@ -28,7 +28,7 @@
   >ul{
     list-style: none;
     >li{
-      @include headerStyle(2);
+      @include headerStyle(3);
       text-transform: uppercase;
       margin-bottom: calc(var(--small-space) *2);
       color:$black;
@@ -36,7 +36,7 @@
         
       }
       ul{
-        @include headerStyle(1);
+        @include headerStyle(2);
         list-style: none;
         margin-left: 0px;
         li{

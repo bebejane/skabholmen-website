@@ -4,7 +4,7 @@
   --line-width: 1px;
   --line: var(--line-width) solid #{$blue};
   
-  @include mq($from: tablet){
+  @include mq($from: desktop){
     --outer-margin: 50px;
     --space: 80px;
     --small-space: 20px;
@@ -15,7 +15,7 @@
     --navbar-height : 100px;
   }
   
-  @include mq($until: tablet){
+  @include mq($until: desktop){
     --outer-margin: 20px;
     --space: 40px;
     --small-space: 10px;

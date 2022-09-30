@@ -75,6 +75,9 @@
             margin-bottom: var(--space);
           }
         }
+        .menu, .social{
+          margin-bottom: 0;
+        }
       }
     }
     .bottom{
@@ -95,6 +98,7 @@
       }
 
       @include mq($until: tablet){
+        margin-top: var(--space);
         .phone{
           margin-top: var(--space) !important;
         }
@@ -105,7 +109,7 @@
         }
         .copyright{
           text-align: center;
-          //
+          //margin-top: var(--space);
           margin-bottom: 0;
         }
       }
@@ -130,7 +134,7 @@
     &:hover{
       transform: scale(1.05);
       svg{
-        animation: bounce .5s ease 2;
+        animation: bounce .5s ease infinite;
         @keyframes bounce {
           0%{
             transform: translateY(0px);

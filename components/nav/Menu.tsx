@@ -66,7 +66,7 @@ export default function Menu({ menu, banner = false, contact }: MenuProps) {
             )
           })}
           <li role="menuitem" onClick={()=>setShowContact(true)}>
-            <span className={s.title}>Contact</span>
+            <span className={cn(s.title, s.contact)}>Contact</span>
           </li>
         </ul>
       </nav>
@@ -96,6 +96,12 @@ export default function Menu({ menu, banner = false, contact }: MenuProps) {
           </ul>
         )})
       }
+      <button 
+        className={cn(s.contactButton, invertedMenu && s.inverted)} 
+        onClick={()=>setShowContact(true)}
+      >
+        Contact
+      </button>
       <ContactModal 
         contact={contact} 
         show={showContact} 
@@ -104,7 +110,6 @@ export default function Menu({ menu, banner = false, contact }: MenuProps) {
     </>
   )
 }
-
 
 const Logo = ({inverted}) =>{
 

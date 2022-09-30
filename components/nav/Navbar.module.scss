@@ -1,7 +1,7 @@
 
 .navbar {
   position: fixed;
-  z-index: 1000;
+  z-index: 3000;
   color: $white;
   display: flex;
   flex-direction: row;
@@ -9,12 +9,12 @@
   top: 0;
   left: 0;
   
-  @include mq($until: tablet) {
+  @include mq($until: desktop) {
     background-color: $white;
     width: 100%;
     min-height: var(--navbar-height); 
   }
-
+  transition: background-color .2s ease-out;
   &.transparent{
     background-color: transparent;
   }
@@ -25,7 +25,7 @@
     line-height: 0;
     padding: 0;
 
-    @include mq($from: tablet) {
+    @include mq($from: desktop) {
       top: calc(var(--outer-margin) - 2px);
     }
     @include mq($from: wide) {
@@ -83,7 +83,7 @@
     flex: 1 1 auto;
     color: $black;
     margin-right: calc(28px - var(--outer-margin));
-    @include mq($from: tablet) {
+    @include mq($from: desktop) {
       display: none;
     }
   }
