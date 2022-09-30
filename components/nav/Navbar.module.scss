@@ -52,14 +52,14 @@
       &:nth-child(2) {
         width: 52px;
         height: 15px;
-        transform: translateX(10px);
+        //transform: translateX(10px);
         filter: blur(3px);
         animation: show 2.5s .1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
 
         @keyframes show {
           to {
             filter: blur(0px);
-            transform: translateX(0px);
+            //transform: translateX(0px);
           }
         }
       }

@@ -12,17 +12,15 @@ export type MenuMobileProps = { menu: MenuRecord[], banner?:boolean, contact: Co
 
 export default function MenuMobile({ menu, contact, banner = false }: MenuMobileProps) {
 
-  const router = useRouter()
   const page = usePage()
   
   const { isPageBottom, isPageTop, isScrolledUp, scrolledPosition, viewportHeight} = useScrollInfo()
-  const [showMenuMobile] = useStore((state) => [state.showMenuMobile])
+  const [showMenuMobile, setShowMenuMobile] = useStore((state) => [state.showMenuMobile, state.setShowMenuMobile])
   const [selected, setSelected] = useState<string | undefined>()
   const [coords, setCoords] = useState<any>({left:0, top:0})
   const [inverted, setInverted] = useState<boolean>(page.menu === 'inverted')
 
   useEffect(() => { // Toggle menu bar on scroll
-    //setShowMenu((isScrolledUp && !isPageBottom) || isPageTop)
     setSelected(undefined)
   }, [scrolledPosition, isPageBottom, isPageTop, isScrolledUp, setSelected]);
 
