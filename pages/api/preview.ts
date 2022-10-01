@@ -9,7 +9,7 @@ export default async function preview(req : NextApiRequest, res : NextApiRespons
 
   try {
     res.setPreviewData({}, {maxAge: 10})
-    res.writeHead(307, { Location: `/` })
+    res.writeHead(307, { Location: slug })
     res.end()
   }catch(err){
     console.error(err)
