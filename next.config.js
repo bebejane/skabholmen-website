@@ -22,7 +22,8 @@ const nextOptions = {
     buildActivity: false
   },
   experimental: {
-    scrollRestoration: true
+    scrollRestoration: true,
+    runtime:'experimental-edge'
   },
   webpack: (config) => {
     config.module.rules.push({
