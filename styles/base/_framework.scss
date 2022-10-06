@@ -4,18 +4,8 @@
   --line-width: 1px;
   --line: var(--line-width) solid #{$blue};
   
-  @include mq($from: desktop){
-    --outer-margin: 50px;
-    --space: 80px;
-    --small-space: 20px;
-    --h1-font-size: 40px;
-    --h2-font-size: 24px;
-    --h3-font-size: 14px;
-    --body-font-size: 14px;
-    --navbar-height : 100px;
-  }
   
-  @include mq($until: desktop){
+  @include mq($until: tablet){
     --outer-margin: 20px;
     --space: 40px;
     --small-space: 10px;
@@ -26,14 +16,25 @@
     --navbar-height : 60px;
   }
   
+  @include mq($from: tablet){
+    --outer-margin: 50px;
+    --space: 80px;
+    --small-space: 20px;
+    --h1-font-size: 35px;
+    --h2-font-size: 24px;
+    --h3-font-size: 14px;
+    --body-font-size: 14px;
+    --navbar-height : 100px;
+  }
+  
   @include mq($from: wide){
     --outer-margin: 70px;
     --space: 100px;
     --small-space: 30px;
-    --h1-font-size: 60px;
-    --h2-font-size: 44px;
-    --h3-font-size: 24px;
-    --body-font-size: 18px;
+    --h1-font-size: 45px;
+    --h2-font-size: 34px;
+    --h3-font-size: 18px;
+    --body-font-size: 18  px;
     --navbar-height : 100px;
   }
 }

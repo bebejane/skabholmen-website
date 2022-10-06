@@ -59,8 +59,13 @@ export default function Menu({ menu, banner = false, contact }: MenuProps) {
             const isSelected = children.find(({page}) => `/${page?.slug}` === router.asPath)
             return (
               <li id={id} key={idx} onMouseLeave={handleMouseOver} role="presentation">
-                <span id={id} className={cn(s.title, isSelected && s.selected)} onMouseEnter={handleMouseOver} role="menuitem">
-                  {label} {children.length > 0 && <Arrow className={cn(s.arrow, id === selected && s.show)} />}
+                <span 
+                  id={id} 
+                  className={cn(s.title, isSelected && s.selected)} 
+                  onMouseEnter={handleMouseOver} 
+                  role="menuitem"
+                >
+                  {label}
                 </span>
               </li>
             )

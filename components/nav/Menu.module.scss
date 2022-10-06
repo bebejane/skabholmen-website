@@ -4,14 +4,13 @@
   color: $white;
   font-family: "Brown";
   top: var(--outer-margin);
-  right: 0;//var(--outer-margin);
+  right: 0;
   left: 0;
   margin-right: var(--outer-margin);
   margin-left: var(--outer-margin);
-  
   opacity: 1;
   transition: opacity .3s ease;
-  color: $black;
+  color: $graydark;
 
   @include mq($until: desktop) {
     display: none;
@@ -58,26 +57,10 @@
         line-height: 1;
         white-space: pre;
         &.selected{
-          font-weight: bolder;
+          
         }
         &.contact{
           visibility: hidden;
-        }
-        .arrow {
-          margin-left: .25em;
-          min-height: 7px;
-          min-width: 10px;
-          max-width: 10px;
-          transition: transform .3s ease;
-          transform: rotate(0deg);
-
-          path {
-            stroke: $black;
-          }
-
-          &.show {
-            transform: rotate(180deg);
-          }
         }
       }
     }
@@ -96,7 +79,7 @@
   box-shadow: none;
   border: 0;
   padding: 12px 20px 12px 20px;
-  color: $black;
+  color: $graydark;
   border-radius: 30px;
   border: 2px solid transparent;
   background-color: transparent;
@@ -113,14 +96,14 @@
   }
 
   &:hover{
-    //background-color: $blue;
-    //border: 2px solid $blue;
-    border: 2px solid $black;
+    border: 2px solid $graydark;
+    background-color: $white;
   }
   &.inverted{
     color: $white;
     &:hover{
       border: 2px solid $white;
+      background-color: transparent;
     }  
   } 
 }
@@ -177,8 +160,11 @@
       color: $gray;
       transition: color .5s ease;
 
-      &:hover, &.selected{
-        color: $black;
+      &:hover{
+        color: $gray;
+      }
+      &.selected{
+        color: $blue;
       }
       
     }

@@ -61,11 +61,11 @@ export default function MenuMobile({ menu, contact, banner = false }: MenuMobile
         </ul>
         <div className={s.contact}>
           <div className={s.social}>
-            {contact.social.map(({name, url, icon}, key) => 
+            {/*contact.social.map(({name, url, icon}, key) => 
               <a key={key} href={url}>
                 <img src={icon.url}/>
               </a>
-            )}
+            )*/}
           </div>
           <div className={s.phoneEmail}>
             <a href={`tel://${contact.phone}`}>{contact.phone}</a>

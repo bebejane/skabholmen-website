@@ -15,7 +15,7 @@ h3 {
 
 h1 {
   font-size: var(--h1-font-size);
-  line-height: calc(var(--h1-font-size) + 3px);
+  line-height: calc(var(--h1-font-size) + 10px);
 }
 
 h2 {
@@ -38,16 +38,9 @@ p {
 // Ingress
 h1+hr+p, h1+p {
   font-family: $body-font;
-  margin-top: var(--space);
-  @include mq($from:tablet){
-    font-size: 35px;
-    line-height: 45px;
-  }
-
-  @include mq($until:tablet){
-    font-size: 25px;
-    line-height: 35px;
-  }
+  margin-top: 1em;
+  font-size: calc(var(--h1-font-size) - 5px);
+  line-height: calc(calc(var(--h1-font-size) - 5px) + 10px)  
 }
 
 h2+h3{

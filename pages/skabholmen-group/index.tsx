@@ -39,8 +39,10 @@ export default function SkabholmenGroup({ skabholmenGroup: {title, intro, image 
 								<h1>{category.name}</h1>
 								<hr/>
 								<ul>
-									{category.items.map(({id, name}) => 
-										<li key={id}>{name}</li>
+									{category.items.map(({id, name, url}) => 
+										<li key={id}>
+											{url ? <a href={url}>{name}</a> : <>{name}</>}
+										</li>
 									)}
 								</ul>
 							</React.Fragment>

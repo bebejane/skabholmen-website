@@ -18,11 +18,11 @@
     z-index: 1;
     padding-left: var(--outer-margin);
     padding-right: var(--outer-margin);
-
-    p{
-      padding-left: spanGrid(4, true);
-      font-size: var(--h1-font-size);
-      line-height: calc(var(--h1-font-size) + 3px);
+    
+    h1{
+      padding-left: spanGrid(5, true);
+      @include headerStyle(1);
+      font-family: "Dominicale Alpha";
       margin-bottom: 0;
     }
 
@@ -32,7 +32,7 @@
       justify-content: center;
       top:0%;
       min-height: 100vh;
-      p{
+      h1{
         padding-left: 0;
       }
     }

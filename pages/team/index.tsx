@@ -15,22 +15,24 @@ export default function Team({ team : { title, intro, leadership }}: Props) {
 	return (
 		<Content className={s.team}>
       <Intro title={title} intro={intro}/>
-			<ul>
-				{leadership.map(({name, role, email, image, biography}, idx) => 
-					<li key={idx}>
-						<h2>{name}</h2>
-						<h3>{role}</h3>
-						<div>
-							<figure>	
-								<Image data={image.responsiveImage} objectFit="contain" className={s.image}/>
-							</figure>
-							<Markdown className={s.biography}>
-								{biography}
-							</Markdown>
-						</div>
-					</li>
-				)}
-			</ul>
+			<p>
+				<ul>
+					{leadership.map(({name, role, email, image, biography}, idx) => 
+						<li key={idx}>
+							<h2>{name}</h2>
+							<h3>{role}</h3>
+							<div>
+								<figure>	
+									<Image data={image.responsiveImage} objectFit="contain" className={s.image}/>
+								</figure>
+								<Markdown className={s.biography}>
+									{biography}
+								</Markdown>
+							</div>
+						</li>
+					)}
+				</ul>
+			</p>
     </Content>
 	)
 }

@@ -24,20 +24,23 @@
   > p{
     flex: 0 0;
     width: 100%;
+    padding-left: spanNestedGrid(16, 3, true);
+    padding-right: spanNestedGrid(16, 3);
+
     @include headerStyle(1);
     p{
       @include headerStyle(1);
+      margin-bottom: 0;
     }
-    padding-left: spanNestedGrid(16, 2, true);
-    padding-right: spanNestedGrid(16, 2);
     
-    &:last-child{
+    margin-bottom: 4rem;
+
+    &:last-of-type{
       margin-bottom: 0;
     }
     h3{
-      color:$black;
       @include headerStyle(2);
-      margin-bottom: 7px;
+      margin-bottom: 2rem;
     }
     a{
       color:$white;
@@ -86,10 +89,10 @@
     cursor: pointer;
     color:$white;
     svg{
-      width: 15px;
-      height: 15px;
+      width: 12px;
+      height: 12px;
       path{
-        fill:$black;
+        stroke:$white;
       }
     }
     

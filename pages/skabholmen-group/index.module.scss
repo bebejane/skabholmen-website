@@ -16,19 +16,28 @@
     li {
       margin-bottom: .5em;
       
+      @include mq($until: tablet){
+        font-size: 18px;
+        line-height: 25px;
+        flex: 0 0 spanNestedGrid(12, 6);
+        &:nth-of-type(3n){
+          flex: 0 0 spanNestedGrid(12, 6, false);
+        }
+      }
       @include mq($from: tablet){
+        font-size: 25px;
+        line-height: 32px;
         flex: 0 0 spanNestedGrid(12, 3, true);
         &:nth-of-type(4n){
           flex: 0 0 spanNestedGrid(12, 3, false);
         }
         
       }
-      @include mq($until: tablet){
-        flex: 0 0 spanNestedGrid(12, 4);
-        &:nth-of-type(3n){
-          flex: 0 0 spanNestedGrid(12, 4, false);
-        }
+      @include mq($from: wide){
+        font-size: 30px;
+        line-height: 37px;
       }
+      
       
     }
   }  

@@ -26,6 +26,7 @@ export default function ContactModal({ contact, show, onClose }: ContactProps) {
           <h3>Office Address</h3>
           <Markdown>{contact.address}</Markdown>
         </p>
+        {/*}
         <div className={s.footer}>
           <div className={s.links}>
             {contact.social.map(({name, url, icon}, key) => 
@@ -35,6 +36,7 @@ export default function ContactModal({ contact, show, onClose }: ContactProps) {
             )}
           </div>
         </div>
+        */}
         <div className={s.close} onClick={onClose}><Close/></div>
       </div> 
     </Modal>

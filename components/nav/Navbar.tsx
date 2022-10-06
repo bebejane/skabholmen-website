@@ -5,8 +5,8 @@ import { useRouter } from 'next/router'
 import useScrollInfo from '/lib/hooks/useScrollInfo'
 import useStore from '/lib/store'
 import Link from 'next/link'
-import Skabholmen from '/public/images/skabholmen.svg'
-import Invest from '/public/images/invest.svg'
+import Skabholmen from '/public/images/logo.svg'
+
 import { Fade as Hamburger } from 'hamburger-react'
 import { usePage } from '/lib/context/page'
 
@@ -52,7 +52,7 @@ export default function Navbar({ }: NavbarProps) {
         <div className={s.hamburger}>
           <Hamburger 
             size={24} 
-            color={invertedMenu && !showMenuMobile ? '#fff' : '#000'} 
+            color={invertedMenu || showMenuMobile ? '#fff' : '#000'} 
             toggled={showMenuMobile} 
             onToggle={setShowMenuMobile}
           />
@@ -68,7 +68,7 @@ const Logo = ({inverted} : { inverted: boolean}) =>{
   return(
     <Link href="/">
       <a id="logo" className={cn(s.logo, inverted && s.invert)}>
-        <Skabholmen width={113} height={15}/><Invest width={52} height={15}/>
+        <Skabholmen width={174} height={15}/>
       </a>
     </Link>
   )

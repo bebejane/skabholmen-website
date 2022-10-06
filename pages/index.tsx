@@ -18,7 +18,9 @@ export default function Home({ start: { intro, image } }: HomeProps) {
 				objectFit="cover"
 				objectPosition={'center'}
 			/>
-			<Markdown className={s.intro}>{intro}</Markdown>
+			<div className={s.intro}>
+				<h1>{intro}</h1>
+			</div>
 		</div>
 	)
 }

@@ -32,7 +32,11 @@
       top: calc(var(--outer-margin) - 8px);
     }
     
-    
+    svg {
+      path {
+        fill: $graydark;
+      }
+    }
     &.invert {
       svg {
         path {
@@ -40,40 +44,10 @@
         }
       }
     }
-
     svg {
-      
-      &:nth-child(1) {
-        width: 113px;
-        height: 15px;
-        margin-right: 7px;
-      }
-
-      &:nth-child(2) {
-        width: 52px;
-        height: 15px;
-        //transform: translateX(10px);
-        filter: blur(3px);
-        animation: show 2.5s .1s cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
-
-        @keyframes show {
-          to {
-            filter: blur(0px);
-            //transform: translateX(0px);
-          }
-        }
-      }
-      @include mq($from: wide) {
-        &:nth-child(1) {
-          width: calc(113px * 1.4);
-          height: calc(15px * 1.4); 
-          margin-right: 12px;
-        }
-        &:nth-child(2) {
-          width: calc(52px * 1.4);
-          height: calc(15px * 1.4);
-        }
-      }
+      width: 174px;
+      height: 15px;
+      margin-right: 7px;
     }
   }
 
@@ -82,7 +56,15 @@
     justify-content: flex-end;
     flex: 1 1 auto;
     color: $black;
-    margin-right: calc(28px - var(--outer-margin));
+    
+    @include mq($until: tablet) {
+      margin-right: calc(28px - var(--outer-margin));
+      
+    }
+    @include mq($from: tablet) {
+      margin-right: 28px;
+    }
+    
     @include mq($from: desktop) {
       display: none;
     }
