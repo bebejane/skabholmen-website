@@ -13,7 +13,7 @@
   a{
     color: $gray;
   }
-  @include mq($until: tablet){
+  @include mq($until: desktop){
     border-top: 1px solid $blue;
   }
   &.separator{
@@ -40,7 +40,7 @@
         p{
           @include headerStyle(2);
         }
-        flex: 0 0 spanNestedGrid(12, 7, true);
+        flex: 0 0 spanNestedGrid(12, 6, true);
       }
       ul{
         list-style: none;
@@ -54,7 +54,7 @@
       }
       
       .menu{
-        flex: 0 0 spanNestedGrid(12, 3, true);
+        flex: 0 0 spanNestedGrid(12, 4, true);
       }
       .social{
         flex: 0 0 spanNestedGrid(12, 2);
@@ -63,7 +63,7 @@
       
     }
 
-    @include mq($until: tablet){
+    @include mq($until: desktop){
       margin-left: 0;
       margin-right: 0;
       .top{
@@ -114,7 +114,7 @@
         flex: 1 1 auto;
       }
 
-      @include mq($until: tablet){
+      @include mq($until: desktop){
         margin-top: var(--space);
         .phone{
           margin-top: var(--space) !important;
@@ -174,7 +174,7 @@
       
     }
     
-    @include mq($until: tablet){
+    @include mq($until: desktop){
       top: unset;
       bottom: calc(var(--outer-margin) + 5px);
       right: 0;
