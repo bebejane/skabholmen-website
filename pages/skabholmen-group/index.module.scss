@@ -18,11 +18,12 @@
       
       @include mq($until: tablet){
         font-size: 18px;
-        line-height: 25px;
-        flex: 0 0 spanNestedGrid(12, 6);
-        &:nth-of-type(3n){
-          flex: 0 0 spanNestedGrid(12, 6, false);
-        }
+        margin-top: 3em;
+        //margin-bottom: 2em;
+        text-align: center;
+
+        flex: 0 0 spanNestedGrid(12, 12);
+        
       }
       @include mq($from: tablet){
         font-size: 25px;
@@ -37,8 +38,6 @@
         font-size: 30px;
         line-height: 37px;
       }
-      
-      
     }
   }  
 }

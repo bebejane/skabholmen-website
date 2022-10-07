@@ -35,13 +35,6 @@ p {
   line-height: calc(var(--body-font-size) + 7px);
 }
 
-// Ingress
-h1+hr+p, h1+p {
-  font-family: $body-font;
-  margin-top: 1em;
-  font-size: calc(var(--h1-font-size) - 5px);
-  line-height: calc(calc(var(--h1-font-size) - 5px) + 10px)  
-}
 
 h2+h3{
   line-height: 2;

@@ -20,7 +20,7 @@ export default function Navbar({ }: NavbarProps) {
   const router = useRouter()
   
   const { scrolledPosition, viewportHeight} = useScrollInfo()
-  const [showMenuMobile, setShowMenuMobile, showContact, invertedMenu, setInvertedMenu] = useStore((state) => [state.showMenuMobile, state.setShowMenuMobile, state.showContact, state.invertedMenu, state.setInvertedMenu])  
+  const [showMenuMobile, setShowMenuMobile, showContact, setShowContact, invertedMenu, setInvertedMenu] = useStore((state) => [state.showMenuMobile, state.setShowMenuMobile, state.showContact, state.setShowContact, state.invertedMenu, state.setInvertedMenu])  
   
   useEffect(()=>{
     
@@ -45,16 +45,17 @@ export default function Navbar({ }: NavbarProps) {
     setShowMenuMobile(false)
   }, [router.asPath, setShowMenuMobile])
   
+
   return (
     <>
       <div className={cn(s.navbar, invertedMenu && s.transparent)}>
         <Logo inverted={invertedMenu}/>
-        <div className={s.hamburger}>
+        <div className={cn(s.hamburger, showContact && s.hide)}>
           <Hamburger 
             size={24} 
             color={invertedMenu || showMenuMobile ? '#fff' : '#000'} 
-            toggled={showMenuMobile} 
-            onToggle={setShowMenuMobile}
+            toggled={showMenuMobile || showContact} 
+            onToggle={()=> showContact ? setShowContact(false) : setShowMenuMobile(!showMenuMobile)}
           />
         </div>
       </div>

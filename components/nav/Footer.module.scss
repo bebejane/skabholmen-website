@@ -9,8 +9,13 @@
   padding-top: var(--space);
   padding-bottom: var(--space);
   font-family: "Brown";
-  color: $graydark;
-
+  color: $gray;
+  a{
+    color: $gray;
+  }
+  @include mq($until: tablet){
+    border-top: 1px solid $blue;
+  }
   &.separator{
     border-top: 1px solid $blue;
   }
@@ -31,6 +36,7 @@
       flex-wrap: wrap;
       width: 100%;
       .address{
+        color: $graydark;
         p{
           @include headerStyle(2);
         }
@@ -42,7 +48,9 @@
         flex-direction: column;
         line-height: 2;
         text-transform: uppercase;
-        
+        li{
+          cursor: pointer;
+        }
       }
       
       .menu{
@@ -59,15 +67,18 @@
       margin-left: 0;
       margin-right: 0;
       .top{
-        text-align: center;
+        text-align: left;
         flex-direction: row;
         margin-bottom: 0;
-        justify-content: space-evenly;
+        justify-content: flex-start;
         ul{
           flex: 0 0 !important;
           text-align: left;
           white-space: pre;
-          margin-bottom: calc(var(--space) /2)
+          margin-bottom: calc(var(--space) /2);
+          li{
+            margin-bottom: calc(var(--small-space));
+          }
         }
         .address{
           flex: 1 1 100% !important;
@@ -77,6 +88,12 @@
         }
         .menu, .social{
           margin-bottom: 0;
+        }
+        .social{
+          flex: 0 0 spanGrid(4) !important;
+        }
+        .menu{
+          flex: 0 0 spanGrid(10, true) !important;
         }
       }
     }
@@ -104,12 +121,15 @@
         }
         .phone, .email{
           margin: 0;
-          text-align: center;
+          text-align: left;
           flex: 1 1 100%;
         }
+        .phone{
+          margin-bottom: 1rem;
+        }
         .copyright{
+          display: none;
           text-align: center;
-          //margin-top: var(--space);
           margin-bottom: 0;
         }
       }
@@ -117,7 +137,7 @@
   }
   .up{
     position: absolute;
-    top:calc(var(--space) - calc(52px / 2));
+    top: calc(var(--space) + .5em);
     right:calc(var(--outer-margin));
     margin-right: calc(spanGrid(1) + 10px);
     display: flex;
@@ -155,7 +175,10 @@
     }
     
     @include mq($until: tablet){
-      display: none;
+      top: unset;
+      bottom: calc(var(--outer-margin) + 5px);
+      right: 0;
+      margin-right: var(--outer-margin);
     }
   }
 }

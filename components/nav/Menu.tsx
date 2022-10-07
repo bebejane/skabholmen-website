@@ -76,6 +76,7 @@ export default function Menu({ menu, banner = false, contact }: MenuProps) {
         </ul>
       </nav>
       {menu.map(({ id, label, page, children }, idx) => {
+        if(!children.find(el=> el.page)) return null
         return(
           <ul 
             id={`${id}-items`} 

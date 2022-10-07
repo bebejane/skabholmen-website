@@ -14,7 +14,7 @@
     width: 100%;
     min-height: var(--navbar-height); 
   }
-  transition: background-color .2s ease-out;
+  transition: background-color .3s ease-out;
   &.transparent{
     background-color: transparent;
   }
@@ -73,4 +73,5 @@
   * > path {
     transition: fill 0.5s ease;
   }
+
 }

@@ -7,5 +7,6 @@
     @include mq($until: desktop){
       padding-left: 0;
     }
+    padding-bottom: calc(var(--space) * 2);
   }
 }

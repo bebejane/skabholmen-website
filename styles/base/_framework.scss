@@ -9,9 +9,11 @@
     --outer-margin: 20px;
     --space: 40px;
     --small-space: 10px;
-    --h1-font-size: 30px;
-    --h2-font-size: 20px;
+    --h1-font-size: 22px;
+    --h2-font-size: 18px;
     --h3-font-size: 12px;
+    --paragraph-font-size: 16px;
+    --paragraph-line-height: 24px;
     --body-font-size: 12px;
     --navbar-height : 60px;
   }
@@ -23,6 +25,8 @@
     --h1-font-size: 35px;
     --h2-font-size: 24px;
     --h3-font-size: 14px;
+    --paragraph-font-size: 30px;
+    --paragraph-line-height: 40px;
     --body-font-size: 14px;
     --navbar-height : 100px;
   }
@@ -34,7 +38,9 @@
     --h1-font-size: 45px;
     --h2-font-size: 34px;
     --h3-font-size: 18px;
-    --body-font-size: 18  px;
+    --paragraph-font-size: 40px;
+    --paragraph-line-height: 50px;
+    --body-font-size: 18px;
     --navbar-height : 100px;
   }
 }

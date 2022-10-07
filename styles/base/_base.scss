@@ -10,6 +10,7 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	font-feature-settings: "liga", "kern";
 	font-size: var(--body-font-size);
+	line-height: calc(var(--body-font-size) + 7px);
 }
 
 html {
@@ -86,8 +87,5 @@ hr{
   padding: 0;
   margin-bottom: var(--small-space);
   margin-top: var(--small-space);
-	@include mq($until: tablet){
-		margin-left: calc(var(--outer-margin) * -1);
-		margin-right: calc(var(--outer-margin) * -1);
-	}
+	
 }

@@ -20,20 +20,34 @@
   &.show{
     transform: translateY(0%);
   }
-  
+  p {
+    font-size: var(--paragraph-font-size);
+    line-height: var(--paragraph-line-height);
+  } 
   > p{
     flex: 0 0;
     width: 100%;
-    padding-left: spanNestedGrid(16, 3, true);
-    padding-right: spanNestedGrid(16, 3);
-
-    @include headerStyle(1);
+    margin-bottom: 4rem;
+    
     p{
-      @include headerStyle(1);
       margin-bottom: 0;
     }
-    
-    margin-bottom: 4rem;
+
+    @include mq($from: tablet){
+      padding-left: spanNestedGrid(16, 3, true);
+      padding-right: spanNestedGrid(16, 3);
+      > br{
+        content: " ";
+        &:after{
+          content: " ";
+        }
+      }
+      
+    }
+    @include mq($until: tablet){
+      padding-left: 0;
+      padding-right: 0;
+    }
 
     &:last-of-type{
       margin-bottom: 0;
@@ -41,10 +55,14 @@
     h3{
       @include headerStyle(2);
       margin-bottom: 2rem;
+      @include mq($until: tablet){
+        margin-bottom: 1rem;
+      }
     }
     a{
       color:$white;
     }
+
   }
 
   .footer{
@@ -95,6 +113,8 @@
         stroke:$white;
       }
     }
-    
+    @include mq($until: tablet){
+      display: none;
+    }
   }
 }

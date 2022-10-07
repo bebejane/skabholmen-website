@@ -3,8 +3,14 @@
   max-height: 50vh;
   min-height: 50vh;
   width: 100%;
+  @include mq($until: tablet){
+    display: none;  
+  }
   &.top{
     margin-bottom: var(--space);
+    @include mq($until: tablet){
+      display: block;  
+    }
   }
   .image{
     min-height: 50vh;
@@ -35,4 +41,5 @@
       min-width: var(--min-width);
     }
   }
+  
 }

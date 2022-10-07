@@ -1,3 +1,12 @@
 .intro{
-  margin-bottom: var(--space);
+  margin-top: var(--space);
+  margin-bottom: calc(var(--space) * 2);
+  p{
+    font-family: $body-font;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    font-size: var(--paragraph-font-size);
+    line-height: var(--paragraph-line-height);
+
+  }
 }

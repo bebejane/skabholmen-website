@@ -20,7 +20,13 @@ export default function ContactModal({ contact, show, onClose }: ContactProps) {
       <div className={cn(s.contact, show && s.show)}>
         <p>
           <h3>Have a question?</h3>
-          Give us a call at <a href={`tel://${contact.phone}`}>{contact.phone}</a> or send an email to <a href={`mailto:${contact.email}`}>{contact.email}</a>
+          Give us a call at
+          <br/>
+          <a href={`tel://${contact.phone}`}>{contact.phone}</a>
+          <br/>
+          or send an email to
+          <br/>
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>
         </p>
         <p>
           <h3>Office Address</h3>
