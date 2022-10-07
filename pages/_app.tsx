@@ -14,14 +14,14 @@ type Props = AppProps & {
 }
 
 function MyApp({ Component , pageProps } : Props) {
-  
+
   //usePagesViews(); // Google Analytics page view tracker = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
   const page : PageProps = Component.page as PageProps;
   const Layout = page?.layout === 'page' ? LayoutPage : LayoutFull
 
   const router = useRouter()
   const { asPath : pathname } = router
-  const { site, seo, contact} = pageProps;
+  const { site, seo, contact, menuFooter} = pageProps;
 
   const errorCode = parseInt(router.pathname.replace('/', ''))
   const isError = !isNaN(errorCode) && (errorCode > 400 && errorCode < 600)
@@ -48,7 +48,7 @@ function MyApp({ Component , pageProps } : Props) {
         <Layout>
           <Component {...pageProps} />
         </Layout>
-        <Footer contact={contact} menu={pageProps.menu}/>
+        <Footer contact={contact} menu={menuFooter}/>
       </PageProvider>
     </>
   )

@@ -8,7 +8,7 @@ import  useStore  from '/lib/store'
 
 export type FooterProps = {
   contact: GlobalQuery['contact'],
-  menu: GlobalQuery['menu']
+  menu: GlobalQuery['menuFooter']
 }
 
 export default function Footer({contact: { phone, email, address, social }, menu} : FooterProps){
@@ -24,15 +24,10 @@ export default function Footer({contact: { phone, email, address, social }, menu
             {address}
           </Markdown>
           <ul className={s.menu}>
-            {menu.map(({children}, idx) => 
-              children.filter(el => el.page).map(({label, page}, idx) => 
-                page ? 
-                  <Link key={idx} href={page?.slug}>
-                    <a><li>{label}</li></a>
-                  </Link>
-                :
-                  <><li>{label}</li></>
-              )
+            {menu.map(({label, page}, idx) => 
+              <Link key={idx} href={`/${page.slug}`}>
+                <a><li>{label}</li></a>
+              </Link>
             )}
             <li onClick={()=> setShowContact(true)}>Contact</li>
           </ul>

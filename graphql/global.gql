@@ -20,6 +20,28 @@ query Global {
 			}
 		}
 	}
+	menuFooter: allMenuFooters{
+		id
+		label
+		page{
+			... on InvestmentPhilosophyRecord {
+				title
+				slug
+			}
+			... on ResponsibilityRecord {
+				title
+				slug
+			}
+			... on SkabholmenGroupRecord {
+				title
+				slug
+			}
+			... on TeamRecord {
+				title
+				slug
+			}
+		}
+	}
 	contact {
 		email
 		phone
