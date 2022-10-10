@@ -11,6 +11,7 @@
   
   @include mq($until: desktop) {
     background-color: $white;
+    background-color: transparent;
     width: 100%;
     min-height: var(--navbar-height); 
   }
