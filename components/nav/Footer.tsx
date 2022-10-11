@@ -5,6 +5,8 @@ import Markdown from '/lib/dato/components/Markdown'
 import Up from '/public/images/up.svg'
 import Link from 'next/link'
 import  useStore  from '/lib/store'
+import { useRouter } from 'next/router'
+import { chunkArray } from '/lib/utils'
 
 export type FooterProps = {
   contact: GlobalQuery['contact'],
@@ -13,11 +15,12 @@ export type FooterProps = {
 
 export default function Footer({contact: { phone, email, address, social }, menu} : FooterProps){
   
+  const { asPath } = useRouter()
+  const isHome = asPath === '/';
   const { footerSeparator } = usePage()
   const [setShowContact] = useStore((state) => [state.setShowContact])
-
-	return (
-		<footer className={cn(s.footer, footerSeparator && s.separator)}>
+  return (
+		<footer className={cn(s.footer, isHome ? s.noseparator : footerSeparator ?  s.separator : null  )}>
 			<div className={s.wrap}>
         <div className={s.top}>
           <Markdown className={s.address}>
@@ -30,13 +33,6 @@ export default function Footer({contact: { phone, email, address, social }, menu
               </Link>
             )}
             <li onClick={()=> setShowContact(true)}>Contact</li>
-          </ul>
-          <ul className={s.social}>
-            {social.map(({name, url}, idx) => 
-              <li key={idx}>
-                <a href={url}>{name}</a>
-              </li> 
-            )}
           </ul>
         </div>
         

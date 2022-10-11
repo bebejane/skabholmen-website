@@ -40,6 +40,7 @@
       min-height: 100vh;
       h1{
         padding-left: 0;
+        line-height: calc(var(--h1-font-size) + 8px)
       }
     }
   }

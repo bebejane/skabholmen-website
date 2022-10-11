@@ -16,8 +16,12 @@
   @include mq($until: desktop){
     border-top: 1px solid $blue;
   }
+  
   &.separator{
     border-top: 1px solid $blue;
+  }
+  &.noseparator{
+    border-top: 0px;
   }
   .wrap{
     position: relative;
@@ -44,23 +48,25 @@
       }
       ul{
         list-style: none;
-        display: flex;
+        
         flex-direction: column;
         line-height: 2;
         text-transform: uppercase;
+        column-count: 2;
+        max-height: 6rem;
+        column-gap: 2rem;
+        @include mq($until: desktop){
+          
+          column-count: unset;
+          max-height: auto;
+        }
         li{
           cursor: pointer;
         }
       }
-      
       .menu{
-        flex: 0 0 spanNestedGrid(12, 4, true);
-      }
-      .social{
-        flex: 0 0 spanNestedGrid(12, 2);
-        width: 100%;
-      }
-      
+        flex: 0 0 spanNestedGrid(12, 6);
+      }      
     }
 
     @include mq($until: desktop){
@@ -86,11 +92,8 @@
             margin-bottom: var(--space);
           }
         }
-        .menu, .social{
-          margin-bottom: 0;
-        }
-        .social{
-          flex: 0 0 spanGrid(4) !important;
+        .menu{
+          margin-bottom: calc(var(--space) *2);
         }
         .menu{
           flex: 0 0 spanGrid(10, true) !important;
