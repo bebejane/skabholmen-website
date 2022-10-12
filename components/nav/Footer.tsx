@@ -15,8 +15,8 @@ export type FooterProps = {
 
 export default function Footer({contact: { phone, email, address, social }, menu} : FooterProps){
   
-  const { asPath } = useRouter()
-  const isHome = asPath === '/';
+  const router = useRouter()
+  const isHome = router.asPath === '/';
   const { footerSeparator } = usePage()
   const [setShowContact] = useStore((state) => [state.setShowContact])
   return (
