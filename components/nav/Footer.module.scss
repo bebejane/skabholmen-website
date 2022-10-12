@@ -37,7 +37,7 @@
       position: relative;
       display: flex;
       flex-direction: row;
-      flex-wrap: wrap;
+      
       margin-bottom: var(--space);
       width: 100%;
       .address{
@@ -46,7 +46,7 @@
           @include headerStyle(2);
           margin-bottom: 0;
         }
-        flex: 0 0 spanNestedGrid(12, 5, true);
+        flex: 0 0 spanNestedGrid(12, 6, true);
       }
       ul{
         list-style: none;
@@ -56,10 +56,9 @@
         text-transform: uppercase;
         column-count: 2;
         max-height: calc(calc(var(--body-font-size) * 2) *3);
-        column-gap: 2rem;
+        column-gap: 1rem;
         
         @include mq($until: desktop){
-          
           column-count: unset;
           max-height: auto;
         }
@@ -77,9 +76,11 @@
     @include mq($until: desktop){
       margin-left: 0;
       margin-right: 0;
+
       .top{
         text-align: left;
         flex-direction: row;
+        flex-wrap: wrap;
         margin-bottom: 0;
         justify-content: flex-start;
         ul{
@@ -114,7 +115,7 @@
         flex: 1 1 100%;
       }
       .email{
-        flex: 0 0 spanNestedGrid(12, 5, true);
+        flex: 0 0 spanNestedGrid(12, 6, true);
       }
       .copyright{
         flex: 1 1 auto;
@@ -145,7 +146,7 @@
     position: absolute;
     top: calc(var(--space));
     right:0;
-    margin-right: calc(var(--outer-margin) + spanGrid(3));
+    margin-right: calc(var(--outer-margin) + spanGrid(2));
     display: flex;
     align-items: center;
     justify-content: center;
