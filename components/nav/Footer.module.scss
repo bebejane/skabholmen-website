@@ -21,7 +21,7 @@
     border-top: 1px solid $blue;
   }
   &.noseparator{
-    border-top: 0px;
+    border-top: 0px !important;
   }
   .wrap{
     position: relative;
@@ -38,23 +38,26 @@
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
+      margin-bottom: var(--space);
       width: 100%;
       .address{
         color: $graydark;
         p{
           @include headerStyle(2);
+          margin-bottom: 0;
         }
-        flex: 0 0 spanNestedGrid(12, 6, true);
+        flex: 0 0 spanNestedGrid(12, 5, true);
       }
       ul{
         list-style: none;
-        
+        flex: 0 0;
         flex-direction: column;
         line-height: 2;
         text-transform: uppercase;
         column-count: 2;
-        max-height: 6rem;
+        max-height: calc(calc(var(--body-font-size) * 2) *3);
         column-gap: 2rem;
+        
         @include mq($until: desktop){
           
           column-count: unset;
@@ -62,6 +65,8 @@
         }
         li{
           cursor: pointer;
+          white-space: pre;
+
         }
       }
       .menu{
@@ -96,7 +101,7 @@
           margin-bottom: calc(var(--space) *2);
         }
         .menu{
-          flex: 0 0 spanGrid(10, true) !important;
+          flex: 0 0 spanGrid(11, true) !important;
         }
       }
     }
@@ -107,11 +112,9 @@
       margin-bottom: 0;
       .phone{
         flex: 1 1 100%;
-        margin-bottom: var(--small-space);
-        
       }
       .email{
-        flex: 0 0 spanNestedGrid(12, 7, true);
+        flex: 0 0 spanNestedGrid(12, 5, true);
       }
       .copyright{
         flex: 1 1 auto;
@@ -140,9 +143,9 @@
   }
   .up{
     position: absolute;
-    top: calc(var(--space) + .5em);
-    right:calc(var(--outer-margin));
-    margin-right: calc(spanGrid(1) + 10px);
+    top: calc(var(--space));
+    right:0;
+    margin-right: calc(var(--outer-margin) + spanGrid(3));
     display: flex;
     align-items: center;
     justify-content: center;
