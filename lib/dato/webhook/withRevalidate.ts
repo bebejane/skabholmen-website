@@ -25,6 +25,7 @@ const recordFromPayload = async (payload: any) : Promise<any> => {
 
   const models = await client.itemTypes.list()
   const model = models.find(m => m.id === modelId)
+  
   console.log('find record')
   const records = await client.items.list({ filter: { type: model.api_key, fields: { id: { eq: payload.id } } } })
   const record = records[0]
