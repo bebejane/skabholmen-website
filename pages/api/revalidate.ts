@@ -19,6 +19,7 @@ export default withRevalidate(async (record, req, res) => {
     console.log('revalidate', paths[i])
     await res.revalidate(paths[i])
   }
+  res.json({ revalidated: true })
   console.log('revalidating done!')
 
 })
