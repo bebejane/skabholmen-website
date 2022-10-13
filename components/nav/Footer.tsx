@@ -21,9 +21,8 @@ export default function Footer({contact: { phone, email, address, social }, menu
   const { footerSeparator } = usePage()
   const [setShowContact] = useStore((state) => [state.setShowContact])
   
-  useEffect(()=>{
-    setIsHome(router.asPath === '/');
-  }, [router, setIsHome])
+  useEffect(()=>{ setIsHome(router.asPath === '/') }, [router, setIsHome])
+  
   return (
 		<footer className={cn(s.footer, isHome ? s.noseparator : footerSeparator ?  s.separator : null  )}>
 			<div className={s.wrap}>

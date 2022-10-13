@@ -2,7 +2,6 @@ import s from './index.module.scss'
 import withGlobalProps from '/lib/withGlobalProps';
 import { StartDocument } from '/graphql'
 import { Image } from 'react-datocms'
-import Markdown from '/lib/dato/components/Markdown';
 import type { GetStaticProps } from 'next';
 import type { PageProps } from '../lib/context/page';
 
@@ -24,7 +23,6 @@ export default function Home({ start: { intro, image } }: HomeProps) {
 		</div>
 	)
 }
-
 
 Home.page = {layout: 'full', menu:'inverted', footerSeparator:false} as PageProps
 
