@@ -23,13 +23,7 @@ const recordFromPayload = async (payload: any) : Promise<any> => {
   const client = buildClient({ apiToken: process.env.NEXT_PUBLIC_GRAPHQL_API_TOKEN, requestTimeout:3000 })
   console.log('list models')
 
-  const modelss = await fetch('https://site-api.datocms.com/item-types', { 
-    headers:{
-      'Authorization': process.env.NEXT_PUBLIC_GRAPHQL_API_TOKEN,
-      'Accept':'application/json',
-      'X-Api-Version':'3'
-    }
-  })
+  const modelss = await fetch('https://gorest.co.in/public/v2/users')
   console.log(modelss)
   const models = await client.itemTypes.list()
   const model = models.find(m => m.id === modelId)
