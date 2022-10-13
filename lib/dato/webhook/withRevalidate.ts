@@ -23,8 +23,6 @@ const recordFromPayload = async (payload: any) : Promise<any> => {
   const client = buildClient({ apiToken: process.env.NEXT_PUBLIC_GRAPHQL_API_TOKEN, requestTimeout:3000 })
   console.log('list models')
 
-  const modelss = await fetch('https://gorest.co.in/public/v2/users')
-  console.log(modelss)
   const models = await client.itemTypes.list()
   const model = models.find(m => m.id === modelId)
   console.log('find record')
@@ -46,7 +44,7 @@ export default function withRevalidate(cb:(record:any, req: NextApiRequest, res:
     if (!basicAuth(req))
       return res.status(401).send('Access denied')
 
-    res.json({ revalidated: true })
+    //res.json({ revalidated: true })
 
     const payload = req.body?.entity;
 
