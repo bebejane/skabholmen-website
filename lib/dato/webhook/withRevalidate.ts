@@ -19,26 +19,22 @@ const recordFromPayload = async (payload: any) : Promise<any> => {
   if (!modelId) 
     throw 'Model id not found in payload!'
   
-  console.log('revalidate modelId', modelId)
+  console.log('resolve modelId', modelId)
   const client = buildClient({ apiToken: process.env.NEXT_PUBLIC_GRAPHQL_API_TOKEN, requestTimeout:3000 })
-  console.log('list models')
-
   const models = await client.itemTypes.list()
   const model = models.find(m => m.id === modelId)
-
-  console.log('find record')
   const records = await client.items.list({ filter: { type: model.api_key, fields: { id: { eq: payload.id } } } })
   const record = records[0]
   
   if (!record)
     throw `No record found with modelId: ${modelId}`
 
-  console.log('revalidate', modelId, model.api_key)
+  console.log('revalidate', model.api_key)
   return { ...record, model }
 
 }
 
-export default function withRevalidate(cb:(record:any, req: NextApiRequest, res: NextApiResponse) => Promise<void>) : (req: NextApiRequest, res: NextApiResponse) => void {
+export default function withRevalidate(callback:(record:any, revalidate : (paths:string[]) => Promise<void> ) => Promise<void>) : (req: NextApiRequest, res: NextApiResponse) => void {
 
   return async (req: NextApiRequest, res: NextApiResponse) => {
 
@@ -51,7 +47,25 @@ export default function withRevalidate(cb:(record:any, req: NextApiRequest, res:
       throw 'Payload is empty'
 
     const record = await recordFromPayload(payload)
-    cb(record, req, res)
+
+    callback(record, async (paths) => {
+      try{
+        if (!paths.length)
+          throw 'Nothing to revalidate';
+
+        console.log('revalidating paths', paths)
+        for (let i = 0; i < paths.length; i++){
+          console.log('revalidate', paths[i])
+          await res.revalidate(paths[i])
+        }
+        console.log('revalidating done!')
+        return res.json({ revalidated: true, paths })
+      }catch(err){
+        console.error(err)
+        return res.json({ revalidated: false, err })
+      }
+      
+    })
   }
 }
 
