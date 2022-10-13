@@ -1461,36 +1461,36 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
-"@datocms/cma-client-browser@^1.0.0":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@datocms/cma-client-browser/-/cma-client-browser-1.0.1.tgz#95e3b8257274263720883e6289c897bf20d3ec02"
-  integrity sha512-vvnbJE4GlQbPZQKrWKi6ID2bnJA/2UrEGYJYHF5m/aN2ja+/tthEsxsLWnKOInGKsTVDqlyaYgzWuKNbcDqe9g==
+"@datocms/cma-client-browser@^1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@datocms/cma-client-browser/-/cma-client-browser-1.1.5.tgz#3b9f0b0e4345c80f042d22ecffd1a22e09bc55d1"
+  integrity sha512-IKe1R5aPbhLXw9HuGCL+EEwlz7F1lOh9OIMBt+W2UvNmCux6RxUqLKJw5T5HNayNhn2F58H5g49PbYBQKT2ntw==
   dependencies:
-    "@datocms/cma-client" "^1.0.1"
-    "@datocms/rest-client-utils" "^1.0.0"
+    "@datocms/cma-client" "^1.1.5"
+    "@datocms/rest-client-utils" "^1.1.4"
 
-"@datocms/cma-client-node@^1.0.0":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@datocms/cma-client-node/-/cma-client-node-1.0.1.tgz#b0463ff1348d67865d70512fb5a0a612113c8c7a"
-  integrity sha512-VH/snIoJhZABrFUTvDxfruvELdI5ApHJd+a+uwSQT12YM3mweL/8utCwjD9HqfAcTYwGyq2hiZA8X5NMS4hcXA==
+"@datocms/cma-client-node@^1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@datocms/cma-client-node/-/cma-client-node-1.1.5.tgz#cd26776b3cde26381f4c4b5257e4ded2ead55251"
+  integrity sha512-OxdSEmA1MnkyviwiE9gWkORs813ti4hrYsMrlwukrXWmS6TW8zniat6p7ohQ3+cLmLePm+KrL5hSSYuWf2DpLA==
   dependencies:
-    "@datocms/cma-client" "^1.0.1"
-    "@datocms/rest-client-utils" "^1.0.0"
+    "@datocms/cma-client" "^1.1.5"
+    "@datocms/rest-client-utils" "^1.1.4"
     got "^11.8.5"
     mime-types "^2.1.35"
     tmp-promise "^3.0.3"
 
-"@datocms/cma-client@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@datocms/cma-client/-/cma-client-1.0.1.tgz#c97a53427434e8412c5b2f820a3b60e163b55eb6"
-  integrity sha512-0O2MA1GVm/RSH5aKxtqmgEr14VGxSKTlE1ZSYXHOFu/eYxlernA2Y+qCQD30NAFjXBqyFDF1kpHYbn07/cyB2g==
+"@datocms/cma-client@^1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@datocms/cma-client/-/cma-client-1.1.5.tgz#08bbfbc5c42aa5a386a3577d6642dbf70ea7fd7d"
+  integrity sha512-D7tICc9QRGUnP4ZA6i8A+lnSKh5habTvkvfoBgPpR1+6y1Z6EI+9dTIPQyuQkdidZCaQZjEssJzikSwT3EWT8Q==
   dependencies:
-    "@datocms/rest-client-utils" "^1.0.0"
+    "@datocms/rest-client-utils" "^1.1.4"
 
-"@datocms/rest-client-utils@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@datocms/rest-client-utils/-/rest-client-utils-1.0.0.tgz#e2e9088c243d4b45b310bd3e667e643f2d3426bf"
-  integrity sha512-4gTuSWXvNWOtWmbSE7qHdoO0XGWZwlbOV56ew/v5rJaSWOA08DGC+MM2WeG1+dAJYVv3BEN4Ka3DG2rh1RIsqA==
+"@datocms/rest-client-utils@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@datocms/rest-client-utils/-/rest-client-utils-1.1.4.tgz#84a87e419dc9c1a31b73c3c4aa02a41429aaf0cd"
+  integrity sha512-Efiw/4oomKYmSwTDRNnSmNLx3lTeeqGSMcXHuXfBxFLfx4gqkmPPkykXrEOc9RnZvcGmjREyAyLOkbLg9g1gDw==
   dependencies:
     async-scheduler "^1.4.4"
     cross-fetch "^3.1.5"
