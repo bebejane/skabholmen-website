@@ -89,7 +89,7 @@ export default function Menu({ menu, banner = false, contact }: MenuProps) {
             {children.map(({ label, page }, idx) =>
               <li key={idx} role="menuitem">
                 {page?.slug ?
-                  <Link href={page?.slug}>
+                  <Link href={`/${page?.slug}`}>
                     <a className={cn(`/${page?.slug}` === router.asPath && s.selected)}>
                       {label}
                     </a>

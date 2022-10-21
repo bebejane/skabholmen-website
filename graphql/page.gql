@@ -1,83 +1,98 @@
 #import './fragments/ImageFragment.gql'
 #import './fragments/ImageMediumFragment.gql'
+#import './fragments/ProjectFragment.gql'
 
 query Start {
 	start {
-    id
-    title
-    intro(markdown: false)
-    image{
-      ...ImageFragment
-    }
-  }
+		id
+		title
+		intro(markdown: false)
+		image {
+			...ImageFragment
+		}
+	}
 }
 
 query Team {
-  team{
-    id
-    title
-    intro
-    slug
-    leadership{
-      id
-      email
-      name
-      role
-      biography(markdown: false)
-      image {
-        ...ImageMediumFragment
-      }
-    }
-  }
+	team {
+		id
+		title
+		intro
+		slug
+		leadership {
+			id
+			email
+			name
+			role
+			biography(markdown: false)
+			image {
+				...ImageMediumFragment
+			}
+		}
+	}
 }
 
-query InvestmentPhilosophy{
-  investmentPhilosophy {
-    id
-    title
-    intro(markdown:false)
-    image{
-      ...ImageFragment
-    }
-    slug
-  }
+query InvestmentPhilosophy {
+	investmentPhilosophy {
+		id
+		title
+		intro(markdown: false)
+		image {
+			...ImageFragment
+		}
+		slug
+	}
 }
 
-query SkabholmenGroup{
-  skabholmenGroup {
-    id
-    title
-    intro(markdown: false)
-    slug
-    image{
-      ...ImageFragment
-    }
-  }
-  partners: allPartners{
-    id
-    name
-    url
-    category{
-      id
-      name
-    }
-  }
+query SkabholmenGroup {
+	skabholmenGroup {
+		id
+		title
+		intro(markdown: false)
+		slug
+		image {
+			...ImageFragment
+		}
+	}
+	partners: allPartners {
+		id
+		name
+		url
+		category {
+			id
+			name
+		}
+	}
+	partnerCategories: allPartnerCategories {
+		id
+		name
+		position
+	}
 }
 
-query Responsibility{
-  responsibility{
-    id
-    intro(markdown: false)
-    title
-    slug
-    image{
-      ...ImageFragment
-    }
-    projects{
-      id
-      title
-      startDate
-      description(markdown: false)
-    }
-  }
+query Responsibility {
+	responsibility {
+		id
+		intro(markdown: false)
+		title
+		slug
+		image {
+			...ImageFragment
+		}
+		projects {
+			...ProjectFragment
+		}
+	}
+}
+
+query AllProjects {
+	projects: allProjects {
+		...ProjectFragment
+	}
+}
+
+query Project($slug: String!) {
+	project(filter: { slug: { eq: $slug } }) {
+		...ProjectFragment
+	}
 }

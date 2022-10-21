@@ -1,0 +1,7 @@
+fragment ProjectFragment on ProjectRecord {
+	id
+  title
+  slug
+  description(markdown: false)
+  startDate
+}

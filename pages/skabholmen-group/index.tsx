@@ -7,32 +7,40 @@ import type { GetStaticProps } from 'next';
 import type { PageProps } from '../../lib/context/page';
 import React from 'react';
 
-type Props = { skabholmenGroup: SkabholmenGroupRecord, partners: PartnerRecord[] }
+type Props = { skabholmenGroup: SkabholmenGroupRecord, partners: PartnerRecord[], partnerCategories: PartnerCategoryRecord[] }
 
 type PartnersByCategory = {
 	[key: string] : {
 		name: string,
-		items:PartnerRecord[]
+		items:PartnerRecord[],
+		categoryId: string
 	}
 }
 
-export default function SkabholmenGroup({ skabholmenGroup: {title, intro, image }, partners}: Props) {
+
+export default function SkabholmenGroup({ skabholmenGroup: {title, intro, image }, partners, partnerCategories}: Props) {
 
 	const partnersByCategory : PartnersByCategory = {}
+	console.log(partnerCategories);
 	
 	partners.forEach(p => {
 		if(!partnersByCategory[p.category.id])
-			partnersByCategory[p.category.id] = { name: p.category.name,  items:[]}
+			partnersByCategory[p.category.id] = { name: p.category.name,  items:[], categoryId: p.category.id}
 		partnersByCategory[p.category.id].items.push(p)
 	})
 	
+	const sortByCategory = (a: string, b: string) => {
+		const aPos = partnerCategories.find(({id}) => id === partnersByCategory[a].categoryId).position
+		const bPos = partnerCategories.find(({id}) => id === partnersByCategory[b].categoryId).position
+		return aPos > bPos ? 1 : -1
+	}
 
 	return (
 		<>
 			<Content className={s.skabholmenGroup}>
 				<Intro title={title} intro={intro}/>
 				<>
-					{Object.keys(partnersByCategory).map(key => {
+					{Object.keys(partnersByCategory).sort(sortByCategory).map(key => {
 						const category = partnersByCategory[key]
 						return (
 							<React.Fragment key={key}>
