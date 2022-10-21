@@ -1,11 +1,9 @@
 import styles from './[...project].module.scss'
 import withGlobalProps from "/lib/withGlobalProps";
 import { apiQuery } from '/lib/dato/api'
-import { Image } from 'react-datocms'
 import { PageProps } from '/lib/context/page'
 import { AllProjectsDocument, ProjectDocument } from '/graphql'
 import { Content, Intro } from '/components';
-import format from 'date-fns/format';
 
 export type ProjectProps = { project: ProjectRecord };
 

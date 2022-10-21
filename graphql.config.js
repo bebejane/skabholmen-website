@@ -38,12 +38,6 @@ module.exports = {
           plugins: ["typescript-graphql-files-modules"],
 					config
         },
-				/*
-				"graphql/hooks.ts": {
-          plugins: ["typescript-react-apollo"],
-					config:{...config, withHooks:true}
-        },
-				*/
 			},
 		}
 	},

@@ -84,15 +84,3 @@ query Responsibility {
 		}
 	}
 }
-
-query AllProjects {
-	projects: allProjects {
-		...ProjectFragment
-	}
-}
-
-query Project($slug: String!) {
-	project(filter: { slug: { eq: $slug } }) {
-		...ProjectFragment
-	}
-}

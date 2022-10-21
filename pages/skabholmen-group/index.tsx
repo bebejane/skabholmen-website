@@ -21,7 +21,6 @@ type PartnersByCategory = {
 export default function SkabholmenGroup({ skabholmenGroup: {title, intro, image }, partners, partnerCategories}: Props) {
 
 	const partnersByCategory : PartnersByCategory = {}
-	console.log(partnerCategories);
 	
 	partners.forEach(p => {
 		if(!partnersByCategory[p.category.id])
