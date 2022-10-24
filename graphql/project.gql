@@ -6,8 +6,8 @@ query AllProjects {
 	}
 }
 
-query Project($slug: String!) {
-	project(filter: { slug: { eq: $slug } }) {
+query Project($id: ItemId!) {
+	project(filter: { id: { eq: $id } }) {
 		...ProjectFragment
 	}
 }
