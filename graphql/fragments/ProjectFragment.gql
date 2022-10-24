@@ -1,7 +1,7 @@
 fragment ProjectFragment on ProjectRecord {
 	id
   title
-  slug
+  url
   description(markdown: false)
   startDate
 }

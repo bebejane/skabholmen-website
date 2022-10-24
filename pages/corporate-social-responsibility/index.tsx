@@ -10,7 +10,7 @@ import Link from 'next/link';
 
 type Props = { responsibility: ResponsibilityRecord }
 
-export default function Responsibility({ responsibility : {title, intro, image, projects, slug : pageSlug }}: Props) {
+export default function Responsibility({ responsibility : {title, intro, image, projects }}: Props) {
 	
 	return (
 		<Content className={s.responsibility}>
@@ -18,14 +18,16 @@ export default function Responsibility({ responsibility : {title, intro, image, 
 			<h1>Projects</h1>
 			<hr/>
 			<ul>
-				{projects.map(({title, description, startDate, id, slug}) => 
+				{projects.map(({title, description, startDate, id, url}) => 
 					<li key={id}>
 						<div className={s.title}>
-							<Link href={`/${pageSlug}/${slug}`}>
-								<a>
+							{url ? 
+								<a href={url} target="_new">
 									<h2>{title}</h2>
 								</a>
-							</Link>
+							:
+								<h2>{title}</h2>
+							}
 							<h3>Since {format(new Date(startDate), 'yyyy')}</h3>
 						</div>
 						<div className={s.description}>

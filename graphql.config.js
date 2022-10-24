@@ -13,7 +13,7 @@ module.exports = {
 	schema: {
 		"https://graphql.datocms.com": {
 			headers: {
-				Authorization: process.env.GRAPHQL_API_TOKEN,
+				Authorization: process.env.NEXT_PUBLIC_GRAPHQL_API_TOKEN,
 				"X-Exclude-Invalid": true,
 			},
 		},
