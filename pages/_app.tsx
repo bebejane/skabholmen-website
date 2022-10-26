@@ -1,6 +1,5 @@
 import '/styles/index.scss'
 import DatoSEO from '/lib/dato/components/DatoSEO';
-import { GoogleAnalytics, usePagesViews } from "nextjs-google-analytics";
 import { useRouter } from 'next/router';
 import { Menu, MenuMobile, LayoutPage, LayoutFull, Footer, Navbar } from '/components';
 import { PageProvider, type PageProps } from '/lib/context/page';
@@ -14,8 +13,6 @@ type Props = AppProps & {
 }
 
 function MyApp({ Component , pageProps } : Props) {
-
-  //usePagesViews(); // Google Analytics page view tracker = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
   const page : PageProps = Component.page as PageProps;
   const Layout = page?.layout === 'page' ? LayoutPage : LayoutFull
 
@@ -31,15 +28,13 @@ function MyApp({ Component , pageProps } : Props) {
   
   return (
     <>
-      <GoogleAnalytics />
       <DatoSEO 
         seo={seo} 
-        site={site} 
+        site={site}
         pathname={pathname} 
         key={pathname} 
-        noindex={true}
+        noindex={false}
         separator={' · '}
-        //title={pageProps.title}
       />
       <PageProvider value={page}>
         <Navbar/>
