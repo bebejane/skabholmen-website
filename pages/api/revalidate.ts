@@ -10,6 +10,8 @@ export default withRevalidate(async (record, revalidate) => {
     paths.push('/')
   else if(api_key === 'partner')
     paths.push('/skabholmen-group')
+  else if(api_key === 'sponsor')
+    paths.push('/corporate-social-responsibility')
   else if(slug)
     paths.push(`/${slug}`)
   else
