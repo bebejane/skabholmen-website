@@ -8,9 +8,13 @@ export default withRevalidate(async (record, revalidate) => {
   
   if(api_key === 'start')
     paths.push('/')
-  else
+  else if(api_key === 'partner')
+    paths.push('/skabholmen-group')
+  else if(slug)
     paths.push(`/${slug}`)
-
+  else
+    throw new Error(`No paths to revalidate for "${api_key}"`)
+  
   revalidate(paths)
 })
 

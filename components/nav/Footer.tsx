@@ -14,7 +14,7 @@ export type FooterProps = {
   menu: GlobalQuery['menuFooter']
 }
 
-export default function Footer({contact: { phone, email, address, social }, menu} : FooterProps){
+export default function Footer({contact: { phone, email, address }, menu} : FooterProps){
   
   const router = useRouter()
   const [isHome, setIsHome] = useState(false)
@@ -41,7 +41,9 @@ export default function Footer({contact: { phone, email, address, social }, menu
         </div>
         
         <div className={s.bottom}>
-          <div className={s.phone}><a href={`tel://${phone}`}>{phone}</a></div>
+          {phone && 
+            <div className={s.phone}><a href={`tel://${phone}`}>{phone}</a></div>
+          }
           <div className={s.email}><a href={`mailto:${email}`}>{email}</a></div>
           <div className={s.copyright}>© 2022 Skabholmen Invest. All rights reserved.</div>
         </div>

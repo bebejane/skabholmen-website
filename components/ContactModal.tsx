@@ -20,29 +20,28 @@ export default function ContactModal({ contact, show, onClose }: ContactProps) {
       <div className={cn(s.contact, show && s.show)}>
         <p>
           <h3>Have a question?</h3>
-          Give us a call at
-          <br/>
-          <a href={`tel://${contact.phone}`}>{contact.phone}</a>
-          <br/>
-          or send an email to
-          <br/>
-          <a href={`mailto:${contact.email}`}>{contact.email}</a>
+          {contact.phone ? 
+            <>
+              Give us a call at
+              <br/>
+              <a href={`tel://${contact.phone}`}>{contact.phone}</a>
+              <br/>
+              or send an email to
+              <br/>
+              <a href={`mailto:${contact.email}`}>{contact.email}</a>
+            </>
+          :
+            <>
+              Send us an email at
+              <br/>
+              <a href={`mailto:${contact.email}`}>{contact.email}</a>
+            </>
+          }
         </p>
         <p>
           <h3>Office Address</h3>
           <Markdown>{contact.address}</Markdown>
         </p>
-        {/*}
-        <div className={s.footer}>
-          <div className={s.links}>
-            {contact.social.map(({name, url, icon}, key) => 
-              <a key={key} href={url}>
-                <img src={icon.url}/>
-              </a>
-            )}
-          </div>
-        </div>
-        */}
         <div className={s.close} onClick={onClose}><Close/></div>
       </div> 
     </Modal>
