@@ -6,11 +6,11 @@ import Markdown from '/lib/dato/components/Markdown';
 import type { GetStaticProps } from 'next';
 import type { PageProps } from '/lib/context/page';
 import { format } from 'date-fns'
-import Link from 'next/link';
+import cn from 'classnames'
 
-type Props = { responsibility: ResponsibilityRecord }
+type Props = { responsibility: ResponsibilityRecord, sponsors: SponsorRecord[] }
 
-export default function Responsibility({ responsibility : {title, intro, image, projects }}: Props) {
+export default function Responsibility({ responsibility : {title, intro, projects }, sponsors}: Props) {
 	
 	return (
 		<Content className={s.responsibility}>
@@ -35,6 +35,19 @@ export default function Responsibility({ responsibility : {title, intro, image, 
 						</div>
 					</li>
 				)}
+				<li>
+					<div className={s.title}>
+						<h2>Proud sponsors of:</h2>
+					</div>
+					<div className={cn(s.description, s.sponsors)}>
+						{sponsors?.map(({name, url, startDate}, idx)=> 
+							<div key={idx}>
+								<h2>{name}</h2>
+								<h3>Since {format(new Date(startDate), 'yyyy')}</h3>
+							</div>
+						)}
+					</div>
+				</li>
 			</ul>
     </Content>
 	)

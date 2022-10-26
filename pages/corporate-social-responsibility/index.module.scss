@@ -31,6 +31,20 @@
         margin-left: spanNestedGrid(12, 1, true);
       }
 
+      .sponsors{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-top: calc(var(--space) * -1);
+        
+        >div{
+          flex: 0 0 50%;
+          margin-top: var(--space);
+        }
+        h3{
+          color: $blue;
+        }
+      }
       @include mq($until: tablet){
         flex-direction: column;
         

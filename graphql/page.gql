@@ -67,7 +67,7 @@ query SkabholmenGroup {
 		id
 		name
 		position
-	}
+	}	
 }
 
 query Responsibility {
@@ -82,5 +82,11 @@ query Responsibility {
 		projects {
 			...ProjectFragment
 		}
+	}
+	sponsors: allSponsors {
+		id
+		name
+		url
+		startDate
 	}
 }
