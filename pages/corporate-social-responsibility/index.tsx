@@ -42,7 +42,7 @@ export default function Responsibility({ responsibility : {title, intro, project
 					<div className={cn(s.description, s.sponsors)}>
 						{sponsors?.map(({name, url, startDate}, idx)=> 
 							<div key={idx}>
-								<h2>{name}</h2>
+								<h2>{url ? <a href={url} target="_new">{name}</a> : name }</h2>
 								<h3>Since {format(new Date(startDate), 'yyyy')}</h3>
 							</div>
 						)}
