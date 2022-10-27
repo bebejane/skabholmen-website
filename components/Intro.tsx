@@ -1,5 +1,5 @@
 import s from './Intro.module.scss'
-import Markdown from '/lib/dato/components/Markdown'
+import { DatoMarkdown as Markdown } from 'dato-nextjs-utils/components';
 
 type Props = {
   title:string,

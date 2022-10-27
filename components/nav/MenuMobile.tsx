@@ -1,11 +1,9 @@
 import s from './MenuMobile.module.scss'
 import cn from 'classnames'
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-import useScrollInfo from '/lib/hooks/useScrollInfo'
+import { useScrollInfo } from 'dato-nextjs-utils/hooks';
 import useStore from '/lib/store'
 import Link from 'next/link'
-import Arrow from '/public/images/arrow.svg'
 import { usePage } from '/lib/context/page'
 
 export type MenuMobileProps = { menu: MenuRecord[], banner?: boolean, contact: ContactRecord }
@@ -17,7 +15,6 @@ export default function MenuMobile({ menu, contact, banner = false }: MenuMobile
   const { isPageBottom, isPageTop, isScrolledUp, scrolledPosition, viewportHeight } = useScrollInfo()
   const [showMenuMobile, setShowMenuMobile, setShowContact] = useStore((state) => [state.showMenuMobile, state.setShowMenuMobile, state.setShowContact])
   const [selected, setSelected] = useState<string | undefined>()
-  const [coords, setCoords] = useState<any>({ left: 0, top: 0 })
   const [inverted, setInverted] = useState<boolean>(page.menu === 'inverted')
 
   useEffect(() => { // Toggle menu bar on scroll

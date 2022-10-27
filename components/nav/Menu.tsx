@@ -2,15 +2,13 @@ import s from './Menu.module.scss'
 import cn from 'classnames'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import useScrollInfo from '/lib/hooks/useScrollInfo'
+import { useScrollInfo } from 'dato-nextjs-utils/hooks';
 import useStore from '/lib/store'
 import Link from 'next/link'
-import Arrow from '/public/images/arrow.svg'
 import Skabholmen from '/public/images/skabholmen.svg'
 import Invest from '/public/images/invest.svg'
 import { usePage } from '/lib/context/page'
 import { ContactModal } from '/components'
-import Markdown from '/lib/dato/components/Markdown'
 
 export type MenuProps = { menu: MenuRecord[], banner?:boolean, contact: ContactRecord }
 

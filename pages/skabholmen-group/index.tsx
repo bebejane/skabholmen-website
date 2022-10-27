@@ -2,7 +2,6 @@ import s from './index.module.scss'
 import withGlobalProps from '/lib/withGlobalProps';
 import { Content, Intro, BannerImage } from '/components';
 import { SkabholmenGroupDocument } from '/graphql'
-
 import type { GetStaticProps } from 'next';
 import type { PageProps } from '../../lib/context/page';
 import React from 'react';

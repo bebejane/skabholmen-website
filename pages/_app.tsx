@@ -1,5 +1,5 @@
 import '/styles/index.scss'
-import DatoSEO from '/lib/dato/components/DatoSEO';
+import { DatoSEO } from 'dato-nextjs-utils/components';
 import { useRouter } from 'next/router';
 import { Menu, MenuMobile, LayoutPage, LayoutFull, Footer, Navbar } from '/components';
 import { PageProvider, type PageProps } from '/lib/context/page';

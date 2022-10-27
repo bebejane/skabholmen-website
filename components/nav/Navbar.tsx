@@ -2,7 +2,7 @@ import s from './Navbar.module.scss'
 import cn from 'classnames'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import useScrollInfo from '/lib/hooks/useScrollInfo'
+import { useScrollInfo } from 'dato-nextjs-utils/hooks';
 import useStore from '/lib/store'
 import Link from 'next/link'
 import Skabholmen from '/public/images/logo.svg'

@@ -1,12 +1,11 @@
 import s from './Footer.module.scss'
 import cn from 'classnames'
 import { usePage } from '/lib/context/page'
-import Markdown from '/lib/dato/components/Markdown'
+import { DatoMarkdown as Markdown } from 'dato-nextjs-utils/components';
 import Up from '/public/images/up.svg'
 import Link from 'next/link'
 import  useStore  from '/lib/store'
 import { useRouter } from 'next/router'
-import { chunkArray } from '/lib/utils'
 import { useEffect, useState } from 'react'
 
 export type FooterProps = {

@@ -2,7 +2,7 @@ import s from './ContactModal.module.scss'
 import cn from 'classnames'
 import { Modal } from '/components'
 import { useKey } from 'rooks'
-import Markdown from '/lib/dato/components/Markdown'
+import { DatoMarkdown as Markdown } from 'dato-nextjs-utils/components';
 import Close from '/public/images/close.svg'
 
 type ContactProps = {

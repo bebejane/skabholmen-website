@@ -3,7 +3,7 @@ import withGlobalProps from '/lib/withGlobalProps';
 import { Content, Intro } from '/components';
 import { TeamDocument } from '/graphql'
 import { Image } from 'react-datocms'
-import Markdown from '/lib/dato/components/Markdown';
+import { DatoMarkdown as Markdown } from 'dato-nextjs-utils/components';
 import type { PageProps } from '../../lib/context/page';
 
 import type { GetStaticProps } from 'next';

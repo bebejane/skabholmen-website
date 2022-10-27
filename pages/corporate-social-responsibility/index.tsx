@@ -2,7 +2,7 @@ import s from './index.module.scss'
 import withGlobalProps from '/lib/withGlobalProps';
 import { Content, Intro } from '/components';
 import { ResponsibilityDocument } from '/graphql'
-import Markdown from '/lib/dato/components/Markdown';
+import { DatoMarkdown as Markdown } from 'dato-nextjs-utils/components';
 import type { GetStaticProps } from 'next';
 import type { PageProps } from '/lib/context/page';
 import { format } from 'date-fns'
