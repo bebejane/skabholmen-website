@@ -7,12 +7,12 @@ type Props = {
 }
 
 export default function Intro({ title, intro} : Props){
-
-	return (
+  
+  return (
 		<section className={s.intro}>
       <h1>{title}</h1>
       <hr/>
-      <Markdown>{intro}</Markdown>
+      {intro && <Markdown>{intro}</Markdown>}
     </section>	
 	)
 }
