@@ -13,13 +13,12 @@ type Props = AppProps & {
 }
 
 function MyApp({ Component , pageProps } : Props) {
+  
+  const router = useRouter()
   const page : PageProps = Component.page as PageProps;
   const Layout = page?.layout === 'page' ? LayoutPage : LayoutFull
-
-  const router = useRouter()
   const { asPath : pathname } = router
   const { site, seo, contact, menuFooter} = pageProps;
-
   const errorCode = parseInt(router.pathname.replace('/', ''))
   const isError = !isNaN(errorCode) && (errorCode > 400 && errorCode < 600)
 
