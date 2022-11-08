@@ -5,14 +5,13 @@
   "scripts": {
     "dev": "npm run dev:watch",
     "dev:watch": "LOG_GRAPHQL=true next dev & npm run barrel:watch & graphql-codegen --watch",
-    "build": "next build && pnpm postbuild",
+    "build": "next build && next-sitemap",
     "codegen": "graphql-codegen",
     "start": "next start",
     "lint": "next lint",
     "preview": "npm run build && npm run start",
     "barrel": "node ./lib/scripts/barrel",
     "barrel:watch": "watch 'node ./lib/scripts/barrel' ./components",
-    "postbuild": "next-sitemap",
     "analyze": "ANALYZE=true pnpm build"
   },
   "dependencies": {
