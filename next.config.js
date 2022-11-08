@@ -53,5 +53,3 @@ const nextOptions = {
 
 const config = withBundleAnalyzer({ sassOptions, ...nextOptions });
 module.exports = config;
-
-skabholmen - invest - ab;
