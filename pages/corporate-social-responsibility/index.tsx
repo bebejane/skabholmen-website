@@ -10,22 +10,22 @@ import cn from 'classnames'
 
 type Props = { responsibility: ResponsibilityRecord, sponsors: SponsorRecord[] }
 
-export default function Responsibility({ responsibility : {title, intro, projects }, sponsors}: Props) {
-	
+export default function Responsibility({ responsibility: { title, intro, projects }, sponsors }: Props) {
+
 	return (
 		<Content className={s.responsibility}>
-      <Intro title={title} intro={intro}/>
+			<Intro title={title} intro={intro} />
 			<h1>Projects</h1>
-			<hr/>
+			<hr />
 			<ul>
-				{projects.map(({title, description, startDate, id, url}) => 
+				{projects.map(({ title, description, startDate, id, url }) =>
 					<li key={id}>
 						<div className={s.title}>
-							{url ? 
+							{url ?
 								<a href={url} target="_new">
 									<h2>{title}</h2>
 								</a>
-							:
+								:
 								<h2>{title}</h2>
 							}
 							<h3>Since {format(new Date(startDate), 'yyyy')}</h3>
@@ -40,22 +40,22 @@ export default function Responsibility({ responsibility : {title, intro, project
 						<h2>Proud sponsors of:</h2>
 					</div>
 					<div className={cn(s.description, s.sponsors)}>
-						{sponsors?.map(({name, url, startDate}, idx)=> 
+						{sponsors?.map(({ name, url, startDate }, idx) =>
 							<div key={idx}>
-								<h2>{url ? <a href={url} target="_new">{name}</a> : name }</h2>
+								<h2>{url ? <a href={url} target="_new">{name}</a> : name}</h2>
 								<h3>Since {format(new Date(startDate), 'yyyy')}</h3>
 							</div>
 						)}
 					</div>
 				</li>
 			</ul>
-    </Content>
+		</Content>
 	)
 }
 
-Responsibility.page = {layout: 'page', menu:'normal', footerSeparator:true} as PageProps
+Responsibility.page = { title: 'Corporate Social Responsibility', layout: 'page', menu: 'normal', footerSeparator: true } as PageProps
 
-export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [ResponsibilityDocument], seo:'responsibility' }, async ({ props, revalidate }: any) => {
+export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [ResponsibilityDocument], seo: { model: 'responsibility' } }, async ({ props, revalidate }: any) => {
 
 	return {
 		props,

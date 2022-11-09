@@ -1,12 +1,14 @@
 import { useContext, createContext } from "react";
 
 export type PageProps = {
+  title: undefined | string,
   layout: 'page' | 'full',
   menu: 'normal' | 'inverted',
   footerSeparator: boolean
 }
 
 const initialState: PageProps = {
+  title: undefined,
   layout: 'page',
   menu: 'normal',
   footerSeparator: false

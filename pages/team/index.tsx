@@ -10,20 +10,20 @@ import type { GetStaticProps } from 'next';
 
 type Props = { team: TeamRecord }
 
-export default function Team({ team : { title, intro, leadership }}: Props) {
+export default function Team({ team: { title, intro, leadership } }: Props) {
 
 	return (
 		<Content className={s.team}>
-      <Intro title={title} intro={intro}/>
+			<Intro title={title} intro={intro} />
 			<p>
 				<ul>
-					{leadership.map(({name, role, email, image, biography}, idx) => 
+					{leadership.map(({ name, role, email, image, biography }, idx) =>
 						<li key={idx}>
 							<h2>{name}</h2>
 							<h3>{role}</h3>
 							<div>
-								<figure>	
-									<Image data={image.responsiveImage} objectFit="contain" className={s.image}/>
+								<figure>
+									<Image data={image.responsiveImage} objectFit="contain" className={s.image} />
 								</figure>
 								<Markdown className={s.biography}>
 									{biography}
@@ -33,13 +33,13 @@ export default function Team({ team : { title, intro, leadership }}: Props) {
 					)}
 				</ul>
 			</p>
-    </Content>
+		</Content>
 	)
 }
 
-Team.page = {layout: 'page', menu:'normal', footerSeparator: true } as PageProps
+Team.page = { title: 'Team', layout: 'page', menu: 'normal', footerSeparator: true } as PageProps
 
-export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [TeamDocument], seo:'team' }, async ({ props, revalidate }: any) => {
+export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [TeamDocument], seo: { model: 'team' } }, async ({ props, revalidate }: any) => {
 
 	return {
 		props,

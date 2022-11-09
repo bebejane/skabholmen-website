@@ -7,21 +7,21 @@ import type { PageProps } from '../../lib/context/page';
 
 type Props = { investmentPhilosophy: InvestmentPhilosophyRecord }
 
-export default function InvestmentPhilosophy({ investmentPhilosophy : {title, intro, image }}: Props) {
+export default function InvestmentPhilosophy({ investmentPhilosophy: { title, intro, image } }: Props) {
 
 	return (
 		<>
-			<BannerImage image={image} stripes={true}/>
+			<BannerImage image={image} stripes={true} />
 			<Content className={s.investment}>
-				<Intro title={title} intro={intro}/>
+				<Intro title={title} intro={intro} />
 			</Content>
 		</>
 	)
 }
 
-InvestmentPhilosophy.page = {layout: 'full', menu:'inverted', footerSeparator: true} as PageProps
+InvestmentPhilosophy.page = { title: 'Investment Philosophy', layout: 'full', menu: 'inverted', footerSeparator: true } as PageProps
 
-export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [InvestmentPhilosophyDocument], seo:'investmentPhilosophy' }, async ({ props, revalidate }: any) => {
+export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [InvestmentPhilosophyDocument], seo: { model: 'investmentPhilosophy' } }, async ({ props, revalidate }: any) => {
 
 	return {
 		props,

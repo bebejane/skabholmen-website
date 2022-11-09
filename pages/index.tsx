@@ -11,8 +11,8 @@ export default function Home({ start: { intro, image } }: HomeProps) {
 
 	return (
 		<div id="banner" className={s.hero}>
-			<Image 
-				data={image.responsiveImage} 
+			<Image
+				data={image.responsiveImage}
 				className={s.image}
 				objectFit="cover"
 				objectPosition={'center'}
@@ -24,9 +24,9 @@ export default function Home({ start: { intro, image } }: HomeProps) {
 	)
 }
 
-Home.page = {layout: 'full', menu:'inverted', footerSeparator:false} as PageProps
+Home.page = { layout: 'full', menu: 'inverted', footerSeparator: false } as PageProps
 
-export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [StartDocument]}, async ({ props, revalidate }: any) => {
+export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [StartDocument] }, async ({ props, revalidate }: any) => {
 
 	return {
 		props,

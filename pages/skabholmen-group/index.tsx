@@ -9,43 +9,43 @@ import React from 'react';
 type Props = { skabholmenGroup: SkabholmenGroupRecord, partners: PartnerRecord[], partnerCategories: PartnerCategoryRecord[] }
 
 type PartnersByCategory = {
-	[key: string] : {
+	[key: string]: {
 		name: string,
-		items:PartnerRecord[],
+		items: PartnerRecord[],
 		categoryId: string
 	}
 }
 
 
-export default function SkabholmenGroup({ skabholmenGroup: {title, intro, image }, partners, partnerCategories}: Props) {
+export default function SkabholmenGroup({ skabholmenGroup: { title, intro, image }, partners, partnerCategories }: Props) {
 
-	const partnersByCategory : PartnersByCategory = {}
-	
+	const partnersByCategory: PartnersByCategory = {}
+
 	partners.forEach(p => {
-		if(!partnersByCategory[p.category.id])
-			partnersByCategory[p.category.id] = { name: p.category.name,  items:[], categoryId: p.category.id}
+		if (!partnersByCategory[p.category.id])
+			partnersByCategory[p.category.id] = { name: p.category.name, items: [], categoryId: p.category.id }
 		partnersByCategory[p.category.id].items.push(p)
 	})
-	
+
 	const sortByCategory = (a: string, b: string) => {
-		const aPos = partnerCategories.find(({id}) => id === partnersByCategory[a].categoryId).position
-		const bPos = partnerCategories.find(({id}) => id === partnersByCategory[b].categoryId).position
+		const aPos = partnerCategories.find(({ id }) => id === partnersByCategory[a].categoryId).position
+		const bPos = partnerCategories.find(({ id }) => id === partnersByCategory[b].categoryId).position
 		return aPos > bPos ? 1 : -1
 	}
 
 	return (
 		<>
 			<Content className={s.skabholmenGroup}>
-				<Intro title={title} intro={intro}/>
+				<Intro title={title} intro={intro} />
 				<>
 					{Object.keys(partnersByCategory).sort(sortByCategory).map(key => {
 						const category = partnersByCategory[key]
 						return (
 							<React.Fragment key={key}>
 								<h1>{category.name}</h1>
-								<hr/>
+								<hr />
 								<ul>
-									{category.items.map(({id, name, url}) => 
+									{category.items.map(({ id, name, url }) =>
 										<li key={id}>
 											{url ? <a href={url}>{name}</a> : <>{name}</>}
 										</li>
@@ -56,14 +56,14 @@ export default function SkabholmenGroup({ skabholmenGroup: {title, intro, image 
 					})}
 				</>
 			</Content>
-			<BannerImage image={image} stripes={false}/>
+			<BannerImage image={image} stripes={false} />
 		</>
 	)
 }
 
-SkabholmenGroup.page = {layout: 'page', menu:'normal'} as PageProps
+SkabholmenGroup.page = { title: 'Skabholmen Group', layout: 'page', menu: 'normal', footerSeparator: false } as PageProps
 
-export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [SkabholmenGroupDocument], seo:'skabholmenGroup' }, async ({ props, revalidate }: any) => {
+export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [SkabholmenGroupDocument], seo: { model: 'skabholmenGroup' } }, async ({ props, revalidate }: any) => {
 
 	return {
 		props,
