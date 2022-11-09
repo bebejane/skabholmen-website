@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }: Props) {
   const Layout = page?.layout === 'page' ? LayoutPage : LayoutFull
   const { asPath: pathname } = router
   const { site, contact, menuFooter } = pageProps;
-  const pageTitle = pageProps.pageTitle || page.title
+  const pageTitle = pageProps.pageTitle || page?.title
   const description = site?.globalSeo.fallbackSeo.description
   const errorCode = parseInt(router.pathname.replace('/', ''))
   const isError = !isNaN(errorCode) && (errorCode > 400 && errorCode < 600)
