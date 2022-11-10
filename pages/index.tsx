@@ -24,7 +24,7 @@ export default function Home({ start: { intro, image } }: HomeProps) {
 	)
 }
 
-Home.page = { title: 'Skabholmen Invest', layout: 'full', menu: 'inverted', footerSeparator: false } as PageProps
+Home.page = { layout: 'full', menu: 'inverted', footerSeparator: false } as PageProps
 
 export const getStaticProps: GetStaticProps = withGlobalProps({ queries: [StartDocument] }, async ({ props, revalidate }: any) => {
 
