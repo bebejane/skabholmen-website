@@ -43,9 +43,14 @@ const nextOptions = {
 	async redirects() {
 		return [
 			{
+				source: "/skabholmen-invest-ab",
+				destination: "/",
+				permanent: false,
+			},
+			{
 				source: "/skabholmen-invest-ab/:path*",
 				destination: "/team",
-				permanent: true,
+				permanent: false,
 			},
 		];
 	},
