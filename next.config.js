@@ -40,6 +40,7 @@ const nextOptions = {
 		config.resolve.fallback = { fs: false, dns: false, net: false };
 		return config;
 	},
+	/*
 	async redirects() {
 		return [
 			{
@@ -54,6 +55,7 @@ const nextOptions = {
 			},
 		];
 	},
+	*/
 };
 
 const config = withBundleAnalyzer({ sassOptions, ...nextOptions });
