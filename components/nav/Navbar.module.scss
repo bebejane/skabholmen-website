@@ -1,4 +1,3 @@
-
 .navbar {
   position: fixed;
   z-index: 3000;
@@ -8,15 +7,17 @@
   align-items: center;
   top: 0;
   left: 0;
-  
+
   @include mq($until: desktop) {
     background-color: $white;
     background-color: transparent;
     width: 100%;
-    min-height: var(--navbar-height); 
+    min-height: var(--navbar-height);
   }
+
   transition: background-color .3s ease-out;
-  &.transparent{
+
+  &.transparent {
     background-color: transparent;
   }
 
@@ -29,15 +30,17 @@
     @include mq($from: desktop) {
       top: calc(var(--outer-margin) - 2px);
     }
+
     @include mq($from: wide) {
       top: calc(var(--outer-margin) - 8px);
     }
-    
+
     svg {
       path {
         fill: $graydark;
       }
     }
+
     &.invert {
       svg {
         path {
@@ -45,6 +48,7 @@
         }
       }
     }
+
     svg {
       width: 174px;
       height: 15px;
@@ -57,21 +61,22 @@
     justify-content: flex-end;
     flex: 1 1 auto;
     color: $black;
-    
+
     @include mq($until: tablet) {
       margin-right: calc(28px - var(--outer-margin));
-      
+
     }
+
     @include mq($from: tablet) {
       margin-right: 28px;
     }
-    
+
     @include mq($from: desktop) {
       display: none;
     }
   }
 
-  * > path {
+  *>path {
     transition: fill 0.5s ease;
   }
 

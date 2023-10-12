@@ -18,21 +18,21 @@ export default function Navbar({ }: NavbarProps) {
 
   const page = usePage()
   const router = useRouter()
-  
-  const { scrolledPosition, viewportHeight} = useScrollInfo()
-  const [showMenuMobile, setShowMenuMobile, showContact, setShowContact, invertedMenu, setInvertedMenu] = useStore((state) => [state.showMenuMobile, state.setShowMenuMobile, state.showContact, state.setShowContact, state.invertedMenu, state.setInvertedMenu])  
-  
-  useEffect(()=>{
-    
-    if(showMenuMobile || showContact) 
+
+  const { scrolledPosition, viewportHeight } = useScrollInfo()
+  const [showMenuMobile, setShowMenuMobile, showContact, setShowContact, invertedMenu, setInvertedMenu] = useStore((state) => [state.showMenuMobile, state.setShowMenuMobile, state.showContact, state.setShowContact, state.invertedMenu, state.setInvertedMenu])
+
+  useEffect(() => {
+
+    if (showMenuMobile || showContact)
       return setInvertedMenu(true)
-    
+
     const banner = document.getElementById('banner')?.getBoundingClientRect()
     const logo = document.getElementById('logo')?.getBoundingClientRect()
 
-    if(!banner)
+    if (!banner)
       return setInvertedMenu(false)
-    if(!logo)
+    if (!logo)
       return
 
     const { scrollY } = window
@@ -41,36 +41,34 @@ export default function Navbar({ }: NavbarProps) {
 
   }, [scrolledPosition, viewportHeight, page, showMenuMobile, showContact, setInvertedMenu])
 
-  useEffect(()=>{
+  useEffect(() => {
     setShowMenuMobile(false)
   }, [router.asPath, setShowMenuMobile])
-  
+
 
   return (
     <>
       <div className={cn(s.navbar, invertedMenu && s.transparent)}>
-        <Logo inverted={invertedMenu}/>
+        <Logo inverted={invertedMenu} />
         <div className={cn(s.hamburger, showContact && s.hide)}>
-          <Hamburger 
-            size={24} 
-            color={invertedMenu || showMenuMobile ? '#fff' : '#000'} 
-            toggled={showMenuMobile || showContact} 
-            onToggle={()=> showContact ? setShowContact(false) : setShowMenuMobile(!showMenuMobile)}
+          <Hamburger
+            size={24}
+            color={invertedMenu || showMenuMobile ? '#fff' : '#000'}
+            toggled={showMenuMobile || showContact}
+            onToggle={() => showContact ? setShowContact(false) : setShowMenuMobile(!showMenuMobile)}
           />
         </div>
       </div>
-     
+
     </>
   )
 }
 
-const Logo = ({inverted} : { inverted: boolean}) =>{
+const Logo = ({ inverted }: { inverted: boolean }) => {
 
-  return(
-    <Link href="/">
-      <a id="logo" className={cn(s.logo, inverted && s.invert)}>
-        <Skabholmen width={174} height={15}/>
-      </a>
+  return (
+    <Link href="/" className={cn(s.logo, inverted && s.invert)} passHref={true}>
+      <Skabholmen width={174} height={15} />
     </Link>
   )
 }

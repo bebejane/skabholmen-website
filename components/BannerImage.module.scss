@@ -1,45 +1,54 @@
-.bannerImage{
-  position: relative;  
+.bannerImage {
+  position: relative;
   max-height: 50vh;
   min-height: 50vh;
   width: 100%;
-  @include mq($until: tablet){
-    display: none;  
+
+  @include mq($until: tablet) {
+    display: none;
   }
-  &.top{
+
+  &.top {
     margin-bottom: var(--space);
-    @include mq($until: tablet){
-      display: block;  
+
+    @include mq($until: tablet) {
+      display: block;
     }
   }
-  .image{
+
+  .image {
     min-height: 50vh;
     max-height: 50vh;
     min-width: 100%;
   }
-  .stripeQuarter, .stripeHalf{
+
+  .stripeQuarter,
+  .stripeHalf {
     position: absolute;
     z-index: 1;
     background-color: $white;
     height: 50px;
-    bottom:0;
-    right:0;
-    min-width:0px;
+    bottom: 0;
+    right: 0;
+    min-width: 0px;
     transition: min-width 1s ease;
   }
-  .stripeQuarter{
+
+  .stripeQuarter {
     margin-bottom: 50px;
     --min-width: 25%;
     animation: slideIn .5s ease forwards;
   }
-  .stripeHalf{
+
+  .stripeHalf {
     --min-width: 50%;
     animation: slideIn .5s .3s ease-out forwards;
   }
+
   @keyframes slideIn {
-    to{
+    to {
       min-width: var(--min-width);
     }
   }
-  
+
 }

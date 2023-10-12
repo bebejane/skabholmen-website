@@ -33,13 +33,13 @@ export default function MenuMobile({ menu, contact, banner = false }: MenuMobile
           {menu.map(({ id, label, page, children }, idx) => children.map(({ label, page }, idx) =>
             <li key={idx} role="menuitem">
               {page?.slug ?
-                  <Link href={page?.slug}><a>{label}</a></Link>
+                <Link href={page?.slug}>{label}</Link>
                 :
-                  <>{label}</>
+                <>{label}</>
               }
             </li>
           ))}
-          <li onClick={()=>setShowContact(true)}>Contact</li>
+          <li onClick={() => setShowContact(true)}>Contact</li>
         </ul>
       </nav>
     </>
