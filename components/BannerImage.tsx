@@ -9,10 +9,11 @@ type Props = {
 
 export default function BannerImage({ image, stripes = false }: Props) {
 
+
 	return (
 		<section id="banner" className={cn(s.bannerImage, stripes && s.top)}>
 			{image?.responsiveImage &&
-				<Image data={image.responsiveImage} objectFit="cover" className={s.image} />
+				<Image data={image.responsiveImage} className={s.image} pictureClassName={s.picture} />
 			}
 			{stripes &&
 				<>

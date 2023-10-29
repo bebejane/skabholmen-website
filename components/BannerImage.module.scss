@@ -16,10 +16,13 @@
     }
   }
 
-  .image {
+  .image,
+  .picture {
     min-height: 50vh;
     max-height: 50vh;
     min-width: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 
   .stripeQuarter,

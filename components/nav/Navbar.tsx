@@ -9,6 +9,8 @@ import Skabholmen from '/public/images/logo.svg'
 
 import { Fade as Hamburger } from 'hamburger-react'
 import { usePage } from '/lib/context/page'
+import { is } from 'date-fns/locale';
+import { set } from 'date-fns';
 
 type NavbarProps = {
 
@@ -37,13 +39,15 @@ export default function Navbar({ }: NavbarProps) {
 
     const { scrollY } = window
     const isOverlayed = scrolledPosition >= (banner?.y + scrollY - logo.bottom) && scrolledPosition <= (banner?.y + banner?.height - logo.bottom) + scrollY
+
     setInvertedMenu(isOverlayed)
 
   }, [scrolledPosition, viewportHeight, page, showMenuMobile, showContact, setInvertedMenu])
 
   useEffect(() => {
     setShowMenuMobile(false)
-  }, [router.asPath, setShowMenuMobile])
+    setInvertedMenu(page.menu === 'inverted')
+  }, [router.asPath, setShowMenuMobile, page, setInvertedMenu, showContact])
 
 
   return (
