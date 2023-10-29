@@ -14,11 +14,17 @@ export default withWebPreviewsEdge(async ({ item, itemType }) => {
     case 'start':
       path = `/`
       break;
-    case 'partner':
+    case 'partner': case 'partner_category':
       path = `/skabholmen-group`
       break;
-    case 'sponsor':
+    case 'person':
+      path = `/team`
+      break
+    case 'sponsor': case 'project':
       path = `/corporate-social-responsibility`
+      break;
+    case 'contact':
+      path = `/`
       break;
     default:
       path = slug ? `/${slug}` : null

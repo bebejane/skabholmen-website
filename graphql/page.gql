@@ -1,7 +1,3 @@
-#import './fragments/ImageFragment.gql'
-#import './fragments/ImageMediumFragment.gql'
-#import './fragments/ProjectFragment.gql'
-
 query Start {
 	start {
 		id
@@ -67,7 +63,7 @@ query SkabholmenGroup {
 		id
 		name
 		position
-	}	
+	}
 }
 
 query Responsibility {

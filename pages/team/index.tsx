@@ -15,7 +15,7 @@ export default function Team({ team: { title, intro, leadership } }: Props) {
 	return (
 		<Content className={s.team}>
 			<Intro title={title} intro={intro} />
-			<p>
+			<div>
 				<ul>
 					{leadership.map(({ name, role, email, image, biography }, idx) =>
 						<li key={idx}>
@@ -32,7 +32,7 @@ export default function Team({ team: { title, intro, leadership } }: Props) {
 						</li>
 					)}
 				</ul>
-			</p>
+			</div>
 		</Content>
 	)
 }

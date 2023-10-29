@@ -1,5 +1,3 @@
-#import './fragments/ProjectFragment.gql'
-
 query AllProjects {
 	projects: allProjects {
 		...ProjectFragment

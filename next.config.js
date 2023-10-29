@@ -1,7 +1,3 @@
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-	enabled: process.env.ANALYZE === "true",
-});
-
 const sassOptions = {
 	includePaths: ["./components", "./pages"],
 	prependData: `
@@ -23,9 +19,6 @@ const nextOptions = {
 	devIndicators: {
 		buildActivity: false,
 	},
-	experimental: {
-		scrollRestoration: true,
-	},
 	webpack: (config) => {
 		config.module.rules.push({
 			test: /\.(graphql|gql)$/,
@@ -40,23 +33,6 @@ const nextOptions = {
 		config.resolve.fallback = { fs: false, dns: false, net: false };
 		return config;
 	},
-	/*
-	async redirects() {
-		return [
-			{
-				source: "/skabholmen-invest-ab",
-				destination: "/",
-				permanent: false,
-			},
-			{
-				source: "/skabholmen-invest-ab/:path*",
-				destination: "/team",
-				permanent: false,
-			},
-		];
-	},
-	*/
 };
 
-const config = withBundleAnalyzer({ sassOptions, ...nextOptions });
-module.exports = config;
+module.exports = { sassOptions, ...nextOptions };

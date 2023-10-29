@@ -1,75 +1,84 @@
 .team {
-  
-  >p > ul {
+
+  >div>ul {
     list-style: none;
     display: flex;
     flex-direction: column;
 
-    > li {
+    >li {
       display: flex;
       flex-direction: column;
       border-bottom: var(--line);
       margin-top: var(--space);
       padding-bottom: var(--space);
-      
-      &:last-child{
+
+      &:last-child {
         border-bottom: 0;
       }
-      &:first-child{
+
+      &:first-child {
         margin-top: 0;
       }
-    
-      
-      h3{
+
+
+      h3 {
         color: $blue;
         margin-bottom: var(--small-space);
       }
 
-      > div {
+      >div {
         display: flex;
-        flex-direction:row;
-        
+        flex-direction: row;
+
         figure {
           flex: 0 0 spanNestedGrid(12, 4, true);
           padding-right: nestedGridGutter(12);
-          
+
           .image {
-            min-width: 100%;  
+            min-width: 100%;
           }
         }
+
         ul {
           list-style: none;
           margin-left: 0;
           padding-left: 0;
+
           li {
             padding-left: 1em;
             text-indent: -1em;
+
             &:before {
               content: "-";
               padding-right: 5px;
             }
           }
-          
+
         }
-        
+
         .biography {
           flex: 1 1 auto;
           margin-left: spanNestedGrid(12, 2, true);
         }
 
       }
-      @include mq($until: tablet){
+
+      @include mq($until: tablet) {
         margin-top: 0;
         margin-bottom: var(--space);
-        &:last-child{
+
+        &:last-child {
           margin-bottom: 0;
         }
-        > div {
+
+        >div {
           flex-direction: column;
-          figure{
+
+          figure {
             padding-right: 0;
           }
-          .biography{
+
+          .biography {
             margin-top: var(--space);
             margin-left: 0;
           }
